@@ -20,3 +20,14 @@ if (menuToggle && mainNav) {
 
 const year = document.querySelector("#year");
 if (year) year.textContent = new Date().getFullYear();
+
+// В аккордеоне открыт только один пункт за раз.
+const aboutAccordionItems = document.querySelectorAll('.about-accordion-item');
+aboutAccordionItems.forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    aboutAccordionItems.forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
