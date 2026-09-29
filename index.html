@@ -67,8 +67,29 @@
         </div>
       </div>
 
-<div class="about-main">
+      <div class="directions-marquee" aria-hidden="true">
+  <svg viewBox="0 0 1600 260" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <path
+        id="marquee-curve"
+        d="M -100 180 C 300 -40, 700 360, 1100 150 S 1700 80, 1900 180"
+      />
+    </defs>
 
+    <text>
+      <textPath href="#marquee-curve">
+        СТРАТЕГИЯ · РЕКЛАМА · КОНТЕНТ · ЛИДОГЕНЕРАЦИЯ · CRM · АНАЛИТИКА ·
+        <animate
+          attributeName="startOffset"
+          values="0%;-100%"
+          dur="35s"
+          repeatCount="indefinite"
+        />
+      </textPath>
+    </text>
+  </svg>
+</div>
+<div class="about-main">
   <div class="directions-grid">
 
     <!-- 01. Стратегия -->
