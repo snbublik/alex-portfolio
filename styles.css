@@ -473,9 +473,8 @@ h2 span { color: var(--pink); }
     transform: translateY(-3px);
   }
 }
-
 /* =========================================
-   АДАПТАЦИЯ
+   АДАПТАЦИЯ КАРТОЧЕК
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -510,16 +509,22 @@ h2 span { color: var(--pink); }
   .direction-card-content {
     padding: 0 20px 22px;
   }
-/* Секция «Так, это я» */
+}
+
+/* =========================================
+   БЕГУЩАЯ СТРОКА ЗА КАРТОЧКАМИ
+========================================= */
+
+/* Секция, внутри которой располагается строка */
 .about-section {
   position: relative;
   overflow: hidden;
 }
 
-/* Бегущая строка на заднем плане */
+/* Строка на заднем плане */
 .directions-marquee {
   position: absolute;
-  top: 320px;
+  top: 440px;
   left: 0;
   width: 100%;
   height: 260px;
@@ -529,7 +534,7 @@ h2 span { color: var(--pink); }
   z-index: 0;
 }
 
-/* SVG с изогнутой траекторией */
+/* SVG */
 .directions-marquee svg {
   display: block;
   width: 140%;
@@ -538,7 +543,7 @@ h2 span { color: var(--pink); }
   overflow: visible;
 }
 
-/* Оформление текста */
+/* Текст строки */
 .directions-marquee text {
   fill: var(--olive);
   fill-opacity: 0.35;
@@ -554,21 +559,24 @@ h2 span { color: var(--pink); }
   z-index: 1;
 }
 
-/* Фон карточек */
+/* Фон закрытых карточек */
 .direction-card {
-  background: rgba(240, 239, 239, 0.88);
+  background: rgba(241, 239, 239, 0.82);
+}
+
+/* Фон раскрытой карточки */
+.direction-card[open] {
+  background: rgba(249, 247, 247, 0.9);
 }
 
 /* Мобильная версия */
 @media (max-width: 600px) {
   .directions-marquee {
-    top: 260px;
-    height: 180px;
+    top: 350px;
+    height: 200px;
   }
 
   .directions-marquee text {
     font-size: 30px;
-  }
-}
   }
 }
