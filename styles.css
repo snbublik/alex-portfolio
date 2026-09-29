@@ -524,7 +524,7 @@ h2 span { color: var(--pink); }
 /* Строка на заднем плане */
 .directions-marquee {
   position: absolute;
-  top: 440px;
+  top: 560px;
   left: 0;
   width: 100%;
   height: 260px;
@@ -572,7 +572,7 @@ h2 span { color: var(--pink); }
 /* Мобильная версия */
 @media (max-width: 600px) {
   .directions-marquee {
-    top: 350px;
+    top: 430px;
     height: 200px;
   }
 
