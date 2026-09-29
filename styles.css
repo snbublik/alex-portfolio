@@ -330,44 +330,38 @@ h2 span { color: var(--pink); }
   letter-spacing: .1em;
 }
 
-/* Краткое описание */
-
+/* Скрываем краткое описание в закрытой карточке */
 .direction-card-preview {
-  margin-top: 28px;
-  max-width: 230px;
-
-  color: var(--graphite);
-  font-size: 13px;
-  line-height: 1.6;
+  display: none;
 }
 
 /* Название направления */
-
 .direction-card-title {
   margin-top: auto;
   padding-top: 25px;
 
   font-family: var(--font-heading);
-  font-size: clamp(18px, 1.6vw, 25px);
+  font-size: clamp(22px, 2vw, 30px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -.04em;
 
-  transition: color .25s ease;
+  transition: color .3s ease, transform .3s ease;
 }
 
 /* Кнопка раскрытия */
-
 .direction-card-plus {
   position: absolute;
   top: 20px;
   right: 20px;
 
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 
-  border: 1px solid #d8d5d5;
+  border: 1px solid var(--olive);
   border-radius: 50%;
+
+  background: rgba(138, 167, 70, 0.08);
 
   transition:
     transform .3s ease,
@@ -380,10 +374,10 @@ h2 span { color: var(--pink); }
   content: "";
 
   position: absolute;
-  top: 13px;
-  left: 8px;
+  top: 17px;
+  left: 10px;
 
-  width: 10px;
+  width: 14px;
   height: 1px;
 
   background: var(--black);
@@ -465,17 +459,31 @@ h2 span { color: var(--pink); }
   }
 }
 
-/* Эффект при наведении */
-
+/* Плавное взаимодействие с карточками */
 @media (hover: hover) {
   .direction-card:hover {
     border-color: var(--olive);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+  }
+
+  .direction-card:hover .direction-card-title {
+    transform: translateX(4px);
+  }
+
+  .direction-card:hover .direction-card-plus {
+    background: var(--olive);
+    border-color: var(--olive);
+    transform: rotate(90deg);
+  }
+
+  .direction-card:hover .direction-card-plus::before,
+  .direction-card:hover .direction-card-plus::after {
+    background: white;
   }
 }
 
 /* =========================================
-   АДАПТАЦИЯ
+   АДАПТАЦИЯ КАРТОЧЕК
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -510,16 +518,22 @@ h2 span { color: var(--pink); }
   .direction-card-content {
     padding: 0 20px 22px;
   }
-/* Секция «Так, это я» */
+}
+
+/* =========================================
+   БЕГУЩАЯ СТРОКА ЗА КАРТОЧКАМИ
+========================================= */
+
+/* Секция, внутри которой располагается строка */
 .about-section {
   position: relative;
   overflow: hidden;
 }
 
-/* Бегущая строка на заднем плане */
+/* Строка на заднем плане */
 .directions-marquee {
   position: absolute;
-  top: 320px;
+  top: 560px;
   left: 0;
   width: 100%;
   height: 260px;
@@ -529,7 +543,7 @@ h2 span { color: var(--pink); }
   z-index: 0;
 }
 
-/* SVG с изогнутой траекторией */
+/* SVG */
 .directions-marquee svg {
   display: block;
   width: 140%;
@@ -538,7 +552,7 @@ h2 span { color: var(--pink); }
   overflow: visible;
 }
 
-/* Оформление текста */
+/* Текст строки */
 .directions-marquee text {
   fill: var(--olive);
   fill-opacity: 0.35;
@@ -554,112 +568,118 @@ h2 span { color: var(--pink); }
   z-index: 1;
 }
 
-/* Фон карточек */
+/* Фон закрытых карточек */
 .direction-card {
-  background: rgba(240, 239, 239, 0.88);
+  background: rgba(241, 239, 239, 0.82);
+}
+
+/* Фон раскрытой карточки */
+.direction-card[open] {
+  background: rgba(249, 247, 247, 0.9);
 }
 
 /* Мобильная версия */
 @media (max-width: 600px) {
   .directions-marquee {
-    top: 260px;
-    height: 180px;
+    top: 430px;
+    height: 200px;
   }
 
   .directions-marquee text {
     font-size: 30px;
   }
 }
+/* =========================================
+   ИНСТРУМЕНТЫ В КАРТОЧКАХ НАПРАВЛЕНИЙ
+========================================= */
 
-/* =====================================================
-   БЛОК «ЗНАНИЯ, КОТОРЫЕ РАБОТАЮТ» — только стили обучения
-   Карточки .direction-card и их стили не затрагиваются.
-===================================================== */
-.learning-section {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(300px, .72fr) minmax(0, 1.62fr);
-  gap: clamp(34px, 3vw, 58px);
-  align-items: start;
-  padding-top: 88px;
-  padding-bottom: 115px;
-  border-top: 1px solid var(--line);
-  overflow: hidden;
-  isolation: isolate;
+/* Описание внутри раскрытой карточки */
+.direction-card-content p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #414141;
+  margin-bottom: 28px;
 }
-.learning-intro { position: relative; z-index: 2; align-self: stretch; padding-bottom: 95px; }
-.learning-intro .section-index { margin-bottom: 28px; }
-.learning-intro h2 { max-width: 540px; margin: 0 0 24px; font: 700 clamp(38px, 4.15vw, 66px)/1.1 var(--font-heading); letter-spacing: -.06em; }
-.learning-intro h2 span { color: var(--pink); }
-.learning-intro-description { max-width: 470px; margin: 0; color: var(--graphite); font-size: clamp(16px, 1.2vw, 20px); line-height: 1.55; }
-.learning-visual-blob { position: absolute; z-index: -1; left: -19%; bottom: -155px; width: clamp(230px, 25vw, 390px); aspect-ratio: 1 / .82; border-radius: 61% 39% 54% 46% / 48% 47% 53% 52%; background: radial-gradient(ellipse at 35% 28%, #c7d5a1 0 10%, #a7bd78 28%, #8aa746 55%, #718c35 76%, #a9bd7c 100%); box-shadow: inset 12px 10px 20px #f9f7f77a, inset -18px -17px 30px #536b2c3d, 0 18px 35px #718c351c; transform: rotate(-19deg); }
-.learning-visual-blob::after { content: ""; position: absolute; inset: 12% 15% 20% 12%; border: 1px solid #f9f7f78a; border-radius: 58% 42% 53% 47%; transform: rotate(23deg); }
-.learning-certificate-list { position: relative; z-index: 2; display: grid; gap: 18px; min-width: 0; }
-.learning-certificate-card { min-width: 0; border: 1px solid rgba(11,10,10,.2); border-radius: 21px; background: rgba(249,247,247,.94); overflow: hidden; transition: border-color .25s ease, box-shadow .25s ease; }
-.learning-certificate-card[open] { border-color: var(--pink); box-shadow: 0 12px 35px #0b0a0a08; }
-.learning-certificate-summary { display: grid; grid-template-columns: 44px minmax(180px, 1.2fr) minmax(130px, .75fr) 44px; align-items: center; gap: clamp(12px, 2vw, 30px); min-height: 94px; padding: 18px 24px; cursor: pointer; list-style: none; }
-.learning-certificate-summary::-webkit-details-marker { display: none; }
-.learning-certificate-number { align-self: stretch; display: flex; align-items: center; color: var(--pink); font-size: 13px; letter-spacing: .06em; border-right: 1px solid var(--line); }
-.learning-certificate-name { font-size: clamp(15px, 1.15vw, 20px); font-weight: 700; line-height: 1.45; }
-.learning-certificate-meta { color: var(--graphite); font-size: clamp(12px, .95vw, 16px); white-space: nowrap; }
-.learning-certificate-toggle { position: relative; justify-self: end; width: 48px; height: 48px; border: 1px solid #cfcaca; border-radius: 50%; transition: background .25s ease, border-color .25s ease, transform .25s ease; }
-.learning-certificate-toggle::before, .learning-certificate-toggle::after { content: ""; position: absolute; width: 15px; height: 1px; left: 16px; top: 23px; background: var(--black); }
-.learning-certificate-toggle::after { transform: rotate(90deg); }
-.learning-certificate-card[open] .learning-certificate-toggle { background: var(--pink); border-color: var(--pink); transform: rotate(45deg); }
-.learning-certificate-card[open] .learning-certificate-toggle::before, .learning-certificate-card[open] .learning-certificate-toggle::after { background: white; }
-.learning-certificate-content { display: grid; grid-template-columns: minmax(220px, 1.05fr) minmax(0, 1fr); gap: clamp(26px, 3.8vw, 50px); padding: 10px 38px 36px; border-top: 1px solid var(--line); animation: accordion-in .28s ease both; }
-.learning-certificate-preview { position: relative; align-self: start; display: block; margin-top: 27px; border: 1px solid #e5e1e1; border-radius: 10px; background: white; overflow: hidden; box-shadow: 0 5px 20px #0b0a0a08; }
-.learning-certificate-preview img { display: block; width: 100%; aspect-ratio: 1.42 / 1; object-fit: contain; background: white; }
-.learning-certificate-zoom { position: absolute; right: 10px; bottom: 10px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #e5e1e1; border-radius: 50%; background: rgba(249,247,247,.96); font-size: 21px; transition: background .2s ease, color .2s ease; }
-.learning-certificate-preview:hover .learning-certificate-zoom { background: var(--pink); color: white; border-color: var(--pink); }
-.learning-certificate-details { min-width: 0; padding-top: 25px; }
-.learning-certificate-details h3 { margin: 0 0 17px; font-size: clamp(16px, 1.15vw, 20px); line-height: 1.4; }
-.learning-certificate-details > p { margin: 0 0 22px; color: var(--graphite); font-size: clamp(14px, 1.05vw, 18px); line-height: 1.62; }
-.learning-certificate-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
-.learning-certificate-tags span { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 17px; border: 1px solid var(--olive); border-radius: 999px; font-size: 14px; line-height: 1.35; }
-.learning-certificate-button { min-height: 56px; border-radius: 999px; padding-inline: 28px; font-size: 15px; }
-.learning-background-marquee { position: absolute; z-index: 0; left: -2%; right: -2%; bottom: -4px; height: 190px; overflow: hidden; pointer-events: none; color: var(--olive); opacity: .25; }
-.learning-background-marquee svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.learning-background-marquee text { font-family: var(--font-heading); font-size: 35px; font-weight: 700; letter-spacing: .03em; fill: currentColor; }
 
-@media (max-width: 1100px) {
-  .learning-section { grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr); gap: 30px; }
-  .learning-certificate-summary { grid-template-columns: 36px minmax(0, 1fr) 40px; }
-  .learning-certificate-meta { grid-column: 2; grid-row: 2; white-space: normal; margin-top: -5px; }
-  .learning-certificate-name { grid-column: 2; }
-  .learning-certificate-toggle { grid-column: 3; grid-row: 1 / span 2; }
-  .learning-certificate-content { grid-template-columns: minmax(0, .95fr) minmax(0, 1fr); padding-inline: 24px; gap: 24px; }
+/* Блок инструментов */
+.direction-tools {
+  margin-top: 28px;
 }
-@media (max-width: 760px) {
-  .learning-section { grid-template-columns: 1fr; gap: 28px; padding-top: 60px; padding-bottom: 95px; }
-  .learning-intro { padding-bottom: 15px; }
-  .learning-intro h2 { font-size: clamp(36px, 8vw, 56px); }
-  .learning-intro-description { font-size: 15px; }
-  .learning-visual-blob { width: 210px; left: auto; right: -8%; bottom: -60px; opacity: .62; }
-  .learning-certificate-summary { grid-template-columns: 34px minmax(0, 1fr) 42px; gap: 13px; padding: 15px 17px; }
-  .learning-certificate-name { grid-column: 2; }
-  .learning-certificate-meta { grid-column: 2; grid-row: 2; margin-top: -6px; }
-  .learning-certificate-toggle { grid-column: 3; grid-row: 1 / span 2; width: 40px; height: 40px; }
-  .learning-certificate-toggle::before, .learning-certificate-toggle::after { left: 12px; top: 19px; }
-  .learning-certificate-content { grid-template-columns: 1fr; gap: 12px; padding: 8px 18px 24px; }
-  .learning-certificate-preview { max-width: 520px; width: 100%; margin-top: 18px; }
-  .learning-certificate-details { padding-top: 8px; }
-  .learning-certificate-details h3 { font-size: 16px; }
-  .learning-certificate-details > p { font-size: 14px; }
-  .learning-certificate-tags span { min-height: 34px; padding: 7px 11px; font-size: 11px; }
-  .learning-certificate-button { width: 100%; justify-content: center; }
-  .learning-background-marquee { height: 130px; }
-  .learning-background-marquee text { font-size: 25px; }
+
+/* Заголовок блока инструментов */
+.direction-tools-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0B0A0A;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
-@media (max-width: 420px) {
-  .learning-intro h2 { font-size: clamp(33px, 9vw, 44px); }
-  .learning-certificate-summary { grid-template-columns: 28px minmax(0, 1fr) 36px; gap: 10px; padding: 14px 12px; }
-  .learning-certificate-name { font-size: 12px; }
-  .learning-certificate-meta { font-size: 10px; }
-  .learning-certificate-toggle { width: 34px; height: 34px; }
-  .learning-certificate-toggle::before, .learning-certificate-toggle::after { left: 9px; top: 16px; width: 14px; }
-  .learning-certificate-tags { gap: 7px; }
-  .learning-certificate-tags span { min-height: 34px; padding: 7px 11px; font-size: 11px; }
-  .learning-certificate-button { width: 100%; justify-content: center; }
+
+/* Контейнер плашек */
+.direction-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
+/* Отдельная плашка */
+.direction-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  color: #414141;
+  background: rgba(249, 247, 247, 0.75);
+
+  border: 1px solid #8AA746;
+  border-radius: 100px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Плавное наведение на плашку */
+.direction-tool:hover {
+  background-color: #D10068;
+  border-color: #D10068;
+  color: #F9F7F7;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+========================================= */
+
+@media (max-width: 600px) {
+  .direction-card-content p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .direction-tools-title {
+    font-size: 12px;
+  }
+
+  .direction-tools-list {
+    gap: 8px;
+  }
+
+  .direction-tool {
+    font-size: 13px;
+    padding: 9px 13px;
+  }
 }
