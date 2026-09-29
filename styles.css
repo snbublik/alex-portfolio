@@ -106,42 +106,16 @@ h2 span { color: var(--pink); }
 .accordion-content p { max-width: 650px; margin: 0; }
 @keyframes accordion-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
-.learning-section { position: relative; display: grid; grid-template-columns: minmax(280px, .72fr) minmax(0, 1.55fr); gap: clamp(32px, 5.5vw, 90px); align-items: center; padding-top: 88px; padding-bottom: 115px; border-top: 1px solid var(--line); overflow: hidden; isolation: isolate; }
-.learning-copy { position: relative; z-index: 2; align-self: stretch; padding-bottom: 95px; }
-.learning-copy .section-index { margin-bottom: 28px; }
-.learning-copy h2 { max-width: 540px; margin: 0 0 25px; font: 700 clamp(34px, 4.15vw, 64px)/1.12 var(--font-heading); letter-spacing: -.06em; }
-.learning-copy h2 span { color: var(--pink); }
-.learning-description { max-width: 470px; margin: 0; color: var(--graphite); font-size: clamp(15px, 1.2vw, 18px); line-height: 1.72; }
-.learning-blob { position: absolute; z-index: -1; left: -19%; bottom: -155px; width: clamp(230px, 25vw, 390px); aspect-ratio: 1 / .82; border-radius: 61% 39% 54% 46% / 48% 47% 53% 52%; background: radial-gradient(ellipse at 35% 28%, #c7d5a1 0 10%, #a7bd78 28%, #8aa746 55%, #718c35 76%, #a9bd7c 100%); box-shadow: inset 12px 10px 20px #f9f7f77a, inset -18px -17px 30px #536b2c3d, 0 18px 35px #718c351c; transform: rotate(-19deg); }
-.learning-blob::after { content: ""; position: absolute; inset: 12% 15% 20% 12%; border: 1px solid #f9f7f78a; border-radius: 58% 42% 53% 47%; transform: rotate(23deg); }
-.learning-certificates { position: relative; z-index: 2; display: grid; gap: 18px; min-width: 0; }
-.certificate-card { border: 1px solid rgba(11,10,10,.2); border-radius: 22px; background: rgba(249,247,247,.94); overflow: hidden; transition: border-color .25s ease, box-shadow .25s ease; }
-.certificate-card[open] { border-color: var(--pink); box-shadow: 0 12px 35px #0b0a0a08; }
-.certificate-summary { display: grid; grid-template-columns: 44px minmax(180px, 1.2fr) minmax(130px, .75fr) 44px; align-items: center; gap: clamp(12px, 2vw, 30px); min-height: 94px; padding: 18px 24px; cursor: pointer; list-style: none; }
-.certificate-summary::-webkit-details-marker { display: none; }
-.certificate-number { align-self: stretch; display: flex; align-items: center; color: var(--pink); font-size: 13px; letter-spacing: .06em; border-right: 1px solid var(--line); }
-.certificate-name { font-size: clamp(13px, 1.15vw, 17px); font-weight: 700; line-height: 1.45; }
-.certificate-meta { color: var(--graphite); font-size: clamp(11px, .95vw, 14px); white-space: nowrap; }
-.certificate-toggle { position: relative; justify-self: end; width: 48px; height: 48px; border: 1px solid #cfcaca; border-radius: 50%; transition: background .25s ease, border-color .25s ease, transform .25s ease; }
-.certificate-toggle::before, .certificate-toggle::after { content: ""; position: absolute; width: 15px; height: 1px; left: 16px; top: 23px; background: var(--black); }
-.certificate-toggle::after { transform: rotate(90deg); }
-.certificate-card[open] .certificate-toggle { background: var(--pink); border-color: var(--pink); transform: rotate(45deg); }
-.certificate-card[open] .certificate-toggle::before, .certificate-card[open] .certificate-toggle::after { background: white; }
-.certificate-content { display: grid; grid-template-columns: minmax(220px, .95fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 50px); padding: 10px 30px 32px; border-top: 1px solid var(--line); animation: accordion-in .28s ease both; }
-.certificate-preview { position: relative; align-self: start; display: block; margin-top: 26px; border: 1px solid #e5e1e1; border-radius: 10px; background: white; overflow: hidden; box-shadow: 0 5px 20px #0b0a0a08; }
-.certificate-preview img { width: 100%; aspect-ratio: 1.42 / 1; object-fit: contain; background: white; }
-.certificate-zoom { position: absolute; right: 10px; bottom: 10px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #e5e1e1; border-radius: 50%; background: rgba(249,247,247,.96); font-size: 21px; transition: background .2s ease, color .2s ease; }
-.certificate-preview:hover .certificate-zoom { background: var(--pink); color: white; border-color: var(--pink); }
-.certificate-details { min-width: 0; padding-top: 25px; }
-.certificate-details h3 { margin: 0 0 17px; font-size: clamp(15px, 1.15vw, 18px); line-height: 1.5; }
-.certificate-details > p { margin: 0 0 22px; color: var(--graphite); font-size: clamp(13px, 1.05vw, 16px); line-height: 1.75; }
-.certificate-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
-.certificate-tags span { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 15px; border: 1px solid var(--olive); border-radius: 999px; font-size: 12px; line-height: 1.35; }
-.certificate-button { min-height: 52px; border-radius: 999px; padding-inline: 22px; font-size: 13px; }
-.learning-marquee { position: absolute; z-index: 0; left: -2%; right: -2%; bottom: -4px; height: 190px; overflow: hidden; pointer-events: none; color: var(--olive); opacity: .25; }
-.learning-marquee svg { width: 100%; height: 100%; overflow: visible; }
-.learning-marquee text { font-family: var(--font-heading); font-size: 35px; font-weight: 700; letter-spacing: .03em; fill: currentColor; }
+.approach-section { display: grid; grid-template-columns: .8fr 1.3fr; gap: 40px; align-items: center; padding-top: 90px; padding-bottom: 100px; border-top: 1px solid var(--line); overflow: hidden; }
 .section-intro { max-width: 390px; color: var(--graphite); font-size: 14px; line-height: 1.65; }
+.approach-diagram { min-height: 390px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 35px 70px; align-items: center; position: relative; }
+.approach-card { z-index: 2; background: var(--cream); border: 1px solid #dedada; border-radius: 20px; padding: 24px; min-height: 140px; }
+.approach-card > span { color: var(--pink); font-weight: 700; font-size: 14px; }
+.approach-card h3 { font: 600 17px var(--font-heading); margin: 10px 0; }
+.approach-card p { color: var(--graphite); font-size: 12px; line-height: 1.55; margin: 0; }
+.result-pill { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%,-50%); display: grid; place-items: center; text-align: center; width: 155px; height: 88px; border-radius: 999px; background: var(--pink); color: white; font: 600 14px/1.3 var(--font-heading); box-shadow: 0 0 0 10px var(--cream); }
+.diagram-lines { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; fill: none; stroke: var(--olive); stroke-width: 1.5; }
+.approach-note { position: absolute; right: var(--page-gutter); bottom: 15px; }
 
 .process-section { padding-top: 85px; padding-bottom: 85px; border-top: 1px solid var(--line); }
 .process-section .section-heading { max-width: 580px; }
@@ -245,20 +219,14 @@ h2 span { color: var(--pink); }
   .about-accordion-item summary { grid-template-columns: 30px 1fr 22px; gap: 10px; }
   .accordion-short { display: none; }
   .accordion-content { padding-left: 40px; }
-  .learning-section { grid-template-columns: 1fr; gap: 28px; padding-top: 60px; padding-bottom: 95px; }
-  .learning-copy { padding-bottom: 15px; }
-  .learning-copy h2 { font-size: clamp(36px, 8vw, 56px); }
-  .learning-blob { width: 210px; left: auto; right: -8%; bottom: -60px; opacity: .62; }
-  .certificate-summary { grid-template-columns: 34px minmax(0, 1fr) 42px; gap: 13px; padding: 15px 17px; }
-  .certificate-name { grid-column: 2; }
-  .certificate-meta { grid-column: 2; grid-row: 2; white-space: normal; margin-top: -6px; }
-  .certificate-toggle { grid-column: 3; grid-row: 1 / span 2; width: 40px; height: 40px; }
-  .certificate-toggle::before, .certificate-toggle::after { left: 12px; top: 19px; }
-  .certificate-content { grid-template-columns: 1fr; gap: 12px; padding: 8px 18px 24px; }
-  .certificate-preview { max-width: 520px; width: 100%; margin-top: 18px; }
-  .certificate-details { padding-top: 8px; }
-  .learning-marquee { height: 130px; }
-  .learning-marquee text { font-size: 25px; }
+  .approach-section { grid-template-columns: 1fr; gap: 20px; padding-top: 60px; padding-bottom: 75px; }
+  .approach-diagram { min-height: 360px; gap: 25px 35px; }
+  .approach-card { padding: 16px; min-height: 130px; }
+  .approach-card h3 { font-size: 13px; }
+  .approach-card p { font-size: 11px; }
+  .result-pill { width: 120px; height: 70px; font-size: 11px; }
+  .diagram-lines { opacity: .75; }
+  .approach-note { display: none; }
   .process-section, .skills-section { padding-top: 60px; padding-bottom: 65px; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 25px 18px; margin-top: 30px; }
   .process-step:not(:last-child)::after { display: none; }
@@ -290,15 +258,11 @@ h2 span { color: var(--pink); }
   .about-accordion-item summary { grid-template-columns: 28px 1fr 22px; padding: 18px 0; }
   .accordion-title { font-size: 13px; }
   .accordion-content { padding: 0 10px 20px 38px; font-size: 12px; }
-  .learning-copy h2 { font-size: clamp(33px, 9vw, 44px); }
-  .certificate-summary { grid-template-columns: 28px minmax(0, 1fr) 36px; gap: 10px; padding: 14px 12px; }
-  .certificate-name { font-size: 12px; }
-  .certificate-meta { font-size: 10px; }
-  .certificate-toggle { width: 34px; height: 34px; }
-  .certificate-toggle::before, .certificate-toggle::after { left: 9px; top: 16px; width: 14px; }
-  .certificate-tags { gap: 7px; }
-  .certificate-tags span { min-height: 34px; padding: 7px 11px; font-size: 11px; }
-  .certificate-button { width: 100%; justify-content: center; }
+  .approach-diagram { gap: 20px 20px; min-height: 335px; }
+  .approach-card { padding: 12px; min-height: 130px; }
+  .approach-card h3 { font-size: 11px; }
+  .approach-card p { font-size: 10px; }
+  .result-pill { width: 100px; height: 62px; font-size: 9px; }
   .process-grid { grid-template-columns: 1fr; }
   .case-teasers { grid-template-columns: 1fr; }
   .skills-grid { gap: 9px; }
@@ -308,85 +272,303 @@ h2 span { color: var(--pink); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
-/* =====================================================
-   LEARNING / CERTIFICATES — visual tuning to reference
-   Scoped only to learning section. Direction cards untouched.
-===================================================== */
-.learning-section {
-  grid-template-columns: minmax(300px, .72fr) minmax(0, 1.55fr);
-  gap: clamp(34px, 4.4vw, 70px);
-  padding-top: 88px;
-  padding-bottom: 115px;
-}
-.learning-copy { padding-bottom: 95px; }
-.learning-copy .section-index { margin-bottom: 28px; }
-.learning-copy h2 {
-  font-size: clamp(38px, 4.15vw, 66px);
-  line-height: 1.1;
-  margin-bottom: 24px;
-}
-.learning-description {
-  max-width: 470px;
-  font-size: clamp(16px, 1.2vw, 20px);
-  line-height: 1.55;
-}
-.learning-certificates { gap: 18px; }
-.certificate-card { border-radius: 21px; }
-.certificate-summary {
-  grid-template-columns: 44px minmax(180px, 1.2fr) minmax(130px, .75fr) 44px;
-  min-height: 94px;
-  padding: 18px 24px;
-  gap: clamp(12px, 2vw, 30px);
-}
-.certificate-name { font-size: clamp(15px, 1.15vw, 20px); }
-.certificate-meta { font-size: clamp(12px, .95vw, 16px); }
-.certificate-content {
-  grid-template-columns: minmax(220px, 1.05fr) minmax(0, 1fr);
-  gap: clamp(26px, 3.8vw, 50px);
-  padding: 10px 38px 36px;
-}
-.certificate-preview { margin-top: 27px; }
-.certificate-details { padding-top: 25px; }
-.certificate-details h3 { font-size: clamp(16px, 1.15vw, 20px); line-height: 1.4; }
-.certificate-details > p { font-size: clamp(14px, 1.05vw, 18px); line-height: 1.62; }
-.certificate-tags { gap: 9px; margin-bottom: 28px; }
-.certificate-tags span { font-size: 14px; padding-inline: 17px; }
-.certificate-button { min-height: 56px; font-size: 15px; padding-inline: 28px; }
-.learning-marquee { bottom: -4px; height: 190px; }
+/* =========================================
+   ABOUT — ИНТЕРАКТИВНЫЕ КАРТОЧКИ
+========================================= */
 
-@media (max-width: 1100px) {
-  .learning-section { grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr); gap: 30px; }
-  .certificate-summary { grid-template-columns: 36px minmax(0, 1fr) 40px; }
-  .certificate-meta { grid-column: 2; grid-row: 2; white-space: normal; margin-top: -5px; }
-  .certificate-name { grid-column: 2; }
-  .certificate-toggle { grid-column: 3; grid-row: 1 / span 2; }
-  .certificate-content { grid-template-columns: minmax(0, .95fr) minmax(0, 1fr); padding-inline: 24px; gap: 24px; }
+.about-main {
+  display: block;
 }
-@media (max-width: 760px) {
-  .learning-section { grid-template-columns: 1fr; gap: 28px; padding-top: 60px; padding-bottom: 95px; }
-  .learning-copy { padding-bottom: 15px; }
-  .learning-copy h2 { font-size: clamp(36px, 8vw, 56px); }
-  .learning-description { font-size: 15px; }
-  .certificate-summary { grid-template-columns: 34px minmax(0, 1fr) 42px; gap: 13px; padding: 15px 17px; }
-  .certificate-name { grid-column: 2; }
-  .certificate-meta { grid-column: 2; grid-row: 2; margin-top: -6px; }
-  .certificate-toggle { grid-column: 3; grid-row: 1 / span 2; width: 40px; height: 40px; }
-  .certificate-toggle::before, .certificate-toggle::after { left: 12px; top: 19px; }
-  .certificate-content { grid-template-columns: 1fr; gap: 12px; padding: 8px 18px 24px; }
-  .certificate-preview { max-width: 520px; width: 100%; margin-top: 18px; }
-  .certificate-details { padding-top: 8px; }
-  .certificate-details h3 { font-size: 16px; }
-  .certificate-details > p { font-size: 14px; }
-  .certificate-tags span { min-height: 34px; padding: 7px 11px; font-size: 11px; }
-  .certificate-button { width: 100%; justify-content: center; }
-  .learning-marquee { height: 130px; }
-  .learning-marquee text { font-size: 25px; }
+
+.directions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
 }
-@media (max-width: 420px) {
-  .learning-copy h2 { font-size: clamp(33px, 9vw, 44px); }
-  .certificate-summary { grid-template-columns: 28px minmax(0, 1fr) 36px; gap: 10px; padding: 14px 12px; }
-  .certificate-name { font-size: 12px; }
-  .certificate-meta { font-size: 10px; }
-  .certificate-toggle { width: 34px; height: 34px; }
-  .certificate-toggle::before, .certificate-toggle::after { left: 9px; top: 16px; width: 14px; }
+
+/* Карточка */
+
+.direction-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+
+  background: #f1efef;
+  border: 1px solid #ebe8e8;
+  border-radius: 20px;
+
+  transition:
+    background .3s ease,
+    border-color .3s ease,
+    transform .3s ease;
+}
+
+/* Заголовок карточки */
+
+.direction-card-summary {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-height: 210px;
+  padding: 22px;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.direction-card-summary::-webkit-details-marker {
+  display: none;
+}
+
+.direction-card-number {
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+/* Краткое описание */
+
+.direction-card-preview {
+  margin-top: 28px;
+  max-width: 230px;
+
+  color: var(--graphite);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Название направления */
+
+.direction-card-title {
+  margin-top: auto;
+  padding-top: 25px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 1.6vw, 25px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.04em;
+
+  transition: color .25s ease;
+}
+
+/* Кнопка раскрытия */
+
+.direction-card-plus {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid #d8d5d5;
+  border-radius: 50%;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+}
+
+.direction-card-plus::before,
+.direction-card-plus::after {
+  content: "";
+
+  position: absolute;
+  top: 13px;
+  left: 8px;
+
+  width: 10px;
+  height: 1px;
+
+  background: var(--black);
+}
+
+.direction-card-plus::after {
+  transform: rotate(90deg);
+}
+
+/* Раскрытая карточка */
+
+.direction-card[open] {
+  background: var(--cream);
+  border-color: var(--pink);
+}
+
+.direction-card[open] .direction-card-title {
+  color: var(--pink);
+}
+
+.direction-card[open] .direction-card-plus {
+  background: var(--pink);
+  border-color: var(--pink);
+  transform: rotate(45deg);
+}
+
+.direction-card[open] .direction-card-plus::before,
+.direction-card[open] .direction-card-plus::after {
+  background: white;
+}
+
+/* Содержимое карточки */
+
+.direction-card-content {
+  padding: 0 22px 24px;
+
+  color: var(--graphite);
+  font-size: 13px;
+  line-height: 1.75;
+
+  animation: direction-reveal .3s ease both;
+}
+
+.direction-card-content p {
+  margin: 0;
+}
+
+/* Инструменты */
+
+.direction-card-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.direction-card-tools span {
+  padding: 8px 11px;
+
+  border: 1px solid #d8d5d5;
+  border-radius: 99px;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Анимация раскрытия */
+
+@keyframes direction-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Эффект при наведении */
+
+@media (hover: hover) {
+  .direction-card:hover {
+    border-color: var(--olive);
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================
+   АДАПТАЦИЯ
+========================================= */
+
+@media (max-width: 1000px) {
+  .directions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .direction-card-summary {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .directions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .direction-card-summary {
+    min-height: 165px;
+    padding: 20px;
+  }
+
+  .direction-card-preview {
+    margin-top: 20px;
+  }
+
+  .direction-card-title {
+    font-size: 23px;
+  }
+
+  .direction-card-content {
+    padding: 0 20px 22px;
+  }
+/* Секция «Так, это я» */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Бегущая строка на заднем плане */
+.directions-marquee {
+  position: absolute;
+  top: 320px;
+  left: 0;
+  width: 100%;
+  height: 260px;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* SVG с изогнутой траекторией */
+.directions-marquee svg {
+  display: block;
+  width: 140%;
+  height: 100%;
+  margin-left: -20%;
+  overflow: visible;
+}
+
+/* Оформление текста */
+.directions-marquee text {
+  fill: var(--olive);
+  fill-opacity: 0.35;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Карточки поверх строки */
+.about-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Фон карточек */
+.direction-card {
+  background: rgba(240, 239, 239, 0.88);
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+  .directions-marquee {
+    top: 260px;
+    height: 180px;
+  }
+
+  .directions-marquee text {
+    font-size: 30px;
+  }
+}
+  }
 }
