@@ -511,3 +511,63 @@ h2 span { color: var(--pink); }
     padding: 0 20px 22px;
   }
 }
+/* =========================================
+   БЕГУЩАЯ СТРОКА НА ФОНЕ НАПРАВЛЕНИЙ
+========================================= */
+
+.directions-marquee {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  margin: 20px 0 -20px;
+
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.directions-marquee svg {
+  display: block;
+  width: 120%;
+  height: 100%;
+  margin-left: -10%;
+  overflow: visible;
+}
+
+.directions-marquee text {
+  fill: var(--olive);
+  fill-opacity: 0.35;
+
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Карточки поверх декоративной строки */
+
+.about-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+  .directions-marquee {
+    height: 110px;
+    margin: 10px 0 -10px;
+  }
+
+  .directions-marquee text {
+    font-size: 30px;
+  }
+}
+
+/* Уважение к настройке уменьшения анимации */
+
+@media (prefers-reduced-motion: reduce) {
+  .directions-marquee animate {
+    display: none;
+  }
+}
