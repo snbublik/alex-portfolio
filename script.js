@@ -1,23 +1,33 @@
-// Мобильная навигация
-(() => {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('#main-nav');
-  if (!toggle || !nav) return;
+const menuToggle = document.querySelector(".menu-toggle");
+const mainNav = document.querySelector(".main-nav");
 
-  const closeMenu = () => {
-    nav.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Открыть меню');
-  };
-
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    toggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Открыть меню" : "Закрыть меню");
+    mainNav.classList.toggle("is-open", !isOpen);
   });
 
-  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Открыть меню");
+    });
   });
-})();
+}
+
+const year = document.querySelector("#year");
+if (year) year.textContent = new Date().getFullYear();
+
+// В аккордеоне открыт только один пункт за раз.
+const aboutAccordionItems = document.querySelectorAll('.about-accordion-item');
+aboutAccordionItems.forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    aboutAccordionItems.forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
