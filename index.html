@@ -23,7 +23,7 @@
     </button>
     <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
       <a href="#about">Обо мне</a>
-      <a href="#approach">Обучение</a>
+      <a href="#approach">Подход</a>
       <a href="#cases">Кейсы</a>
       <a href="#skills">Компетенции</a>
       <a href="#contacts">Контакты</a>
@@ -49,9 +49,10 @@
         <div class="shape shape-pink" aria-hidden="true"></div>
         <div class="shape shape-olive shape-olive-bottom" aria-hidden="true"></div>
         <div class="portrait-frame">
-          <img src="assets/image/portrait.png" alt="Александра — digital-маркетолог" fetchpriority="high">
+          <img src="assets/images/portrait.png" alt="Александра — digital-маркетолог" fetchpriority="high">
         </div>
         <div class="photo-label"><span class="label-dot"></span> СТРАТЕГИЯ · КОНТЕНТ · АНАЛИТИКА</div>
+        <p class="handwritten-note note-top">Стратегия<br>Контент<br>Результат</p>
       </div>
       <a class="scroll-cue" href="#about" aria-label="Прокрутить к разделу «Обо мне»"><span>↓</span></a>
     </section>
@@ -60,235 +61,46 @@
       <div class="about-topline">
         <div class="section-heading">
           <p class="section-index">01 / ЗНАКОМСТВО</p>
-         <h2 id="about-title">Так, это <span>я</span></h2>
+          <h2 id="about-title">ТАК, ЭТО <span>Я</span></h2>
         </div>
         <div class="about-lead">
           <p>Я — digital-маркетолог с опытом более 3 лет. Помогаю бизнесу привлекать клиентов и развиваться с помощью комплексного интернет-маркетинга.</p>
         </div>
       </div>
 
-<!-- Бегущая строка на фоне карточек -->
-<div class="directions-marquee" aria-hidden="true">
-  <svg viewBox="0 0 1600 260" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      <path
-        id="marquee-curve"
-        d="M -200 180 C 300 -40, 700 360, 1100 150 S 1700 80, 2000 180"
-      />
-    </defs>
-
-    <text>
-      <textPath href="#marquee-curve">
-        СТРАТЕГИЯ · РЕКЛАМА · КОНТЕНТ · ЛИДОГЕНЕРАЦИЯ · CRM · АНАЛИТИКА ·
-        СТРАТЕГИЯ · РЕКЛАМА · КОНТЕНТ · ЛИДОГЕНЕРАЦИЯ · CRM · АНАЛИТИКА ·
-        СТРАТЕГИЯ · РЕКЛАМА · КОНТЕНТ · ЛИДОГЕНЕРАЦИЯ · CRM · АНАЛИТИКА ·
-
-        <animate
-          attributeName="startOffset"
-          from="0%"
-          to="-33.333%"
-          dur="30s"
-          repeatCount="indefinite"
-        />
-      </textPath>
-    </text>
-  </svg>
-</div>
-      
-<div class="about-main">
-<div class="directions-grid">
-
-  <!-- 01. Стратегия -->
-  <details class="direction-card">
-    <summary class="direction-card-summary">
-      <span class="direction-card-number">01</span>
-      <span class="direction-card-title">Стратегия</span>
-      <span class="direction-card-plus"></span>
-    </summary>
-
-    <div class="direction-card-content">
-      <p>
-        Анализирую ваш бизнес, целевую аудиторию и конкурентную среду.
-        Определяю цели продвижения, подбираю каналы коммуникации и
-        формирую стратегию интернет-маркетинга с учётом задач бизнеса.
-      </p>
-
-      <div class="direction-tools">
-        <h4 class="direction-tools-title">Инструменты и методы</h4>
-
-        <div class="direction-tools-list">
-          <span class="direction-tool">Яндекс Метрика</span>
-          <span class="direction-tool">Яндекс Wordstat</span>
-          <span class="direction-tool">Social Monitoring</span>
-          <span class="direction-tool">Анализ конкурентов</span>
-          <span class="direction-tool">Анализ целевой аудитории</span>
+      <div class="about-main">
+        <div class="about-photo">
+          <img src="assets/images/portrait.png" alt="Портрет Александры" loading="lazy">
+          <span class="about-photo-shape" aria-hidden="true"></span>
+          <span class="about-photo-caption">DIGITAL-МАРКЕТОЛОГ <i>·</i> СТРАТЕГИЯ И РЕАЛИЗАЦИЯ</span>
         </div>
-      </div>
-    </div>
-  </details>
 
+        <div class="about-details">
+          <div class="mini-panel directions-panel">
+            <p class="panel-title">Ключевые направления</p>
+            <div class="tag-list" aria-label="Выберите направление">
+              <button class="direction-tag" type="button" data-title="Стратегия" data-description="Разрабатываю маркетинговые и контент-стратегии, анализирую целевую аудиторию и определяю точки роста бизнеса." aria-expanded="false" aria-controls="direction-detail">Стратегия</button>
+              <button class="direction-tag" type="button" data-title="Реклама" data-description="Самостоятельно запускаю и оптимизирую рекламные кампании, работаю с продвижением на Яндекс Картах и классифайдах." aria-expanded="false" aria-controls="direction-detail">Реклама</button>
+              <button class="direction-tag" type="button" data-title="Контент" data-description="Создаю контент — от идеи и съёмки до монтажа и публикации. Подбираю формат и подачу под задачу бизнеса." aria-expanded="false" aria-controls="direction-detail">Контент</button>
+              <button class="direction-tag" type="button" data-title="Лидогенерация" data-description="Настраиваю лид-формы и чат-боты, помогаю выстраивать путь потенциального клиента от первого касания до обращения." aria-expanded="false" aria-controls="direction-detail">Лидогенерация</button>
+              <button class="direction-tag" type="button" data-title="CRM" data-description="Работаю с CRM-воронками и автоматизацией коммуникаций, чтобы обращения не терялись и процесс был понятным." aria-expanded="false" aria-controls="direction-detail">CRM</button>
+              <button class="direction-tag" type="button" data-title="Аналитика" data-description="Анализирую эффективность маркетинговых активностей, нахожу возможности для оптимизации и точки роста." aria-expanded="false" aria-controls="direction-detail">Аналитика</button>
+            </div>
+            <div class="direction-detail" id="direction-detail" aria-live="polite" hidden>
+              <div class="direction-detail-heading"><span class="direction-detail-mark" aria-hidden="true">↳</span><h3></h3></div>
+              <p></p>
+            </div>
+          </div>
 
-  <!-- 02. Реклама -->
-  <details class="direction-card">
-    <summary class="direction-card-summary">
-      <span class="direction-card-number">02</span>
-      <span class="direction-card-title">Реклама</span>
-      <span class="direction-card-plus"></span>
-    </summary>
-
-    <div class="direction-card-content">
-      <p>
-        Запускаю и оптимизирую рекламные кампании. Работаю с рекламными
-        объявлениями, анализирую результаты и корректирую продвижение,
-        чтобы привлекать целевую аудиторию и снижать стоимость
-        привлечения клиентов.
-      </p>
-
-      <div class="direction-tools">
-        <h4 class="direction-tools-title">Инструменты</h4>
-
-        <div class="direction-tools-list">
-          <span class="direction-tool">VK Реклама</span>
-          <span class="direction-tool">Яндекс Директ</span>
-          <span class="direction-tool">Яндекс Карты</span>
-          <span class="direction-tool">Avito</span>
+          <div class="mini-panel values-panel">
+            <p class="panel-title">Мой подход</p>
+            <div class="value-list">
+              <div class="value-item"><b aria-hidden="true">✦</b><span>Системность</span></div>
+              <div class="value-item"><b aria-hidden="true">▥</b><span>Ориентация на результат</span></div>
+              <div class="value-item"><b aria-hidden="true">♥</b><span>Самостоятельность и ответственность</span></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </details>
-
-
-  <!-- 03. Контент -->
-  <details class="direction-card">
-    <summary class="direction-card-summary">
-      <span class="direction-card-number">03</span>
-      <span class="direction-card-title">Контент</span>
-      <span class="direction-card-plus"></span>
-    </summary>
-
-    <div class="direction-card-content">
-      <p>
-        Разрабатываю контент-стратегию и управляю процессом её реализации.
-        Ставлю задачи SMM-специалистам, дизайнерам и другим участникам
-        команды, контролирую соответствие контента целям маркетинга
-        и единой коммуникационной стратегии.
-      </p>
-
-      <div class="direction-tools">
-        <h4 class="direction-tools-title">Инструменты</h4>
-
-        <div class="direction-tools-list">
-          <span class="direction-tool">Canva</span>
-          <span class="direction-tool">CapCut</span>
-          <span class="direction-tool">Telegram</span>
-          <span class="direction-tool">VK</span>
-          <span class="direction-tool">Instagram</span>
-          <span class="direction-tool">AI (Claude, ChatGPT)</span>
-          <span class="direction-tool">Premiere Pro</span>
-        </div>
-      </div>
-    </div>
-  </details>
-
-
-  <!-- 04. Лидогенерация -->
-  <details class="direction-card">
-    <summary class="direction-card-summary">
-      <span class="direction-card-number">04</span>
-      <span class="direction-card-title">Лидогенерация</span>
-      <span class="direction-card-plus"></span>
-    </summary>
-
-    <div class="direction-card-content">
-      <p>
-        Настраиваю формы сбора заявок и чат-боты на различных площадках.
-        Продумываю путь пользователя от первого контакта с брендом
-        до обращения в компанию и помогаю выстраивать эффективную
-        систему привлечения потенциальных клиентов.
-      </p>
-
-      <div class="direction-tools">
-        <h4 class="direction-tools-title">Инструменты</h4>
-
-        <div class="direction-tools-list">
-          <span class="direction-tool">Salebot</span>
-          <span class="direction-tool">Senler</span>
-          <span class="direction-tool">VK Формы</span>
-          <span class="direction-tool">Чат-боты</span>
-          <span class="direction-tool">Формы сбора заявок</span>
-        </div>
-      </div>
-    </div>
-  </details>
-
-
-  <!-- 05. CRM -->
-  <details class="direction-card">
-    <summary class="direction-card-summary">
-      <span class="direction-card-number">05</span>
-      <span class="direction-card-title">CRM</span>
-      <span class="direction-card-plus"></span>
-    </summary>
-
-    <div class="direction-card-content">
-      <p>
-        Разрабатываю структуру воронки продаж, продумываю этапы
-        взаимодействия с клиентами и участвую во внедрении CRM-процессов.
-        Помогаю систематизировать работу с заявками и выстраивать
-        взаимодействие между маркетингом и продажами.
-      </p>
-
-      <div class="direction-tools">
-        <h4 class="direction-tools-title">Инструменты</h4>
-
-        <div class="direction-tools-list">
-          <span class="direction-tool">CRM-системы</span>
-          <span class="direction-tool">Воронка продаж</span>
-          <span class="direction-tool">Автоматизация процессов</span>
-          <span class="direction-tool">Битрикс24</span>
-          <span class="direction-tool">Sboard</span>
-          <span class="direction-tool">Teamly</span>
-        </div>
-      </div>
-    </div>
-  </details>
-
-
-  <!-- 06. Аналитика -->
-  <details class="direction-card">
-    <summary class="direction-card-summary">
-      <span class="direction-card-number">06</span>
-      <span class="direction-card-title">Аналитика</span>
-      <span class="direction-card-plus"></span>
-    </summary>
-
-    <div class="direction-card-content">
-      <p>
-        Анализирую эффективность рекламных кампаний и маркетинговых
-        активностей. Изучаю результаты продвижения, выявляю точки роста
-        и определяю, какие изменения могут повысить эффективность маркетинга.
-      </p>
-
-      <div class="direction-tools">
-        <h4 class="direction-tools-title">Инструменты</h4>
-
-        <div class="direction-tools-list">
-          <span class="direction-tool">Яндекс Метрика</span>
-          <span class="direction-tool">VK Статистика</span>
-          <span class="direction-tool">Яндекс Вебмастер</span>
-          <span class="direction-tool">Notion</span>
-          <span class="direction-tool">Google Таблицы</span>
-          <span class="direction-tool">UTM-метки</span>
-        </div>
-      </div>
-    </div>
-  </details>
-
-</div>
-
-</div>
-
-</div>
       </div>
 
       <div class="about-work">
@@ -321,68 +133,23 @@
         </div>
       </div>
     </section>
-    <section class="section-wrap learning-section" id="approach" aria-labelledby="learning-title">
-      <div class="learning-copy">
-        <p class="section-index">ПРОФЕССИОНАЛЬНОЕ РАЗВИТИЕ</p>
-        <h2 id="learning-title">Знания,<br><span>которые</span><br>работают.</h2>
-        <p class="learning-description">Маркетинг постоянно меняется, поэтому я продолжаю изучать новые инструменты, подходы и стратегии. Для меня обучение — это часть профессионального развития и возможность находить новые решения для бизнеса.</p>
-        <div class="learning-blob" aria-hidden="true"></div>
+    <section class="section-wrap approach-section" id="approach" aria-labelledby="approach-title">
+      <div class="section-heading">
+        <p class="section-index">02 / МОЙ ПОДХОД</p>
+        <h2 id="approach-title">КАК Я ВИЖУ<br><span>МАРКЕТИНГ</span></h2>
+        <p class="section-intro">Для меня маркетинг — это система, в которой все направления взаимосвязаны и работают на одну цель — бизнес-результат.</p>
       </div>
-
-      <div class="learning-certificates" aria-label="Сертификаты HubSpot Academy">
-        <details class="certificate-card" open>
-          <summary class="certificate-summary">
-            <span class="certificate-number">01</span>
-            <span class="certificate-name">Social Media Marketing II Certificate</span>
-            <span class="certificate-meta">HubSpot Academy · 2026</span>
-            <span class="certificate-toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="certificate-content">
-            <a class="certificate-preview" href="assets/certificates/certificate-social-media-marketing-ii.png" target="_blank" rel="noopener" aria-label="Открыть сертификат Social Media Marketing II в полном размере">
-              <img src="assets/certificates/certificate-social-media-marketing-ii.png" alt="Сертификат Social Media Marketing II Certificate от HubSpot Academy" loading="lazy">
-              <span class="certificate-zoom" aria-hidden="true">↗</span>
-            </a>
-            <div class="certificate-details">
-              <h3>Сертификат по социальному медиамаркетингу.</h3>
-              <p>Стратегическое планирование, создание контента, развитие сообщества, социальная коммерция, реклама без cookies и создание коротких видео.</p>
-              <div class="certificate-tags" aria-label="Темы курса">
-                <span>Стратегия</span><span>Контент</span><span>Сообщество</span><span>Социальная коммерция</span><span>Короткие видео</span>
-              </div>
-              <a class="button button-primary certificate-button" href="assets/certificates/certificate-social-media-marketing-ii.png" target="_blank" rel="noopener">Посмотреть сертификат <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </details>
-
-        <details class="certificate-card">
-          <summary class="certificate-summary">
-            <span class="certificate-number">02</span>
-            <span class="certificate-name">Social Media Certificate</span>
-            <span class="certificate-meta">HubSpot Academy · 2026</span>
-            <span class="certificate-toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="certificate-content">
-            <a class="certificate-preview" href="assets/certificates/certificate-social-media.png" target="_blank" rel="noopener" aria-label="Открыть сертификат Social Media Certificate в полном размере">
-              <img src="assets/certificates/certificate-social-media.png" alt="Сертификат Social Media Certificate от HubSpot Academy" loading="lazy">
-              <span class="certificate-zoom" aria-hidden="true">↗</span>
-            </a>
-            <div class="certificate-details">
-              <h3>Сертификат по социальным медиа.</h3>
-              <p>Социальный мониторинг, контент-стратегия, вовлечённость аудитории, создание правил коммуникации и оценка эффективности социальных сетей.</p>
-              <div class="certificate-tags" aria-label="Темы курса">
-                <span>Social monitoring</span><span>Контент-стратегия</span><span>Вовлечённость</span><span>Коммуникация</span><span>Social ROI</span>
-              </div>
-              <a class="button button-primary certificate-button" href="assets/certificates/certificate-social-media.png" target="_blank" rel="noopener">Посмотреть сертификат <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div class="learning-marquee" aria-hidden="true">
-        <svg viewBox="0 0 1600 230" preserveAspectRatio="none">
-          <defs><path id="learning-marquee-curve" d="M -120 55 C 260 25, 390 245, 790 155 S 1280 55, 1730 180" /></defs>
-          <text><textPath href="#learning-marquee-curve">ОБУЧЕНИЕ · НОВЫЕ ИНСТРУМЕНТЫ · РАЗВИТИЕ · СТРАТЕГИЯ · ОБУЧЕНИЕ · НОВЫЕ ИНСТРУМЕНТЫ · РАЗВИТИЕ · СТРАТЕГИЯ · <animate attributeName="startOffset" from="0%" to="-50%" dur="32s" repeatCount="indefinite" /></textPath></text>
+      <div class="approach-diagram">
+        <article class="approach-card approach-card-1"><span>01.</span><h3>Стратегия</h3><p>Анализ бизнеса, аудитории и точек роста.</p></article>
+        <article class="approach-card approach-card-2"><span>02.</span><h3>Привлечение</h3><p>Реклама, продвижение и лидогенерация.</p></article>
+        <div class="result-pill">БИЗНЕС-<br>РЕЗУЛЬТАТ</div>
+        <article class="approach-card approach-card-3"><span>03.</span><h3>Контент</h3><p>Контент-стратегия, визуал, видео и коммуникация.</p></article>
+        <article class="approach-card approach-card-4"><span>04.</span><h3>Аналитика</h3><p>Метрики, CRM, воронка и оптимизация.</p></article>
+        <svg class="diagram-lines" viewBox="0 0 700 390" aria-hidden="true">
+          <path d="M260 82 C310 20 390 20 440 82 M530 125 C610 150 610 240 530 270 M440 315 C390 370 310 370 260 315 M170 270 C90 240 90 150 170 125"/>
         </svg>
       </div>
+      <p class="handwritten-note approach-note">Когда инструменты<br>работают вместе,<br>бизнес растёт<br>быстрее</p>
     </section>
 
     <section class="section-wrap process-section" id="process" aria-labelledby="process-title">
