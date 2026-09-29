@@ -589,3 +589,97 @@ h2 span { color: var(--pink); }
     font-size: 30px;
   }
 }
+/* =========================================
+   ИНСТРУМЕНТЫ В КАРТОЧКАХ НАПРАВЛЕНИЙ
+========================================= */
+
+/* Описание внутри раскрытой карточки */
+.direction-card-content p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #414141;
+  margin-bottom: 28px;
+}
+
+/* Блок инструментов */
+.direction-tools {
+  margin-top: 28px;
+}
+
+/* Заголовок блока инструментов */
+.direction-tools-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0B0A0A;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Контейнер плашек */
+.direction-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Отдельная плашка */
+.direction-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  color: #414141;
+  background: rgba(249, 247, 247, 0.75);
+
+  border: 1px solid #8AA746;
+  border-radius: 100px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Плавное наведение на плашку */
+.direction-tool:hover {
+  background-color: #D10068;
+  border-color: #D10068;
+  color: #F9F7F7;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+========================================= */
+
+@media (max-width: 600px) {
+  .direction-card-content p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .direction-tools-title {
+    font-size: 12px;
+  }
+
+  .direction-tools-list {
+    gap: 8px;
+  }
+
+  .direction-tool {
+    font-size: 13px;
+    padding: 9px 13px;
+  }
+}
