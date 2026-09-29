@@ -330,38 +330,44 @@ h2 span { color: var(--pink); }
   letter-spacing: .1em;
 }
 
-/* Скрываем краткое описание в закрытой карточке */
+/* Краткое описание */
+
 .direction-card-preview {
-  display: none;
+  margin-top: 28px;
+  max-width: 230px;
+
+  color: var(--graphite);
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* Название направления */
+
 .direction-card-title {
   margin-top: auto;
   padding-top: 25px;
 
   font-family: var(--font-heading);
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(18px, 1.6vw, 25px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -.04em;
 
-  transition: color .3s ease, transform .3s ease;
+  transition: color .25s ease;
 }
 
 /* Кнопка раскрытия */
+
 .direction-card-plus {
   position: absolute;
   top: 20px;
   right: 20px;
 
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
 
-  border: 1px solid var(--olive);
+  border: 1px solid #d8d5d5;
   border-radius: 50%;
-
-  background: rgba(138, 167, 70, 0.08);
 
   transition:
     transform .3s ease,
@@ -374,10 +380,10 @@ h2 span { color: var(--pink); }
   content: "";
 
   position: absolute;
-  top: 17px;
-  left: 10px;
+  top: 13px;
+  left: 8px;
 
-  width: 14px;
+  width: 10px;
   height: 1px;
 
   background: var(--black);
@@ -459,31 +465,17 @@ h2 span { color: var(--pink); }
   }
 }
 
-/* Плавное взаимодействие с карточками */
+/* Эффект при наведении */
+
 @media (hover: hover) {
   .direction-card:hover {
     border-color: var(--olive);
-    transform: translateY(-4px);
-  }
-
-  .direction-card:hover .direction-card-title {
-    transform: translateX(4px);
-  }
-
-  .direction-card:hover .direction-card-plus {
-    background: var(--olive);
-    border-color: var(--olive);
-    transform: rotate(90deg);
-  }
-
-  .direction-card:hover .direction-card-plus::before,
-  .direction-card:hover .direction-card-plus::after {
-    background: white;
+    transform: translateY(-3px);
   }
 }
 
 /* =========================================
-   АДАПТАЦИЯ КАРТОЧЕК
+   АДАПТАЦИЯ
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -518,22 +510,16 @@ h2 span { color: var(--pink); }
   .direction-card-content {
     padding: 0 20px 22px;
   }
-}
-
-/* =========================================
-   БЕГУЩАЯ СТРОКА ЗА КАРТОЧКАМИ
-========================================= */
-
-/* Секция, внутри которой располагается строка */
+/* Секция «Так, это я» */
 .about-section {
   position: relative;
   overflow: hidden;
 }
 
-/* Строка на заднем плане */
+/* Бегущая строка на заднем плане */
 .directions-marquee {
   position: absolute;
-  top: 560px;
+  top: 320px;
   left: 0;
   width: 100%;
   height: 260px;
@@ -543,7 +529,7 @@ h2 span { color: var(--pink); }
   z-index: 0;
 }
 
-/* SVG */
+/* SVG с изогнутой траекторией */
 .directions-marquee svg {
   display: block;
   width: 140%;
@@ -552,7 +538,7 @@ h2 span { color: var(--pink); }
   overflow: visible;
 }
 
-/* Текст строки */
+/* Оформление текста */
 .directions-marquee text {
   fill: var(--olive);
   fill-opacity: 0.35;
@@ -568,118 +554,21 @@ h2 span { color: var(--pink); }
   z-index: 1;
 }
 
-/* Фон закрытых карточек */
+/* Фон карточек */
 .direction-card {
-  background: rgba(241, 239, 239, 0.82);
-}
-
-/* Фон раскрытой карточки */
-.direction-card[open] {
-  background: rgba(249, 247, 247, 0.9);
+  background: rgba(240, 239, 239, 0.88);
 }
 
 /* Мобильная версия */
 @media (max-width: 600px) {
   .directions-marquee {
-    top: 430px;
-    height: 200px;
+    top: 260px;
+    height: 180px;
   }
 
   .directions-marquee text {
     font-size: 30px;
   }
 }
-/* =========================================
-   ИНСТРУМЕНТЫ В КАРТОЧКАХ НАПРАВЛЕНИЙ
-========================================= */
-
-/* Описание внутри раскрытой карточки */
-.direction-card-content p {
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #414141;
-  margin-bottom: 28px;
-}
-
-/* Блок инструментов */
-.direction-tools {
-  margin-top: 28px;
-}
-
-/* Заголовок блока инструментов */
-.direction-tools-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #0B0A0A;
-  margin: 0 0 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-/* Контейнер плашек */
-.direction-tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* Отдельная плашка */
-.direction-tool {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 16px;
-
-  font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.4;
-
-  color: #414141;
-  background: rgba(249, 247, 247, 0.75);
-
-  border: 1px solid #8AA746;
-  border-radius: 100px;
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-/* Плавное наведение на плашку */
-.direction-tool:hover {
-  background-color: #D10068;
-  border-color: #D10068;
-  color: #F9F7F7;
-  transform: translateY(-3px);
-}
-
-/* =========================================
-   АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
-========================================= */
-
-@media (max-width: 600px) {
-  .direction-card-content p {
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  .direction-tools-title {
-    font-size: 12px;
-  }
-
-  .direction-tools-list {
-    gap: 8px;
-  }
-
-  .direction-tool {
-    font-size: 13px;
-    padding: 9px 13px;
   }
 }
