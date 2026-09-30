@@ -2525,3 +2525,102 @@ h2 span { color: var(--pink); }
     transition-duration: .01ms;
   }
 }
+/* =========================================================
+   ИСПРАВЛЕНИЕ БЕГУЩИХ СТРОК
+   Строки не должны обрезаться по краям
+========================================================= */
+
+
+/* =========================================================
+   ОЛИВКОВАЯ СТРОКА — БЛОК "ТАК, ЭТО Я"
+========================================================= */
+
+.directions-marquee {
+  left: 0;
+  width: 100%;
+  height: 260px;
+
+  overflow: hidden;
+}
+
+.directions-marquee svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin-left: 0;
+
+  overflow: visible;
+}
+
+
+/*
+ * Делаем траекторию немного меньше по вертикали,
+ * чтобы текст не упирался в верхнюю/нижнюю границу SVG.
+ */
+.directions-marquee text {
+  dominant-baseline: middle;
+}
+
+
+/* =========================================================
+   МАЛИНОВАЯ / ОЛИВКОВАЯ СТРОКА — ОБУЧЕНИЕ
+========================================================= */
+
+.learning-marquee {
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 180px;
+
+  overflow: hidden;
+}
+
+.learning-marquee svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  overflow: visible;
+}
+
+.learning-marquee text {
+  dominant-baseline: middle;
+}
+
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .directions-marquee {
+    width: 100%;
+    height: 200px;
+
+    overflow: hidden;
+  }
+
+  .directions-marquee svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .learning-marquee {
+    width: 100%;
+    height: 130px;
+
+    overflow: hidden;
+  }
+
+  .learning-marquee svg {
+    width: 100%;
+    height: 100%;
+  }
+}
