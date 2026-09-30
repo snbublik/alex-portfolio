@@ -1573,3 +1573,955 @@ h2 span { color: var(--pink); }
     font-size: 25px;
   }
 }
+/* =========================================================
+   02. SOFT SKILLS — CAROUSEL
+========================================================= */
+
+.soft-skills-section {
+  position: relative;
+  overflow: hidden;
+
+  padding-top: 95px;
+  padding-bottom: 95px;
+
+  border-top: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.soft-skills-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .65fr);
+
+  gap: 50px;
+
+  align-items: end;
+
+  margin-bottom: 55px;
+}
+
+.soft-skills-heading-main .section-index {
+  margin-bottom: 28px;
+}
+
+.soft-skills-heading h2 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 5vw, 76px);
+  font-weight: 700;
+  line-height: 1.05;
+
+  letter-spacing: -.065em;
+}
+
+.soft-skills-heading h2 span {
+  color: var(--pink);
+}
+
+.soft-skills-intro {
+  display: grid;
+
+  grid-template-columns: 1px 1fr;
+
+  gap: 25px;
+
+  align-items: start;
+
+  padding-bottom: 5px;
+}
+
+.soft-skills-intro-line {
+  width: 1px;
+  min-height: 88px;
+
+  background: var(--line);
+}
+
+.soft-skills-intro p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: var(--graphite);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.soft-carousel {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 405px;
+}
+
+.soft-carousel-window {
+  position: relative;
+
+  width: 100%;
+  height: 405px;
+
+  overflow: visible;
+}
+
+.soft-carousel-track {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.soft-skill-card {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(57vw, 720px);
+  height: 365px;
+
+  padding: 30px 34px;
+
+  border: 1px solid rgba(11, 10, 10, .14);
+  border-radius: 25px;
+
+  background: rgba(249, 247, 247, .94);
+
+  box-shadow: 0 10px 35px rgba(11, 10, 10, .025);
+
+  transform:
+    translate(-50%, -50%)
+    translateX(var(--soft-offset, 0px))
+    scale(var(--soft-scale, .84));
+
+  opacity: var(--soft-opacity, 0);
+
+  z-index: var(--soft-z, 0);
+
+  pointer-events: none;
+
+  transition:
+    transform .65s cubic-bezier(.22,.61,.36,1),
+    opacity .45s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+
+/* Центральная */
+
+.soft-skill-card[data-soft-position="0"] {
+  --soft-offset: 0px;
+  --soft-scale: 1;
+  --soft-opacity: 1;
+  --soft-z: 5;
+
+  border-color: var(--pink);
+
+  background: rgba(249, 247, 247, .98);
+
+  box-shadow:
+    0 18px 50px rgba(11, 10, 10, .055);
+
+  pointer-events: auto;
+}
+
+
+/* Левая */
+
+.soft-skill-card[data-soft-position="-1"] {
+  --soft-offset: -46vw;
+  --soft-scale: .88;
+  --soft-opacity: .42;
+  --soft-z: 3;
+}
+
+
+/* Правая */
+
+.soft-skill-card[data-soft-position="1"] {
+  --soft-offset: 46vw;
+  --soft-scale: .88;
+  --soft-opacity: .42;
+  --soft-z: 3;
+}
+
+
+/* Скрытые */
+
+.soft-skill-card[data-soft-position="hidden"] {
+  --soft-offset: 0;
+  --soft-scale: .75;
+  --soft-opacity: 0;
+  --soft-z: 0;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.soft-skill-top {
+  display: grid;
+
+  grid-template-columns: 55px 1fr 50px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  min-height: 58px;
+}
+
+.soft-skill-number {
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  border-right: 1px solid var(--line);
+
+  color: var(--pink);
+
+  font-size: 14px;
+}
+
+.soft-skill-top h3 {
+  margin: 0;
+
+  font-size: clamp(18px, 1.5vw, 23px);
+  line-height: 1.2;
+  font-weight: 700;
+
+  letter-spacing: -.035em;
+}
+
+.soft-skill-status {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-left: auto;
+
+  border: 1px solid rgba(11, 10, 10, .18);
+
+  border-radius: 50%;
+
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.soft-skill-card[data-soft-position="0"] .soft-skill-status {
+  color: white;
+
+  background: var(--pink);
+
+  border-color: var(--pink);
+
+  transform: rotate(0deg);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.soft-skill-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 20px 0 24px;
+
+  background: var(--line);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.soft-skill-body {
+  position: relative;
+
+  min-height: 245px;
+}
+
+.soft-skill-body > p {
+  max-width: 470px;
+
+  margin: 0;
+
+  color: var(--graphite);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.soft-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 25px;
+}
+
+.soft-skill-tags span {
+  padding: 7px 13px;
+
+  border: 1px solid var(--olive);
+
+  border-radius: 999px;
+
+  color: var(--graphite);
+
+  font-size: 11px;
+
+  background: rgba(249,247,247,.65);
+}
+
+
+/* =========================================================
+   ABSTRACT VISUALS
+========================================================= */
+
+.soft-skill-visual {
+  position: absolute;
+
+  right: 20px;
+  bottom: 5px;
+
+  width: 175px;
+  height: 145px;
+
+  pointer-events: none;
+}
+
+
+/* 01 — система */
+
+.soft-visual-system i {
+  position: absolute;
+
+  left: 35px;
+
+  width: 105px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: var(--olive);
+
+  box-shadow:
+    inset 0 -7px 10px rgba(0,0,0,.08);
+}
+
+.soft-visual-system i:nth-child(1) {
+  top: 25px;
+}
+
+.soft-visual-system i:nth-child(2) {
+  top: 58px;
+
+  background: var(--pink);
+}
+
+.soft-visual-system i:nth-child(3) {
+  top: 91px;
+
+  background: rgba(138,167,70,.7);
+}
+
+.soft-visual-system b {
+  position: absolute;
+
+  top: 5px;
+  left: 75px;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #f5f1e9;
+}
+
+
+/* 02 — план */
+
+.soft-visual-plan {
+  right: 30px;
+}
+
+.soft-visual-plan::before {
+  content: "";
+
+  position: absolute;
+
+  left: 35px;
+  top: 22px;
+
+  width: 92px;
+  height: 105px;
+
+  border-radius: 9px;
+
+  background: #ebe7dc;
+
+  box-shadow:
+    -12px 8px 0 rgba(138,167,70,.65);
+}
+
+.soft-visual-plan i {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: var(--pink);
+
+  right: 20px;
+  bottom: 22px;
+}
+
+.soft-visual-plan i:nth-child(2) {
+  width: 8px;
+  height: 8px;
+
+  right: 55px;
+  bottom: 65px;
+
+  background: var(--olive);
+}
+
+
+/* 03 — книги */
+
+.soft-visual-growth i {
+  position: absolute;
+
+  left: 30px;
+
+  width: 110px;
+  height: 23px;
+
+  border-radius: 7px;
+
+  background: var(--olive);
+}
+
+.soft-visual-growth i:nth-child(1) {
+  bottom: 25px;
+}
+
+.soft-visual-growth i:nth-child(2) {
+  bottom: 48px;
+
+  left: 38px;
+
+  background: var(--pink);
+}
+
+.soft-visual-growth i:nth-child(3) {
+  bottom: 71px;
+
+  left: 28px;
+
+  background: #ebe7dc;
+}
+
+.soft-visual-growth::after {
+  content: "";
+
+  position: absolute;
+
+  right: 20px;
+  top: 12px;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background: var(--olive);
+}
+
+
+/* 04 — коммуникация */
+
+.soft-visual-talk i,
+.soft-visual-talk b {
+  position: absolute;
+
+  width: 95px;
+  height: 55px;
+
+  border-radius: 12px 12px 12px 4px;
+
+  background: #e8e3d8;
+}
+
+.soft-visual-talk i {
+  left: 15px;
+  top: 30px;
+}
+
+.soft-visual-talk b {
+  right: 0;
+  top: 62px;
+
+  background: var(--pink);
+
+  border-radius: 12px 12px 4px 12px;
+}
+
+
+/* 05 — время */
+
+.soft-visual-time {
+  right: 25px;
+}
+
+.soft-visual-time i {
+  position: absolute;
+
+  left: 32px;
+  top: 20px;
+
+  width: 105px;
+  height: 105px;
+
+  border-radius: 50%;
+
+  background: #eee9dc;
+
+  box-shadow:
+    inset 0 0 0 10px rgba(255,255,255,.65);
+}
+
+.soft-visual-time i::before {
+  content: "";
+
+  position: absolute;
+
+  left: 51px;
+  top: 20px;
+
+  width: 3px;
+  height: 34px;
+
+  background: var(--pink);
+
+  transform-origin: bottom;
+
+  transform: rotate(0deg);
+}
+
+.soft-visual-time b {
+  position: absolute;
+
+  right: 10px;
+  bottom: 12px;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: var(--olive);
+}
+
+
+/* 06 — клиент */
+
+.soft-visual-client {
+  right: 25px;
+}
+
+.soft-visual-client i {
+  position: absolute;
+
+  left: 35px;
+  top: 25px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 48px solid transparent;
+  border-bottom: 48px solid transparent;
+  border-left: 90px solid var(--olive);
+
+  transform: rotate(-25deg);
+}
+
+.soft-visual-client b {
+  position: absolute;
+
+  left: 35px;
+  bottom: 24px;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: var(--pink);
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.soft-carousel-arrow {
+  position: absolute;
+
+  top: 50%;
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(11,10,10,.12);
+
+  border-radius: 50%;
+
+  background: rgba(249,247,247,.92);
+
+  color: var(--black);
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  box-shadow: 0 5px 20px rgba(11,10,10,.06);
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+.soft-carousel-arrow span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.soft-carousel-arrow:hover {
+  color: white;
+
+  background: var(--pink);
+  border-color: var(--pink);
+
+  transform: translateY(-50%) scale(1.06);
+}
+
+.soft-carousel-arrow-prev {
+  left: 1.5%;
+}
+
+.soft-carousel-arrow-next {
+  right: 1.5%;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.soft-carousel-controls {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+
+  margin-top: 20px;
+}
+
+.soft-carousel-dots {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.soft-carousel-dots button {
+  width: 9px;
+  height: 9px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #d9d7d7;
+
+  cursor: pointer;
+
+  transition:
+    width .3s ease,
+    background .3s ease,
+    transform .3s ease;
+}
+
+.soft-carousel-dots button:hover {
+  transform: scale(1.2);
+}
+
+.soft-carousel-dots button.is-active {
+  width: 24px;
+
+  border-radius: 99px;
+
+  background: var(--pink);
+}
+
+.soft-carousel-counter {
+  color: var(--graphite);
+
+  font-size: 12px;
+  letter-spacing: .05em;
+}
+
+.soft-carousel-counter b {
+  color: var(--pink);
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .soft-skill-card {
+    width: min(62vw, 650px);
+  }
+
+  .soft-skill-card[data-soft-position="-1"] {
+    --soft-offset: -49vw;
+  }
+
+  .soft-skill-card[data-soft-position="1"] {
+    --soft-offset: 49vw;
+  }
+
+  .soft-carousel-arrow-prev {
+    left: 0;
+  }
+
+  .soft-carousel-arrow-next {
+    right: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .soft-skills-section {
+    padding-top: 65px;
+    padding-bottom: 70px;
+  }
+
+  .soft-skills-heading {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    margin-bottom: 35px;
+  }
+
+  .soft-skills-heading .section-index {
+    margin-bottom: 20px;
+  }
+
+  .soft-skills-heading h2 {
+    font-size: clamp(38px, 11vw, 58px);
+  }
+
+  .soft-skills-intro {
+    grid-template-columns: 1px 1fr;
+
+    gap: 17px;
+  }
+
+  .soft-skills-intro-line {
+    min-height: 65px;
+  }
+
+  .soft-skills-intro p {
+    font-size: 13px;
+  }
+
+  .soft-carousel {
+    min-height: 420px;
+  }
+
+  .soft-carousel-window {
+    height: 420px;
+
+    overflow: visible;
+  }
+
+  .soft-skill-card {
+    width: 78vw;
+    max-width: 500px;
+
+    height: 390px;
+
+    padding: 23px 22px;
+
+    border-radius: 20px;
+  }
+
+  .soft-skill-card[data-soft-position="-1"] {
+    --soft-offset: -69vw;
+    --soft-scale: .86;
+    --soft-opacity: .32;
+  }
+
+  .soft-skill-card[data-soft-position="1"] {
+    --soft-offset: 69vw;
+    --soft-scale: .86;
+    --soft-opacity: .32;
+  }
+
+  .soft-skill-top {
+    grid-template-columns: 38px 1fr 40px;
+
+    gap: 12px;
+  }
+
+  .soft-skill-top h3 {
+    font-size: 16px;
+  }
+
+  .soft-skill-status {
+    width: 40px;
+    height: 40px;
+
+    font-size: 21px;
+  }
+
+  .soft-skill-body > p {
+    max-width: none;
+
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .soft-skill-visual {
+    right: 5px;
+    bottom: 0;
+
+    transform: scale(.8);
+    transform-origin: right bottom;
+  }
+
+  .soft-skill-tags {
+    max-width: 65%;
+  }
+
+  .soft-carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .soft-carousel-arrow-prev {
+    left: 2px;
+  }
+
+  .soft-carousel-arrow-next {
+    right: 2px;
+  }
+
+  .soft-carousel-controls {
+    margin-top: 15px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .soft-skill-card {
+    width: 82vw;
+    height: 400px;
+
+    padding: 20px 18px;
+  }
+
+  .soft-skill-card[data-soft-position="-1"] {
+    --soft-offset: -74vw;
+  }
+
+  .soft-skill-card[data-soft-position="1"] {
+    --soft-offset: 74vw;
+  }
+
+  .soft-skill-body > p {
+    font-size: 12px;
+  }
+
+  .soft-skill-tags {
+    max-width: 70%;
+  }
+
+  .soft-skill-visual {
+    transform: scale(.65);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .soft-skill-card {
+    transition-duration: .01ms;
+  }
+}
