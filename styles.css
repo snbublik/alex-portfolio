@@ -683,3 +683,706 @@ h2 span { color: var(--pink); }
     padding: 9px 13px;
   }
 }
+/* =========================================================
+   LEARNING / ПРОФЕССИОНАЛЬНОЕ РАЗВИТИЕ
+   Добавочный блок — существующие стили не изменяет
+========================================================= */
+
+.learning-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.7fr) minmax(600px, 1.3fr);
+  gap: clamp(45px, 7vw, 110px);
+
+  padding-top: 90px;
+  padding-bottom: 115px;
+
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ЛЕВАЯ ЧАСТЬ
+========================================================= */
+
+.learning-copy {
+  position: relative;
+  z-index: 3;
+  padding-top: 3px;
+}
+
+.learning-copy .section-index {
+  margin: 0 0 28px;
+}
+
+.learning-copy h2 {
+  margin: 0 0 28px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4.5vw, 66px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+}
+
+.learning-copy h2 span {
+  color: var(--pink);
+}
+
+.learning-description {
+  max-width: 455px;
+
+  margin: 0;
+
+  color: var(--graphite);
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ОЛИВКОВАЯ ФОРМА
+========================================================= */
+
+.learning-blob {
+  position: absolute;
+
+  left: -155px;
+  bottom: -165px;
+
+  width: 390px;
+  height: 250px;
+
+  background: var(--olive);
+
+  border-radius: 55% 45% 62% 38% / 58% 45% 55% 42%;
+
+  transform: rotate(17deg);
+
+  opacity: 0.72;
+
+  filter: blur(0.2px);
+
+  z-index: -1;
+}
+
+.learning-blob::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 18px;
+
+  border-radius: inherit;
+
+  background: rgba(249, 247, 247, 0.18);
+
+  transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   ПРАВАЯ ЧАСТЬ — СЕРТИФИКАТЫ
+========================================================= */
+
+.learning-certificates {
+  position: relative;
+  z-index: 4;
+
+  display: grid;
+  gap: 18px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   ОДНА КАРТОЧКА СЕРТИФИКАТА
+========================================================= */
+
+.certificate-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(11, 10, 10, 0.16);
+  border-radius: 22px;
+
+  background: rgba(249, 247, 247, 0.72);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.certificate-card[open] {
+  border-color: var(--pink);
+
+  background: rgba(249, 247, 247, 0.94);
+
+  box-shadow: 0 12px 35px rgba(11, 10, 10, 0.035);
+}
+
+
+/* =========================================================
+   ВЕРХНЯЯ СТРОКА
+========================================================= */
+
+.certificate-summary {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    68px
+    minmax(220px, 1fr)
+    minmax(170px, auto)
+    44px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  min-height: 94px;
+
+  padding: 0 24px 0 30px;
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+.certificate-summary::-webkit-details-marker {
+  display: none;
+}
+
+.certificate-summary::marker {
+  display: none;
+}
+
+
+/* номер */
+
+.certificate-number {
+  display: flex;
+  align-items: center;
+
+  align-self: stretch;
+
+  padding-right: 20px;
+
+  border-right: 1px solid var(--line);
+
+  color: var(--pink);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* название */
+
+.certificate-name {
+  font-size: clamp(15px, 1.25vw, 20px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+
+/* HubSpot / год */
+
+.certificate-meta {
+  color: var(--black);
+
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1.4;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   КНОПКА + / ×
+========================================================= */
+
+.certificate-toggle {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid rgba(11, 10, 10, 0.18);
+  border-radius: 50%;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.certificate-toggle::before,
+.certificate-toggle::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 17px;
+  height: 1.5px;
+
+  background: var(--black);
+
+  transform: translate(-50%, -50%);
+}
+
+.certificate-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+/* открытое состояние */
+
+.certificate-card[open] .certificate-toggle {
+  background: var(--pink);
+  border-color: var(--pink);
+
+  transform: rotate(45deg);
+}
+
+.certificate-card[open] .certificate-toggle::before,
+.certificate-card[open] .certificate-toggle::after {
+  background: white;
+}
+
+
+/* =========================================================
+   РАСКРЫВАЮЩАЯСЯ ЧАСТЬ
+========================================================= */
+
+.certificate-content {
+  display: grid;
+
+  grid-template-columns: minmax(320px, 1fr) minmax(270px, 0.82fr);
+
+  gap: clamp(30px, 4vw, 52px);
+
+  padding: 28px 38px 36px;
+
+  border-top: 1px solid var(--line);
+
+  animation: certificate-reveal 0.3s ease both;
+}
+
+@keyframes certificate-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   ПРЕВЬЮ СЕРТИФИКАТА
+========================================================= */
+
+.certificate-preview {
+  position: relative;
+
+  display: block;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(11, 10, 10, 0.08);
+  border-radius: 10px;
+
+  background: white;
+
+  box-shadow:
+    0 8px 25px rgba(11, 10, 10, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.certificate-preview:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 35px rgba(11, 10, 10, 0.12);
+}
+
+.certificate-preview img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+}
+
+
+/* иконка увеличения */
+
+.certificate-zoom {
+  position: absolute;
+
+  right: 14px;
+  bottom: 14px;
+
+  display: grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: rgba(249, 247, 247, 0.94);
+
+  color: var(--black);
+
+  font-size: 21px;
+
+  box-shadow: 0 5px 18px rgba(11, 10, 10, 0.12);
+}
+
+
+/* =========================================================
+   ОПИСАНИЕ СЕРТИФИКАТА
+========================================================= */
+
+.certificate-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-top: 1px;
+}
+
+.certificate-details h3 {
+  margin: 0 0 18px;
+
+  font-size: clamp(16px, 1.25vw, 20px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.certificate-details > p {
+  margin: 0 0 25px;
+
+  color: var(--graphite);
+
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ТЕГИ
+========================================================= */
+
+.certificate-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-bottom: 30px;
+}
+
+.certificate-tags span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 38px;
+
+  padding: 7px 15px;
+
+  border: 1px solid var(--olive);
+  border-radius: 999px;
+
+  color: var(--graphite);
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.certificate-tags span:hover {
+  background: var(--olive);
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   КНОПКА
+========================================================= */
+
+.certificate-button {
+  min-height: 58px;
+
+  padding-inline: 27px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  margin-top: auto;
+}
+
+
+/* =========================================================
+   БЕГУЩАЯ СТРОКА
+========================================================= */
+
+.learning-marquee {
+  position: absolute;
+
+  left: -2%;
+  right: -2%;
+  bottom: -35px;
+
+  width: 104%;
+  height: 180px;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  transform: rotate(-1deg);
+}
+
+.learning-marquee svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.learning-marquee text {
+  fill: var(--olive);
+
+  fill-opacity: 0.22;
+
+  font-family: var(--font-heading);
+
+  font-size: 35px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   АДАПТИВ — ПЛАНШЕТ
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .learning-section {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+
+    padding-top: 75px;
+    padding-bottom: 105px;
+  }
+
+  .learning-copy {
+    max-width: 650px;
+  }
+
+  .learning-description {
+    max-width: 580px;
+  }
+
+  .learning-blob {
+    left: -170px;
+    bottom: -210px;
+  }
+
+  .certificate-content {
+    grid-template-columns: 1fr 0.8fr;
+  }
+}
+
+
+/* =========================================================
+   АДАПТИВ — МОБИЛЬНЫЙ
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .learning-section {
+    display: block;
+
+    padding-top: 60px;
+    padding-bottom: 90px;
+  }
+
+  .learning-copy {
+    margin-bottom: 35px;
+  }
+
+  .learning-copy .section-index {
+    margin-bottom: 20px;
+  }
+
+  .learning-copy h2 {
+    font-size: clamp(34px, 10vw, 52px);
+  }
+
+  .learning-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .learning-certificates {
+    gap: 12px;
+  }
+
+  .certificate-summary {
+    grid-template-columns: 38px 1fr 42px;
+
+    gap: 12px;
+
+    min-height: 76px;
+
+    padding: 0 16px 0 18px;
+  }
+
+  .certificate-number {
+    padding-right: 12px;
+
+    font-size: 11px;
+  }
+
+  .certificate-name {
+    font-size: 13px;
+  }
+
+  .certificate-meta {
+    display: none;
+  }
+
+  .certificate-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .certificate-content {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding: 20px;
+  }
+
+  .certificate-details h3 {
+    font-size: 16px;
+  }
+
+  .certificate-details > p {
+    font-size: 13px;
+  }
+
+  .certificate-tags {
+    margin-bottom: 22px;
+  }
+
+  .certificate-tags span {
+    min-height: 34px;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .certificate-button {
+    width: 100%;
+
+    min-height: 52px;
+  }
+
+  .learning-blob {
+    left: -180px;
+    bottom: -175px;
+
+    width: 330px;
+    height: 210px;
+  }
+
+  .learning-marquee {
+    bottom: -15px;
+    height: 130px;
+  }
+
+  .learning-marquee text {
+    font-size: 25px;
+  }
+}
+
+
+/* =========================================================
+   АДАПТИВ — МАЛЕНЬКИЕ ТЕЛЕФОНЫ
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .learning-section {
+    padding-top: 50px;
+    padding-bottom: 75px;
+  }
+
+  .certificate-summary {
+    grid-template-columns: 32px 1fr 38px;
+
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .certificate-name {
+    font-size: 12px;
+  }
+
+  .certificate-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .certificate-content {
+    padding: 15px;
+  }
+
+  .certificate-preview {
+    border-radius: 8px;
+  }
+
+  .certificate-zoom {
+    width: 38px;
+    height: 38px;
+
+    right: 8px;
+    bottom: 8px;
+
+    font-size: 17px;
+  }
+}
