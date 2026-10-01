@@ -21,13 +21,13 @@
     <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span>
     </button>
-    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
-      <a href="#about">Обо мне</a>
-      <a href="#approach">Обучение</a>
-      <a href="#cases">Кейсы</a>
-      <a href="#skills">Компетенции</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+<nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+  <a href="#about">Обо мне</a>
+  <a href="#approach">Обучение</a>
+  <a href="#cases">Кейсы</a>
+  <a href="#process">Как я работаю</a>
+  <a href="#contacts">Контакты</a>
+</nav>
   </header>
 
   <main id="top">
@@ -703,20 +703,142 @@
         <div class="teaser-card"><span class="teaser-number">03 /</span><span class="teaser-title">Новый проект</span><span class="teaser-caption">Кейс появится позже</span><span class="teaser-arrow">↗</span></div>
       </div>
     </section>
+<section class="section-wrap work-process-section" id="process" aria-labelledby="process-title">
 
-    <section class="section-wrap skills-section" id="skills" aria-labelledby="skills-title">
-      <p class="section-index">05 / ЭКСПЕРТИЗА</p>
-      <h2 id="skills-title">ЧТО Я <span>УМЕЮ</span></h2>
-      <div class="skills-grid">
-        <article class="skill-card"><span class="skill-icon">◎</span><h3>Стратегия</h3><p>Анализ бизнеса, аудитории и разработка маркетинговых решений.</p></article>
-        <article class="skill-card"><span class="skill-icon">↗</span><h3>Реклама</h3><p>Запуск и оптимизация рекламных кампаний.</p></article>
-        <article class="skill-card"><span class="skill-icon">▷</span><h3>Контент</h3><p>Контент-стратегия, съёмка, монтаж и публикация.</p></article>
-        <article class="skill-card"><span class="skill-icon">♧</span><h3>Лидогенерация</h3><p>Чат-боты, лид-формы и работа с обращениями.</p></article>
-        <article class="skill-card"><span class="skill-icon">▤</span><h3>CRM</h3><p>Разработка воронок и участие во внедрении.</p></article>
-        <article class="skill-card"><span class="skill-icon">▥</span><h3>Аналитика</h3><p>Оценка эффективности и поиск точек роста.</p></article>
+  <div class="work-process-header">
+
+    <div>
+      <p class="section-index">05 / КАК Я РАБОТАЮ</p>
+
+      <h2 id="process-title">
+        КАК Я<br>
+        <span>РАБОТАЮ</span>
+      </h2>
+    </div>
+
+    <p class="work-process-intro">
+      Не начинаю с инструментов. Сначала разбираюсь в задаче бизнеса,
+      затем выстраиваю решение, запускаю, анализирую результат
+      и развиваю то, что действительно работает.
+    </p>
+
+  </div>
+
+
+  <div class="work-process-route" id="work-process-route">
+
+    <svg
+      class="work-process-route-svg"
+      viewBox="0 0 1600 240"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        class="work-process-route-base"
+        d="M35 72 C210 190 330 185 500 105 S790 35 965 112 S1260 205 1565 75"
+      />
+
+      <path
+        class="work-process-route-line"
+        d="M35 72 C210 190 330 185 500 105 S790 35 965 112 S1260 205 1565 75"
+      />
+    </svg>
+
+    <div
+      class="work-process-nodes"
+      aria-label="Этапы работы"
+    ></div>
+
+    <div
+      class="work-process-traveler"
+      aria-hidden="true"
+    >
+      <span id="work-process-traveler-number">01</span>
+    </div>
+
+  </div>
+
+
+  <div class="work-process-content">
+
+    <div class="work-process-panel">
+
+      <div class="work-process-panel-top">
+        <span id="work-process-index">01</span>
+        <span>ЭТАП</span>
       </div>
-    </section>
 
+      <h3 id="work-process-title">
+        Разбираюсь в задаче
+      </h3>
+
+      <p id="work-process-description">
+        Погружаюсь в бизнес-задачу, продукт,
+        аудиторию и текущую ситуацию.
+      </p>
+
+      <div
+        class="work-process-tags"
+        id="work-process-tags"
+      ></div>
+
+      <div
+        class="work-process-checks"
+        id="work-process-checks"
+      ></div>
+
+      <div class="work-process-navigation">
+
+        <button
+          class="work-process-prev"
+          type="button"
+          aria-label="Предыдущий этап"
+        >
+          ←
+        </button>
+
+        <button
+          class="work-process-next"
+          type="button"
+          aria-label="Следующий этап"
+        >
+          →
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="work-process-visual">
+
+      <img
+        id="work-process-image"
+        src="assets/image/portrait.png"
+        alt="Рабочий процесс digital-маркетолога"
+        loading="lazy"
+      >
+
+      <div class="work-process-callout work-process-callout-one">
+        <span>01</span>
+        Сначала задача
+      </div>
+
+      <div class="work-process-callout work-process-callout-two">
+        <span>02</span>
+        Затем решение
+      </div>
+
+      <div class="work-process-callout work-process-callout-three">
+        <span>03</span>
+        Потом результат
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
     <section class="section-wrap contacts-section" id="contacts" aria-labelledby="contacts-title">
       <div class="contacts-heading">
         <p class="section-index">06 / НА СВЯЗИ</p>
