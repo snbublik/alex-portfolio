@@ -786,3 +786,191 @@ function restartSoftAutoplay() {
   });
 
 })();
+/* =====================================================
+   КАК Я РАБОТАЮ — ИНТЕРАКТИВНЫЙ МАРШРУТ
+===================================================== */
+
+(() => {
+  const section = document.querySelector('.work-process-section');
+
+  if (!section) return;
+
+  const nodes = [...section.querySelectorAll('.work-process-node')];
+  const orb = section.querySelector('.work-process-orb');
+
+  const info = section.querySelector('.work-process-info');
+  const infoNumber = section.querySelector('.work-process-info-number');
+  const infoTitle = section.querySelector('.work-process-info h3');
+  const infoText = section.querySelector('.work-process-info p');
+  const infoTools = section.querySelector('.work-process-info-tools');
+
+  const prevButton = section.querySelector('[data-process-prev]');
+  const nextButton = section.querySelector('[data-process-next]');
+
+  const currentCounter = section.querySelector('[data-process-current]');
+  const totalCounter = section.querySelector('[data-process-total]');
+
+  const processData = [
+    {
+      number: '01',
+      title: 'Погружение',
+      text: 'Изучаю бизнес, продукт, аудиторию и текущую ситуацию, чтобы понять реальные задачи и точки роста.',
+      tools: ['Бизнес-задачи', 'Целевая аудитория', 'Конкуренты']
+    },
+    {
+      number: '02',
+      title: 'Анализ',
+      text: 'Собираю данные, анализирую существующие каналы продвижения и определяю, что уже работает, а что требует изменений.',
+      tools: ['Аналитика', 'Исследование', 'Точки роста']
+    },
+    {
+      number: '03',
+      title: 'Стратегия',
+      text: 'Формирую систему продвижения: цели, каналы, контент, рекламу, воронку и ключевые показатели.',
+      tools: ['Стратегия', 'Каналы', 'KPI']
+    },
+    {
+      number: '04',
+      title: 'Реализация',
+      text: 'Запускаю инструменты в работу: рекламу, контент, лидогенерацию, CRM-процессы и коммуникации.',
+      tools: ['VK Реклама', 'Контент', 'CRM']
+    },
+    {
+      number: '05',
+      title: 'Оптимизация',
+      text: 'Отслеживаю результаты, нахожу слабые места и корректирую инструменты, чтобы система работала эффективнее.',
+      tools: ['Метрики', 'Тестирование', 'Оптимизация']
+    },
+    {
+      number: '06',
+      title: 'Результат',
+      text: 'Оцениваю вклад маркетинга в бизнес-задачу и фиксирую результаты, выводы и дальнейшие точки роста.',
+      tools: ['Результаты', 'Выводы', 'Следующий шаг']
+    }
+  ];
+
+  let currentIndex = 0;
+
+  if (totalCounter) {
+    totalCounter.textContent = String(processData.length).padStart(2, '0');
+  }
+
+  function updateOrb(index) {
+    if (!orb || !nodes[index]) return;
+
+    const node = nodes[index];
+
+    const nodeRect = node.getBoundingClientRect();
+    const sectionRect = section.getBoundingClientRect();
+
+    const x =
+      nodeRect.left +
+      nodeRect.width / 2 -
+      sectionRect.left;
+
+    const y =
+      nodeRect.top +
+      nodeRect.height / 2 -
+      sectionRect.top;
+
+    orb.style.left = `${x}px`;
+    orb.style.top = `${y}px`;
+  }
+
+  function updateInfo(index) {
+    const data = processData[index];
+
+    if (!data) return;
+
+    if (info) {
+      info.classList.add('is-changing');
+
+      setTimeout(() => {
+        if (infoNumber) {
+          infoNumber.textContent = `${data.number} / ЭТАП`;
+        }
+
+        if (infoTitle) {
+          infoTitle.textContent = data.title;
+        }
+
+        if (infoText) {
+          infoText.textContent = data.text;
+        }
+
+        if (infoTools) {
+          infoTools.innerHTML = '';
+
+          data.tools.forEach(tool => {
+            const tag = document.createElement('span');
+            tag.textContent = tool;
+            infoTools.appendChild(tag);
+          });
+        }
+
+        info.classList.remove('is-changing');
+      }, 180);
+    }
+
+    nodes.forEach((node, nodeIndex) => {
+      node.classList.toggle(
+        'is-active',
+        nodeIndex === index
+      );
+
+      node.setAttribute(
+        'aria-current',
+        nodeIndex === index ? 'step' : 'false'
+      );
+    });
+
+    if (currentCounter) {
+      currentCounter.textContent =
+        String(index + 1).padStart(2, '0');
+    }
+
+    updateOrb(index);
+  }
+
+  function goTo(index) {
+    if (index < 0) {
+      index = processData.length - 1;
+    }
+
+    if (index >= processData.length) {
+      index = 0;
+    }
+
+    currentIndex = index;
+
+    updateInfo(currentIndex);
+  }
+
+  nodes.forEach((node, index) => {
+    node.addEventListener('click', () => {
+      goTo(index);
+    });
+  });
+
+  if (prevButton) {
+    prevButton.addEventListener('click', () => {
+      goTo(currentIndex - 1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener('click', () => {
+      goTo(currentIndex + 1);
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    updateOrb(currentIndex);
+  });
+
+  updateInfo(0);
+
+  requestAnimationFrame(() => {
+    updateOrb(0);
+  });
+})();
