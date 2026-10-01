@@ -705,8 +705,7 @@
     </section>
 <section class="section-wrap work-process-section" id="process" aria-labelledby="process-title">
 
-  <div class="work-process-header">
-
+  <div class="work-process-heading">
     <div>
       <p class="section-index">05 / КАК Я РАБОТАЮ</p>
 
@@ -721,52 +720,65 @@
       затем выстраиваю решение, запускаю, анализирую результат
       и развиваю то, что действительно работает.
     </p>
-
   </div>
 
+
+  <!-- ИНТЕРАКТИВНЫЙ МАРШРУТ -->
 
   <div class="work-process-route" id="work-process-route">
 
     <svg
-      class="work-process-route-svg"
-      viewBox="0 0 1600 240"
+      class="work-process-svg"
+      viewBox="0 0 1600 300"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
+
+      <!-- основная линия -->
       <path
-        class="work-process-route-base"
-        d="M35 72 C210 190 330 185 500 105 S790 35 965 112 S1260 205 1565 75"
+        id="work-process-path"
+        class="work-process-path"
+        d="M40 95
+           C220 245 350 245 520 120
+           S800 35 970 135
+           S1260 255 1560 90"
       />
 
-      <path
-        class="work-process-route-line"
-        d="M35 72 C210 190 330 185 500 105 S790 35 965 112 S1260 205 1565 75"
+      <!-- точки этапов -->
+      <g id="work-process-nodes"></g>
+
+      <!-- движущийся шарик -->
+      <circle
+        id="work-process-ball"
+        class="work-process-ball"
+        cx="40"
+        cy="95"
+        r="19"
       />
+
+      <text
+        id="work-process-ball-number"
+        class="work-process-ball-number"
+        x="40"
+        y="95"
+        text-anchor="middle"
+        dominant-baseline="central"
+      >01</text>
+
     </svg>
-
-    <div
-      class="work-process-nodes"
-      aria-label="Этапы работы"
-    ></div>
-
-    <div
-      class="work-process-traveler"
-      aria-hidden="true"
-    >
-      <span id="work-process-traveler-number">01</span>
-    </div>
 
   </div>
 
 
-  <div class="work-process-content">
+  <!-- КОМПАКТНАЯ ИНФОРМАЦИЯ ОБ ЭТАПЕ -->
 
-    <div class="work-process-panel">
+  <div class="work-process-info">
 
-      <div class="work-process-panel-top">
-        <span id="work-process-index">01</span>
-        <span>ЭТАП</span>
-      </div>
+    <div class="work-process-info-number" id="work-process-index">
+      01
+    </div>
+
+    <div class="work-process-info-main">
 
       <h3 id="work-process-title">
         Разбираюсь в задаче
@@ -782,57 +794,21 @@
         id="work-process-tags"
       ></div>
 
-      <div
-        class="work-process-checks"
-        id="work-process-checks"
-      ></div>
-
-      <div class="work-process-navigation">
-
-        <button
-          class="work-process-prev"
-          type="button"
-          aria-label="Предыдущий этап"
-        >
-          ←
-        </button>
-
-        <button
-          class="work-process-next"
-          type="button"
-          aria-label="Следующий этап"
-        >
-          →
-        </button>
-
-      </div>
-
     </div>
 
+    <div class="work-process-navigation">
 
-    <div class="work-process-visual">
+      <button
+        class="work-process-prev"
+        type="button"
+        aria-label="Предыдущий этап"
+      >←</button>
 
-      <img
-        id="work-process-image"
-        src="assets/image/portrait.png"
-        alt="Рабочий процесс digital-маркетолога"
-        loading="lazy"
-      >
-
-      <div class="work-process-callout work-process-callout-one">
-        <span>01</span>
-        Сначала задача
-      </div>
-
-      <div class="work-process-callout work-process-callout-two">
-        <span>02</span>
-        Затем решение
-      </div>
-
-      <div class="work-process-callout work-process-callout-three">
-        <span>03</span>
-        Потом результат
-      </div>
+      <button
+        class="work-process-next"
+        type="button"
+        aria-label="Следующий этап"
+      >→</button>
 
     </div>
 
