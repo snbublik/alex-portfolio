@@ -58,6 +58,8 @@ h1, h2, h3, p { margin-top: 0; }
 .shape-olive-bottom { z-index: 3; width: 27%; height: 29%; right: 7%; bottom: 1%; border-radius: 58% 42% 54% 46%; }
 .photo-label { position: absolute; z-index: 4; right: 7%; bottom: 11%; display: flex; align-items: center; gap: 13px; padding: 15px 19px; border-radius: 999px; background: var(--cream); box-shadow: 0 5px 25px #0b0a0a12; font-size: 10px; letter-spacing: .18em; white-space: nowrap; }
 .label-dot { width: 13px; height: 13px; background: var(--olive); border-radius: 50%; }
+.handwritten-note { font-family: cursive; font-style: italic; font-size: clamp(17px, 1.5vw, 24px); line-height: 1.35; color: var(--graphite); transform: rotate(-8deg); }
+.note-top { position: absolute; z-index: 4; top: 2%; right: -1%; }
 .scroll-cue { position: absolute; bottom: 24px; right: var(--page-gutter); width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; font-size: 23px; }
 
 .about-section { padding-top: 82px; padding-bottom: 92px; border-top: 1px solid var(--line); }
@@ -69,6 +71,21 @@ h2 span { color: var(--pink); }
 .about-section .section-heading h2 { margin: 0; }
 .about-lead { max-width: 660px; justify-self: end; color: var(--graphite); font-size: clamp(16px, 1.25vw, 19px); line-height: 1.75; }
 .about-lead p { margin: 0; }
+.about-main { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 78px); align-items: stretch; }
+.about-photo { position: relative; min-height: 360px; max-height: 520px; }
+.about-photo img { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 360px; max-height: 520px; object-fit: cover; object-position: 50% 30%; border-radius: 25% 9% 7% 18%; }
+.about-photo-shape { position: absolute; z-index: 0; left: -8%; top: 18%; width: 52%; height: 68%; border-radius: 48% 52% 57% 43%; background: var(--olive); }
+.about-photo-caption { position: absolute; z-index: 2; left: 7%; bottom: 20px; display: inline-flex; gap: 10px; align-items: center; padding: 13px 16px; background: var(--cream); border-radius: 99px; font-size: 9px; letter-spacing: .13em; box-shadow: 0 5px 24px #0b0a0a12; }
+.about-photo-caption i { color: var(--pink); font-style: normal; }
+.about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-content: center; }
+.mini-panel { background: #f1efef; border: 1px solid #ebe8e8; border-radius: 20px; padding: clamp(18px, 2vw, 27px); }
+.panel-title { font-size: 14px; font-weight: 700; margin-bottom: 20px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 9px; }
+.tag-list span { border: 1px solid #d8d5d5; border-radius: 99px; padding: 9px 12px; font-size: 12px; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.tag-list span:hover { color: white; background: var(--pink); border-color: var(--pink); transform: translateY(-2px); }
+.value-list { display: grid; gap: 15px; font-size: 12px; }
+.value-item { display: flex; gap: 11px; align-items: flex-start; line-height: 1.5; }
+.value-list b { flex: 0 0 18px; color: var(--pink); font-size: 15px; }
 .about-work { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(30px, 7vw, 110px); padding-top: 85px; margin-top: 72px; border-top: 1px solid var(--line); }
 .about-work-heading h3 { font: 600 clamp(26px, 3vw, 42px)/1.2 var(--font-heading); letter-spacing: -.04em; margin: 0 0 17px; }
 .about-work-heading h3 span { color: var(--pink); }
@@ -88,6 +105,17 @@ h2 span { color: var(--pink); }
 .accordion-content { padding: 0 40px 22px 57px; color: var(--graphite); font-size: 13px; line-height: 1.7; animation: accordion-in .25s ease both; }
 .accordion-content p { max-width: 650px; margin: 0; }
 @keyframes accordion-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+.approach-section { display: grid; grid-template-columns: .8fr 1.3fr; gap: 40px; align-items: center; padding-top: 90px; padding-bottom: 100px; border-top: 1px solid var(--line); overflow: hidden; }
+.section-intro { max-width: 390px; color: var(--graphite); font-size: 14px; line-height: 1.65; }
+.approach-diagram { min-height: 390px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 35px 70px; align-items: center; position: relative; }
+.approach-card { z-index: 2; background: var(--cream); border: 1px solid #dedada; border-radius: 20px; padding: 24px; min-height: 140px; }
+.approach-card > span { color: var(--pink); font-weight: 700; font-size: 14px; }
+.approach-card h3 { font: 600 17px var(--font-heading); margin: 10px 0; }
+.approach-card p { color: var(--graphite); font-size: 12px; line-height: 1.55; margin: 0; }
+.result-pill { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%,-50%); display: grid; place-items: center; text-align: center; width: 155px; height: 88px; border-radius: 999px; background: var(--pink); color: white; font: 600 14px/1.3 var(--font-heading); box-shadow: 0 0 0 10px var(--cream); }
+.diagram-lines { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; fill: none; stroke: var(--olive); stroke-width: 1.5; }
+.approach-note { position: absolute; right: var(--page-gutter); bottom: 15px; }
 
 .process-section { padding-top: 85px; padding-bottom: 85px; border-top: 1px solid var(--line); }
 .process-section .section-heading { max-width: 580px; }
@@ -177,6 +205,7 @@ h2 span { color: var(--pink); }
   .hero-tags { font-size: 9px; letter-spacing: .1em; margin-top: 22px; }
   .hero-visual { height: 115vw; min-height: 400px; max-height: 620px; margin-top: 10px; }
   .portrait-frame { inset: 0 7% 0 7%; border-radius: 20% 18% 14% 14%; }
+  .note-top { right: 0; top: 1%; font-size: 16px; }
   .photo-label { right: 5%; bottom: 8%; padding: 12px 14px; font-size: 8px; letter-spacing: .1em; }
   .scroll-cue { display: none; }
   .about-section { padding-top: 58px; padding-bottom: 65px; }
@@ -190,6 +219,14 @@ h2 span { color: var(--pink); }
   .about-accordion-item summary { grid-template-columns: 30px 1fr 22px; gap: 10px; }
   .accordion-short { display: none; }
   .accordion-content { padding-left: 40px; }
+  .approach-section { grid-template-columns: 1fr; gap: 20px; padding-top: 60px; padding-bottom: 75px; }
+  .approach-diagram { min-height: 360px; gap: 25px 35px; }
+  .approach-card { padding: 16px; min-height: 130px; }
+  .approach-card h3 { font-size: 13px; }
+  .approach-card p { font-size: 11px; }
+  .result-pill { width: 120px; height: 70px; font-size: 11px; }
+  .diagram-lines { opacity: .75; }
+  .approach-note { display: none; }
   .process-section, .skills-section { padding-top: 60px; padding-bottom: 65px; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 25px 18px; margin-top: 30px; }
   .process-step:not(:last-child)::after { display: none; }
@@ -221,6 +258,11 @@ h2 span { color: var(--pink); }
   .about-accordion-item summary { grid-template-columns: 28px 1fr 22px; padding: 18px 0; }
   .accordion-title { font-size: 13px; }
   .accordion-content { padding: 0 10px 20px 38px; font-size: 12px; }
+  .approach-diagram { gap: 20px 20px; min-height: 335px; }
+  .approach-card { padding: 12px; min-height: 130px; }
+  .approach-card h3 { font-size: 11px; }
+  .approach-card p { font-size: 10px; }
+  .result-pill { width: 100px; height: 62px; font-size: 9px; }
   .process-grid { grid-template-columns: 1fr; }
   .case-teasers { grid-template-columns: 1fr; }
   .skills-grid { gap: 9px; }
@@ -760,6 +802,357 @@ h2 span { color: var(--pink); }
 
   min-width: 0;
 }
+
+
+/* =========================================================
+   ОДНА КАРТОЧКА СЕРТИФИКАТА
+========================================================= */
+
+.certificate-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(11, 10, 10, 0.16);
+  border-radius: 22px;
+
+  background: rgba(249, 247, 247, 0.72);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.certificate-card[open] {
+  border-color: var(--pink);
+
+  background: rgba(249, 247, 247, 0.94);
+
+  box-shadow: 0 12px 35px rgba(11, 10, 10, 0.035);
+}
+
+
+/* =========================================================
+   ВЕРХНЯЯ СТРОКА
+========================================================= */
+
+.certificate-summary {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    68px
+    minmax(220px, 1fr)
+    minmax(170px, auto)
+    44px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  min-height: 94px;
+
+  padding: 0 24px 0 30px;
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+.certificate-summary::-webkit-details-marker {
+  display: none;
+}
+
+.certificate-summary::marker {
+  display: none;
+}
+
+
+/* номер */
+
+.certificate-number {
+  display: flex;
+  align-items: center;
+
+  align-self: stretch;
+
+  padding-right: 20px;
+
+  border-right: 1px solid var(--line);
+
+  color: var(--pink);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* название */
+
+.certificate-name {
+  font-size: clamp(15px, 1.25vw, 20px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+
+/* HubSpot / год */
+
+.certificate-meta {
+  color: var(--black);
+
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1.4;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   КНОПКА + / ×
+========================================================= */
+
+.certificate-toggle {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid rgba(11, 10, 10, 0.18);
+  border-radius: 50%;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.certificate-toggle::before,
+.certificate-toggle::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 17px;
+  height: 1.5px;
+
+  background: var(--black);
+
+  transform: translate(-50%, -50%);
+}
+
+.certificate-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+/* открытое состояние */
+
+.certificate-card[open] .certificate-toggle {
+  background: var(--pink);
+  border-color: var(--pink);
+
+  transform: rotate(45deg);
+}
+
+.certificate-card[open] .certificate-toggle::before,
+.certificate-card[open] .certificate-toggle::after {
+  background: white;
+}
+
+
+/* =========================================================
+   РАСКРЫВАЮЩАЯСЯ ЧАСТЬ
+========================================================= */
+
+.certificate-content {
+  display: grid;
+
+  grid-template-columns: minmax(320px, 1fr) minmax(270px, 0.82fr);
+
+  gap: clamp(30px, 4vw, 52px);
+
+  padding: 28px 38px 36px;
+
+  border-top: 1px solid var(--line);
+
+  animation: certificate-reveal 0.3s ease both;
+}
+
+@keyframes certificate-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   ПРЕВЬЮ СЕРТИФИКАТА
+========================================================= */
+
+.certificate-preview {
+  position: relative;
+
+  display: block;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(11, 10, 10, 0.08);
+  border-radius: 10px;
+
+  background: white;
+
+  box-shadow:
+    0 8px 25px rgba(11, 10, 10, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.certificate-preview:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 35px rgba(11, 10, 10, 0.12);
+}
+
+.certificate-preview img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+}
+
+
+/* иконка увеличения */
+
+.certificate-zoom {
+  position: absolute;
+
+  right: 14px;
+  bottom: 14px;
+
+  display: grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: rgba(249, 247, 247, 0.94);
+
+  color: var(--black);
+
+  font-size: 21px;
+
+  box-shadow: 0 5px 18px rgba(11, 10, 10, 0.12);
+}
+
+
+/* =========================================================
+   ОПИСАНИЕ СЕРТИФИКАТА
+========================================================= */
+
+.certificate-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-top: 1px;
+}
+
+.certificate-details h3 {
+  margin: 0 0 18px;
+
+  font-size: clamp(16px, 1.25vw, 20px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.certificate-details > p {
+  margin: 0 0 25px;
+
+  color: var(--graphite);
+
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ТЕГИ
+========================================================= */
+
+.certificate-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-bottom: 30px;
+}
+
+.certificate-tags span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 38px;
+
+  padding: 7px 15px;
+
+  border: 1px solid var(--olive);
+  border-radius: 999px;
+
+  color: var(--graphite);
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.certificate-tags span:hover {
+  background: var(--olive);
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   КНОПКА
+========================================================= */
+
+.certificate-button {
+  min-height: 58px;
+
+  padding-inline: 27px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  margin-top: auto;
+}
+
 
 /* =========================================================
    БЕГУЩАЯ СТРОКА
@@ -2265,542 +2658,4 @@ h2 span { color: var(--pink); }
   margin: 0;
 
   overflow: hidden;
-}
-/* =====================================================
-   КАК Я РАБОТАЮ
-===================================================== */
-
-.work-process-section {
-  position: relative;
-  padding-top: 95px;
-  padding-bottom: 110px;
-  border-top: 1px solid var(--line);
-  overflow: hidden;
-}
-
-/* Заголовок */
-
-.work-process-heading {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: clamp(30px, 7vw, 110px);
-  align-items: end;
-  margin-bottom: 70px;
-}
-
-.work-process-heading h2 {
-  margin: 0;
-  font: 700 clamp(36px, 4.5vw, 68px)/1.08 var(--font-heading);
-  letter-spacing: -.055em;
-}
-
-.work-process-heading h2 span {
-  color: var(--pink);
-}
-
-.work-process-intro {
-  max-width: 430px;
-  color: var(--graphite);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* Основная область */
-
-.work-process-visual {
-  position: relative;
-  min-height: 590px;
-}
-
-/* SVG-траектория */
-
-.work-process-route {
-  position: absolute;
-  inset: 40px 2% auto;
-  width: 96%;
-  height: 420px;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.work-process-route-path {
-  fill: none;
-  stroke: var(--olive);
-  stroke-width: 2;
-  stroke-linecap: round;
-  opacity: .65;
-}
-
-/* Дополнительная пунктирная линия */
-
-.work-process-route-dash {
-  fill: none;
-  stroke: var(--pink);
-  stroke-width: 1;
-  stroke-dasharray: 5 9;
-  opacity: .22;
-}
-
-/* Двигающийся шар */
-
-.work-process-orb {
-  position: absolute;
-  z-index: 5;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--pink);
-  box-shadow:
-    0 0 0 7px rgba(209, 0, 104, .12),
-    0 8px 20px rgba(11, 10, 10, .15);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition:
-    left .7s cubic-bezier(.22, .61, .36, 1),
-    top .7s cubic-bezier(.22, .61, .36, 1);
-}
-
-/* Точки маршрута */
-
-.work-process-node {
-  position: absolute;
-  z-index: 4;
-  display: grid;
-  place-items: center;
-  width: 58px;
-  height: 58px;
-  border: 1px solid rgba(11, 10, 10, .22);
-  border-radius: 50%;
-  background: var(--cream);
-  color: var(--black);
-  font: 600 12px var(--font-heading);
-  cursor: pointer;
-  transition:
-    transform .3s ease,
-    background .3s ease,
-    color .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
-}
-
-.work-process-node:hover {
-  transform: scale(1.08);
-  border-color: var(--olive);
-}
-
-.work-process-node.is-active {
-  background: var(--pink);
-  border-color: var(--pink);
-  color: white;
-  transform: scale(1.16);
-  box-shadow: 0 0 0 8px rgba(209, 0, 104, .1);
-}
-
-/* Расстановка 6 точек */
-
-.work-process-node:nth-of-type(1) {
-  left: 5%;
-  top: 270px;
-}
-
-.work-process-node:nth-of-type(2) {
-  left: 20%;
-  top: 125px;
-}
-
-.work-process-node:nth-of-type(3) {
-  left: 38%;
-  top: 65px;
-}
-
-.work-process-node:nth-of-type(4) {
-  left: 58%;
-  top: 145px;
-}
-
-.work-process-node:nth-of-type(5) {
-  left: 77%;
-  top: 285px;
-}
-
-.work-process-node:nth-of-type(6) {
-  left: 92%;
-  top: 355px;
-}
-
-/* Подписи этапов */
-
-.work-process-label {
-  position: absolute;
-  z-index: 3;
-  max-width: 180px;
-  pointer-events: none;
-}
-
-.work-process-label-number {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--pink);
-  font-size: 10px;
-  letter-spacing: .12em;
-}
-
-.work-process-label-title {
-  display: block;
-  font: 600 16px/1.25 var(--font-heading);
-}
-
-.work-process-label-description {
-  display: block;
-  margin-top: 7px;
-  color: var(--graphite);
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-/* Позиции подписей */
-
-.work-process-label:nth-of-type(1) {
-  left: 0;
-  top: 355px;
-}
-
-.work-process-label:nth-of-type(2) {
-  left: 16%;
-  top: 45px;
-}
-
-.work-process-label:nth-of-type(3) {
-  left: 34%;
-  top: 0;
-}
-
-.work-process-label:nth-of-type(4) {
-  left: 55%;
-  top: 220px;
-}
-
-.work-process-label:nth-of-type(5) {
-  left: 74%;
-  top: 350px;
-}
-
-.work-process-label:nth-of-type(6) {
-  right: 0;
-  top: 405px;
-}
-
-/* Информационная карточка */
-
-.work-process-info {
-  position: absolute;
-  z-index: 8;
-  right: 0;
-  top: 20px;
-  width: min(360px, 34%);
-  padding: 25px 28px;
-  background: var(--black);
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0 18px 45px rgba(11, 10, 10, .14);
-  transition:
-    opacity .25s ease,
-    transform .25s ease;
-}
-
-.work-process-info.is-changing {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.work-process-info-number {
-  display: block;
-  margin-bottom: 15px;
-  color: var(--pink);
-  font-size: 11px;
-  letter-spacing: .14em;
-}
-
-.work-process-info h3 {
-  margin: 0 0 13px;
-  font: 600 20px/1.3 var(--font-heading);
-}
-
-.work-process-info p {
-  margin: 0;
-  color: #d7d7d7;
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.work-process-info-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 20px;
-}
-
-.work-process-info-tools span {
-  padding: 7px 10px;
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 999px;
-  color: #eeeeee;
-  font-size: 10px;
-}
-
-/* Навигация */
-
-.work-process-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.work-process-arrow {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--black);
-  cursor: pointer;
-  transition:
-    background .2s ease,
-    color .2s ease,
-    border-color .2s ease,
-    transform .2s ease;
-}
-
-.work-process-arrow:hover {
-  background: var(--pink);
-  border-color: var(--pink);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.work-process-counter {
-  margin-left: 7px;
-  color: var(--graphite);
-  font-size: 11px;
-  letter-spacing: .12em;
-}
-
-.work-process-counter strong {
-  color: var(--black);
-}
-
-/* Нижняя фраза */
-
-.work-process-quote {
-  max-width: 900px;
-  margin: 55px 0 0;
-  padding-top: 25px;
-  border-top: 1px solid var(--line);
-  font: 500 clamp(17px, 1.7vw, 24px)/1.5 var(--font-heading);
-}
-
-/* =====================================================
-   АДАПТИВ
-===================================================== */
-
-@media (max-width: 1100px) {
-
-  .work-process-heading {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .work-process-visual {
-    min-height: 650px;
-  }
-
-  .work-process-info {
-    width: 300px;
-  }
-
-  .work-process-node:nth-of-type(1) {
-    left: 4%;
-  }
-
-  .work-process-node:nth-of-type(2) {
-    left: 19%;
-  }
-
-  .work-process-node:nth-of-type(3) {
-    left: 37%;
-  }
-
-  .work-process-node:nth-of-type(4) {
-    left: 58%;
-  }
-
-  .work-process-node:nth-of-type(5) {
-    left: 76%;
-  }
-
-  .work-process-node:nth-of-type(6) {
-    left: 90%;
-  }
-
-  .work-process-label {
-    max-width: 145px;
-  }
-}
-
-@media (max-width: 760px) {
-
-  .work-process-section {
-    padding-top: 65px;
-    padding-bottom: 75px;
-  }
-
-  .work-process-heading {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    margin-bottom: 45px;
-  }
-
-  .work-process-heading h2 {
-    font-size: clamp(34px, 9vw, 54px);
-  }
-
-  .work-process-intro {
-    font-size: 14px;
-  }
-
-  .work-process-visual {
-    min-height: auto;
-    padding-top: 0;
-  }
-
-  /* На мобильном маршрут становится вертикальным */
-
-  .work-process-route {
-    position: absolute;
-    left: 29px;
-    top: 30px;
-    width: 60px;
-    height: 700px;
-    inset: auto;
-  }
-
-  .work-process-orb {
-    width: 18px;
-    height: 18px;
-  }
-
-  .work-process-node {
-    position: relative;
-    left: auto !important;
-    top: auto !important;
-    width: 52px;
-    height: 52px;
-    margin-bottom: 52px;
-  }
-
-  .work-process-node.is-active {
-    transform: scale(1.1);
-  }
-
-  .work-process-label {
-    position: absolute;
-    left: 85px !important;
-    right: auto !important;
-    top: auto !important;
-    max-width: calc(100% - 105px);
-  }
-
-  .work-process-label:nth-of-type(1) {
-    top: 2px !important;
-  }
-
-  .work-process-label:nth-of-type(2) {
-    top: 104px !important;
-  }
-
-  .work-process-label:nth-of-type(3) {
-    top: 206px !important;
-  }
-
-  .work-process-label:nth-of-type(4) {
-    top: 308px !important;
-  }
-
-  .work-process-label:nth-of-type(5) {
-    top: 410px !important;
-  }
-
-  .work-process-label:nth-of-type(6) {
-    top: 512px !important;
-  }
-
-  .work-process-label-title {
-    font-size: 14px;
-  }
-
-  .work-process-label-description {
-    font-size: 11px;
-  }
-
-  .work-process-info {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 28px;
-  }
-
-  .work-process-controls {
-    margin-top: 5px;
-  }
-
-  .work-process-quote {
-    margin-top: 45px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 420px) {
-
-  .work-process-route {
-    left: 25px;
-  }
-
-  .work-process-node {
-    width: 46px;
-    height: 46px;
-    font-size: 10px;
-  }
-
-  .work-process-label {
-    left: 72px !important;
-    max-width: calc(100% - 88px);
-  }
-
-  .work-process-label-title {
-    font-size: 13px;
-  }
-
-  .work-process-info {
-    padding: 22px;
-  }
-
-  .work-process-info h3 {
-    font-size: 17px;
-  }
-
-  .work-process-arrow {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .work-process-orb {
-    transition: none;
-  }
 }
