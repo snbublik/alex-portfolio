@@ -2631,3 +2631,31 @@ h2 span { color: var(--pink); }
     height: 100%;
   }
 }
+/* =========================================================
+   МАЛИНОВАЯ СТРОКА — НЕ ОБРЕЗАЕМ
+========================================================= */
+
+.learning-marquee {
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 180px;
+
+  bottom: 0;
+
+  margin: 0;
+
+  overflow: hidden;
+}
+
+.learning-marquee svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  overflow: hidden;
+}
