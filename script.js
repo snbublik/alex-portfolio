@@ -454,3 +454,335 @@ function restartSoftAutoplay() {
   startSoftAutoplay();
 
 }
+/* =========================================================
+   КАК Я РАБОТАЮ — ИНТЕРАКТИВНЫЙ МАРШРУТ
+========================================================= */
+
+(() => {
+
+  const root = document.querySelector("#work-process-route");
+
+  if (!root) return;
+
+  const nodesContainer = root.querySelector(".work-process-nodes");
+  const traveler = root.querySelector(".work-process-traveler");
+  const travelerNumber = root.querySelector("#work-process-traveler-number");
+
+  const title = document.querySelector("#work-process-title");
+  const description = document.querySelector("#work-process-description");
+  const index = document.querySelector("#work-process-index");
+  const tags = document.querySelector("#work-process-tags");
+  const checks = document.querySelector("#work-process-checks");
+  const image = document.querySelector("#work-process-image");
+
+  const prevButton = document.querySelector(".work-process-prev");
+  const nextButton = document.querySelector(".work-process-next");
+
+  const route = root.querySelector(".work-process-route-line");
+
+  if (!nodesContainer || !traveler || !route) return;
+
+
+  const steps = [
+    {
+      title: "Разбираюсь в задаче",
+      description:
+        "Погружаюсь в бизнес-задачу, продукт, аудиторию и текущую ситуацию.",
+      tags: ["Бизнес", "ЦА", "Задача"],
+      checks: [
+        "Определяю цель",
+        "Изучаю аудиторию",
+        "Фиксирую точки роста"
+      ]
+    },
+
+    {
+      title: "Исследую и анализирую",
+      description:
+        "Изучаю рынок, конкурентов, текущие каналы продвижения и поведение аудитории.",
+      tags: ["Исследование", "Аналитика", "Конкуренты"],
+      checks: [
+        "Анализирую рынок",
+        "Изучаю конкурентов",
+        "Проверяю текущие данные"
+      ]
+    },
+
+    {
+      title: "Формирую решение",
+      description:
+        "Собираю стратегию и определяю, какие инструменты действительно нужны бизнесу.",
+      tags: ["Стратегия", "Каналы", "План"],
+      checks: [
+        "Формирую гипотезы",
+        "Выбираю каналы",
+        "Определяю KPI"
+      ]
+    },
+
+    {
+      title: "Запускаю и тестирую",
+      description:
+        "Перевожу стратегию в конкретные действия: запускаю рекламу, контент и инструменты привлечения.",
+      tags: ["Запуск", "Контент", "Реклама"],
+      checks: [
+        "Настраиваю инструменты",
+        "Запускаю кампании",
+        "Тестирую гипотезы"
+      ]
+    },
+
+    {
+      title: "Анализирую результат",
+      description:
+        "Смотрю не только на показатели каналов, но и на то, как маркетинг влияет на бизнес-задачу.",
+      tags: ["Метрики", "CRM", "Результат"],
+      checks: [
+        "Собираю данные",
+        "Сравниваю показатели",
+        "Нахожу точки роста"
+      ]
+    },
+
+    {
+      title: "Оптимизирую и развиваю",
+      description:
+        "Усиливаю работающие решения, корректирую слабые места и развиваю систему дальше.",
+      tags: ["Оптимизация", "Рост", "Развитие"],
+      checks: [
+        "Убираю неэффективное",
+        "Масштабирую рабочее",
+        "Формирую следующий шаг"
+      ]
+    }
+  ];
+
+
+  const positions = [
+    [7, 30],
+    [31, 73],
+    [50, 45],
+    [68, 56],
+    [86, 72],
+    [96, 31]
+  ];
+
+
+  const progress = [
+    0.025,
+    0.235,
+    0.405,
+    0.585,
+    0.775,
+    0.975
+  ];
+
+
+  let activeIndex = 0;
+
+
+  /* ---------- СОЗДАЁМ ТОЧКИ ---------- */
+
+  steps.forEach((step, stepIndex) => {
+
+    const node = document.createElement("button");
+
+    node.type = "button";
+    node.className = "work-process-node";
+
+    node.textContent = String(stepIndex + 1).padStart(2, "0");
+
+    node.setAttribute(
+      "aria-label",
+      `${stepIndex + 1}. ${step.title}`
+    );
+
+    node.style.left = `${positions[stepIndex][0]}%`;
+    node.style.top = `${positions[stepIndex][1]}%`;
+
+    node.addEventListener("click", () => {
+      setStep(stepIndex);
+    });
+
+    nodesContainer.appendChild(node);
+
+  });
+
+
+  const nodes = Array.from(
+    nodesContainer.querySelectorAll(".work-process-node")
+  );
+
+
+  /* ---------- ДВИЖЕНИЕ ПО SVG ---------- */
+
+  const pathLength = route.getTotalLength();
+
+
+  function moveTraveler(stepIndex, animate = true) {
+
+    const targetLength =
+      pathLength * progress[stepIndex];
+
+    const point =
+      route.getPointAtLength(targetLength);
+
+    const svg = root.querySelector(
+      ".work-process-route-svg"
+    );
+
+    const svgRect = svg.getBoundingClientRect();
+    const rootRect = root.getBoundingClientRect();
+
+    const x =
+      svgRect.left -
+      rootRect.left +
+      (point.x / 1600) * svgRect.width;
+
+    const y =
+      svgRect.top -
+      rootRect.top +
+      (point.y / 240) * svgRect.height;
+
+
+    if (!animate) {
+
+      traveler.style.transition = "none";
+
+    } else {
+
+      traveler.style.transition =
+        "left .75s cubic-bezier(.65,0,.35,1), top .75s cubic-bezier(.65,0,.35,1)";
+
+    }
+
+
+    traveler.style.left = `${x}px`;
+    traveler.style.top = `${y}px`;
+
+  }
+
+
+  /* ---------- ОБНОВЛЯЕМ КОНТЕНТ ---------- */
+
+  function setStep(newIndex) {
+
+    activeIndex = newIndex;
+
+    const step = steps[activeIndex];
+
+    index.textContent =
+      String(activeIndex + 1).padStart(2, "0");
+
+    travelerNumber.textContent =
+      String(activeIndex + 1).padStart(2, "0");
+
+    title.textContent = step.title;
+
+    description.textContent = step.description;
+
+
+    tags.innerHTML = step.tags
+      .map(tag => `<span>${tag}</span>`)
+      .join("");
+
+
+    checks.innerHTML = step.checks
+      .map(check => `
+        <div class="work-process-check">
+          ${check}
+        </div>
+      `)
+      .join("");
+
+
+    nodes.forEach((node, nodeIndex) => {
+
+      node.classList.toggle(
+        "is-active",
+        nodeIndex === activeIndex
+      );
+
+    });
+
+
+    moveTraveler(activeIndex);
+
+
+    if (image) {
+
+      image.alt =
+        `Этап ${activeIndex + 1}: ${step.title} — digital-маркетинг`;
+
+    }
+
+  }
+
+
+  /* ---------- КНОПКИ ---------- */
+
+  if (prevButton) {
+
+    prevButton.addEventListener("click", () => {
+
+      setStep(
+        (activeIndex - 1 + steps.length) %
+        steps.length
+      );
+
+    });
+
+  }
+
+
+  if (nextButton) {
+
+    nextButton.addEventListener("click", () => {
+
+      setStep(
+        (activeIndex + 1) %
+        steps.length
+      );
+
+    });
+
+  }
+
+
+  /* ---------- КЛАВИАТУРА ---------- */
+
+  root.addEventListener("keydown", (event) => {
+
+    if (event.key === "ArrowRight") {
+
+      setStep(
+        (activeIndex + 1) %
+        steps.length
+      );
+
+    }
+
+    if (event.key === "ArrowLeft") {
+
+      setStep(
+        (activeIndex - 1 + steps.length) %
+        steps.length
+      );
+
+    }
+
+  });
+
+
+  /* ---------- ПЕРВЫЙ ЗАПУСК ---------- */
+
+  setStep(0);
+
+
+  window.addEventListener("resize", () => {
+
+    moveTraveler(activeIndex, false);
+
+  });
+
+})();
