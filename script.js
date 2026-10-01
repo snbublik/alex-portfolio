@@ -298,49 +298,62 @@ if (softCarousel) {
   });
 
 
-  /* -----------------------------------------
-     Автоперелистывание
-  ----------------------------------------- */
+/* -----------------------------------------
+   Автоперелистывание
+----------------------------------------- */
 
-  function startSoftAutoplay() {
+function startSoftAutoplay() {
 
-    if (
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches
-    ) {
-      return;
-    }
-
-    softAutoplay = setInterval(
-      nextSoftSkill,
-      5000
-    );
-
+  if (
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+  ) {
+    return;
   }
 
-
-  function stopSoftAutoplay() {
-
-    if (softAutoplay) {
-
-      clearInterval(softAutoplay);
-
-      softAutoplay = null;
-
-    }
-
+  // Не запускаем второй таймер,
+  // если автоперелистывание уже работает.
+  if (softAutoplay !== null) {
+    return;
   }
 
+  softAutoplay = setTimeout(() => {
 
-  function restartSoftAutoplay() {
+    // Сначала сбрасываем текущий таймер
+    softAutoplay = null;
 
-    stopSoftAutoplay();
+    // Перелистываем только на одну карточку
+    nextSoftSkill();
 
+    // Запускаем отсчёт следующего перелистывания
     startSoftAutoplay();
 
+  }, 5000);
+
+}
+
+
+function stopSoftAutoplay() {
+
+  if (softAutoplay !== null) {
+
+    clearTimeout(softAutoplay);
+
+    softAutoplay = null;
+
   }
 
+}
+
+
+function restartSoftAutoplay() {
+
+  stopSoftAutoplay();
+
+  startSoftAutoplay();
+
+}
 
   /* -----------------------------------------
      Пауза при наведении
