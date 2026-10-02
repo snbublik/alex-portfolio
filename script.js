@@ -454,3 +454,257 @@ function restartSoftAutoplay() {
   startSoftAutoplay();
 
 }
+// =========================================================
+// 05. КАК Я РАБОТАЮ — WORK PROCESS
+// =========================================================
+
+const workProcess = document.querySelector(".work-process-section");
+
+if (workProcess) {
+
+  const processSteps = Array.from(
+    workProcess.querySelectorAll(".work-process-step")
+  );
+
+  const processPanels = Array.from(
+    workProcess.querySelectorAll(".work-process-panel")
+  );
+
+  const processPrev = workProcess.querySelector(
+    ".work-process-arrow-prev"
+  );
+
+  const processNext = workProcess.querySelector(
+    ".work-process-arrow-next"
+  );
+
+  const processCounter = workProcess.querySelector(
+    ".work-process-current b"
+  );
+
+  let processActiveIndex = 0;
+
+
+  /* =====================================================
+     ОБНОВЛЕНИЕ СОСТОЯНИЯ
+  ===================================================== */
+
+  function updateWorkProcess() {
+
+    /* этапы */
+
+    processSteps.forEach((step, index) => {
+
+      step.classList.toggle(
+        "is-active",
+        index === processActiveIndex
+      );
+
+      step.setAttribute(
+        "aria-selected",
+        index === processActiveIndex
+          ? "true"
+          : "false"
+      );
+
+    });
+
+
+    /* карточки */
+
+    processPanels.forEach((panel, index) => {
+
+      panel.classList.toggle(
+        "is-active",
+        index === processActiveIndex
+      );
+
+    });
+
+
+    /* счётчик */
+
+    if (processCounter) {
+
+      processCounter.textContent =
+        String(processActiveIndex + 1).padStart(2, "0");
+
+    }
+
+  }
+
+
+  /* =====================================================
+     ПЕРЕХОД К ЭТАПУ
+  ===================================================== */
+
+  function goToWorkProcess(index) {
+
+    if (index < 0) {
+      index = processSteps.length - 1;
+    }
+
+    if (index >= processSteps.length) {
+      index = 0;
+    }
+
+    processActiveIndex = index;
+
+    updateWorkProcess();
+
+  }
+
+
+  /* =====================================================
+     КЛИК ПО ЭТАПАМ
+  ===================================================== */
+
+  processSteps.forEach((step, index) => {
+
+    step.addEventListener("click", () => {
+
+      goToWorkProcess(index);
+
+    });
+
+  });
+
+
+  /* =====================================================
+     ПРЕДЫДУЩИЙ
+  ===================================================== */
+
+  if (processPrev) {
+
+    processPrev.addEventListener("click", () => {
+
+      goToWorkProcess(
+        processActiveIndex - 1
+      );
+
+    });
+
+  }
+
+
+  /* =====================================================
+     СЛЕДУЮЩИЙ
+  ===================================================== */
+
+  if (processNext) {
+
+    processNext.addEventListener("click", () => {
+
+      goToWorkProcess(
+        processActiveIndex + 1
+      );
+
+    });
+
+  }
+
+
+  /* =====================================================
+     КЛАВИАТУРА
+  ===================================================== */
+
+  processSteps.forEach((step, index) => {
+
+    step.setAttribute("aria-selected", "false");
+
+    step.addEventListener("keydown", (event) => {
+
+      if (event.key === "ArrowRight") {
+
+        event.preventDefault();
+
+        goToWorkProcess(index + 1);
+
+        processSteps[
+          processActiveIndex
+        ].focus();
+
+      }
+
+
+      if (event.key === "ArrowLeft") {
+
+        event.preventDefault();
+
+        goToWorkProcess(index - 1);
+
+        processSteps[
+          processActiveIndex
+        ].focus();
+
+      }
+
+    });
+
+  });
+
+
+  /* =====================================================
+     TOUCH / SWIPE
+  ===================================================== */
+
+  let processTouchStartX = 0;
+  let processTouchEndX = 0;
+
+
+  workProcess.addEventListener(
+    "touchstart",
+    (event) => {
+
+      processTouchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+  );
+
+
+  workProcess.addEventListener(
+    "touchend",
+    (event) => {
+
+      processTouchEndX =
+        event.changedTouches[0].screenX;
+
+      const distance =
+        processTouchEndX - processTouchStartX;
+
+
+      /* слишком короткий свайп игнорируем */
+
+      if (Math.abs(distance) < 45) {
+        return;
+      }
+
+
+      if (distance < 0) {
+
+        goToWorkProcess(
+          processActiveIndex + 1
+        );
+
+      } else {
+
+        goToWorkProcess(
+          processActiveIndex - 1
+        );
+
+      }
+
+    },
+    { passive: true }
+  );
+
+
+  /* =====================================================
+     ПЕРВИЧНАЯ ИНИЦИАЛИЗАЦИЯ
+  ===================================================== */
+
+  updateWorkProcess();
+
+}
