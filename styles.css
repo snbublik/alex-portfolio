@@ -4204,3 +4204,113 @@ h2 span { color: var(--pink); }
   }
 
 }
+/* =========================================================
+   BLOG — ФИНАЛЬНАЯ НАСТРОЙКА HERO
+========================================================= */
+
+/* ---------------------------------------------------------
+   ШАПКА БЛОГА
+--------------------------------------------------------- */
+
+.blog-page ~ * {
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.blog-hero {
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+
+  min-height: 230px;
+
+  padding-top: 10px;
+}
+
+.blog-hero-main {
+  max-width: 900px;
+}
+
+.blog-hero h1 {
+  max-width: 850px;
+
+  font-size: clamp(48px, 5vw, 76px);
+
+  line-height: .94;
+}
+
+
+/* ---------------------------------------------------------
+   ТЕКСТ СПРАВА
+--------------------------------------------------------- */
+
+.blog-hero-text {
+  align-self: end;
+
+  padding-bottom: 12px;
+}
+
+.blog-hero-text p {
+  max-width: 360px;
+}
+
+
+/* ---------------------------------------------------------
+   ФИГУРЫ
+--------------------------------------------------------- */
+
+.blog-hero-shape {
+  right: 35px;
+  top: 35px;
+
+  transform: scale(.9);
+}
+
+
+/* ---------------------------------------------------------
+   ПЕРВЫЙ БЛОК ПОСЛЕ HERO
+--------------------------------------------------------- */
+
+.blog-categories {
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   HEADER BLOG — ОДНА СТРОКА
+========================================================= */
+
+@media (min-width: 761px) {
+
+  .blog-page {
+    padding-top: 45px;
+  }
+
+  .site-header-inner {
+    display: grid;
+    grid-template-columns: auto minmax(180px, 1fr) auto;
+
+    align-items: center;
+
+    column-gap: 40px;
+  }
+
+  .site-header-line {
+    display: block;
+  }
+
+  .main-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 36px;
+  }
+
+  .main-nav a {
+    white-space: nowrap;
+  }
+
+}
