@@ -4314,3 +4314,23 @@ h2 span { color: var(--pink); }
   }
 
 }
+/* =========================================================
+   BLOG — HERO TITLE
+========================================================= */
+
+.blog-hero h1 {
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.blog-hero-main {
+  min-width: 0;
+}
+.blog-hero {
+  padding-bottom: 30px;
+}
+
+.blog-categories {
+  margin-top: 0;
+}
