@@ -3335,3 +3335,101 @@ h2 span { color: var(--pink); }
   }
 
 }
+/* =========================================================
+   05. WORK PROCESS — ФИНАЛЬНАЯ НАСТРОЙКА
+========================================================= */
+
+/* Заголовок делаем чуть компактнее */
+
+.work-process-title h2 {
+  font-size: clamp(42px, 4.2vw, 64px);
+}
+
+
+/* Чуть меньше расстояние между заголовком и этапами */
+
+.work-process-heading {
+  margin-bottom: 36px;
+}
+
+
+/* Этапы */
+
+.work-process-steps {
+  margin-bottom: 28px;
+}
+
+
+/* Круги этапов — как в референсе */
+
+.work-process-number {
+  width: 56px;
+  height: 56px;
+}
+
+
+/* Названия этапов чуть компактнее */
+
+.work-process-step-title {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* Карточка */
+
+.work-process-panel {
+  min-height: 270px;
+  padding: 34px 36px;
+  border-radius: 28px;
+}
+
+
+/* Заголовок внутри карточки */
+
+.work-process-panel h3 {
+  margin-bottom: 12px;
+  font-size: clamp(25px, 2vw, 32px);
+}
+
+
+/* Текст карточки */
+
+.work-process-panel p {
+  max-width: 650px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+
+/* Декоративный блок */
+
+.work-process-visual {
+  width: 225px;
+  height: 198px;
+}
+
+
+/* Малиновый круг */
+
+.work-shape-pink {
+  width: 108px;
+  height: 108px;
+}
+
+
+/* Оливковый круг */
+
+.work-shape-olive {
+  width: 58px;
+  height: 58px;
+}
+
+
+/* Нижняя навигация */
+
+.work-process-controls {
+  margin-top: 16px;
+}
