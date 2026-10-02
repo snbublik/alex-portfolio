@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Почему хороший контент не всегда продаёт — статья Александры о стратегии, смыслах и маркетинге.">
+  <title>Почему хороший контент не всегда продаёт — Александра</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="blog-page article-page">
+  <header class="site-header">
+    <a class="brand" href="index.html#top">АЛЕКСАНДРА</a>
+    <span class="header-rule" aria-hidden="true"></span>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="index.html#about">Обо мне</a><a href="index.html#approach">Обучение</a><a href="index.html#cases">Кейсы</a><a href="index.html#process">Как я работаю</a><a class="is-active" href="blog.html">Блог</a><a href="index.html#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <main class="article-main section-wrap">
+    <a class="article-back" href="blog.html">← &nbsp; Все статьи</a>
+    <div class="article-head">
+      <div>
+        <div class="article-meta"><span>КОНТЕНТ</span> · 12 ИЮЛЯ 2024</div>
+        <h1>Почему хороший контент<br>не всегда продаёт</h1>
+        <p class="article-lead">О стратегии, смыслах и том, почему публикация сама по себе не является маркетингом.</p>
+      </div>
+      <div class="article-cover image-slot image-slot-content"><img src="assets/blog/content.png" alt="Иллюстрация статьи" onerror="this.style.display='none'"></div>
+    </div>
+
+    <div class="article-layout">
+      <aside class="article-toc">
+        <strong>Содержание</strong>
+        <a href="#one">01 &nbsp; Контент и продажи</a>
+        <a href="#two">02 &nbsp; Где действительно работает контент</a>
+        <a href="#three">03 &nbsp; Что усиливает эффект</a>
+        <a href="#four">04 &nbsp; Практические рекомендации</a>
+        <a href="#five">05 &nbsp; В заключение</a>
+      </aside>
+      <article class="article-body">
+        <p>Многие считают, что достаточно просто регулярно публиковать посты, чтобы клиенты начали приходить. Но контент сам по себе — это только часть большой системы. Важно понимать, какую задачу он решает, для кого создан и что происходит с человеком после знакомства с материалом.</p>
+        <h2 id="one">01. Контент ≠ продажи</h2>
+        <p>Контент помогает привлекать внимание, выстраивать доверие и формировать узнаваемость. Но он редко работает сам по себе, без чёткой стратегии, оффера и продуманного пути клиента.</p>
+        <div class="article-quote">Хороший материал не обязан продавать напрямую. Он должен выполнять свою роль в системе.</div>
+        <h2 id="two">02. Где действительно работает контент</h2>
+        <p>На разных этапах воронки один и тот же формат может выполнять разные функции: объяснять, прогревать, снимать возражения, показывать экспертизу или возвращать внимание к продукту.</p>
+        <h2 id="three">03. Что усиливает эффект</h2>
+        <ul><li>Понятная цель каждого материала.</li><li>Связь с задачей бизнеса.</li><li>Понимание аудитории и её контекста.</li><li>Понятный следующий шаг для читателя.</li><li>Анализ результата, а не только охватов.</li></ul>
+        <h2 id="four">04. Практические рекомендации</h2>
+        <p>Перед публикацией полезно задать себе три вопроса: какую проблему аудитории решает материал, какую мысль человек должен унести и какое действие логично сделать дальше.</p>
+        <div class="article-image image-slot image-slot-content-alt"><img src="assets/blog/content-alt.png" alt="Декоративная иллюстрация" onerror="this.style.display='none'"></div>
+        <h2 id="five">05. В заключение</h2>
+        <p>Контент становится маркетингом тогда, когда встроен в систему. Поэтому я всегда начинаю не с вопроса «что сегодня опубликовать?», а с вопроса «какую задачу бизнеса мы сейчас решаем?».</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="index.html#top">АЛЕКСАНДРА</a><span>DIGITAL-МАРКЕТОЛОГ</span><a href="#top">Наверх ↑</a><small>© <span id="year"></span> Александра</small></footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

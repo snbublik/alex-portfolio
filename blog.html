@@ -1,569 +1,124 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Блог — Александра</title>
-
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Блог Александры — идеи и практические материалы о маркетинге, SMM, контенте, аналитике, CRM и digital.">
+  <meta name="theme-color" content="#F9F7F7">
+  <title>Блог — Александра | Digital-маркетолог</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-
-<body>
-
-
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
-
+<body class="blog-page">
   <header class="site-header">
-
-    <div class="site-header-inner">
-
-      <a
-        class="site-logo"
-        href="index.html"
-        aria-label="Александра — главная"
-      >
-        АЛЕКСАНДРА
-      </a>
-
-
-      <div class="site-header-line"></div>
-
-
-      <nav class="main-nav">
-
-        <a href="index.html#about">
-          ОБО МНЕ
-        </a>
-
-        <a href="index.html#approach">
-          ОБУЧЕНИЕ
-        </a>
-
-        <a href="index.html#cases">
-          КЕЙСЫ
-        </a>
-
-        <a href="index.html#process">
-          КАК Я РАБОТАЮ
-        </a>
-
-        <a
-          href="blog.html"
-          class="is-active"
-        >
-          БЛОГ
-        </a>
-
-        <a href="index.html#contacts">
-          КОНТАКТЫ
-        </a>
-
-      </nav>
-
-
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-label="Открыть меню"
-      >
-        <span></span>
-        <span></span>
-      </button>
-
-    </div>
-
+    <a class="brand" href="index.html#top" aria-label="Александра — на главную">АЛЕКСАНДРА</a>
+    <span class="header-rule" aria-hidden="true"></span>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="index.html#about">Обо мне</a>
+      <a href="index.html#approach">Обучение</a>
+      <a href="index.html#cases">Кейсы</a>
+      <a href="index.html#process">Как я работаю</a>
+      <a class="is-active" href="blog.html">Блог</a>
+      <a href="index.html#contacts">Контакты</a>
+    </nav>
   </header>
 
-
-
-  <!-- =====================================================
-       BLOG
-  ====================================================== -->
-
-  <main class="blog-page">
-
-
-    <!-- HERO -->
-
-    <section class="blog-hero">
-
-      <div class="blog-hero-main">
-
-        <p class="section-index">
-          07 / БЛОГ
-        </p>
-
-        <h1>
-          Идеи,<br>
-          <span>которые работают.</span>
-        </h1>
-
+  <main>
+    <section class="blog-hero section-wrap">
+      <div class="blog-hero-copy">
+        <p class="section-index">07 / БЛОГ</p>
+        <h1>Идеи,<br><span>которые работают.</span></h1>
       </div>
-
-
-      <div class="blog-hero-text">
-
-        <p>
-          Здесь я разбираю маркетинг,
-          контент и digital без лишнего шума.
-        </p>
-
+      <div class="blog-hero-side">
+        <div class="blog-orb blog-orb-pink"></div>
+        <div class="blog-orb blog-orb-olive"></div>
+        <p>Здесь я разбираю маркетинг, контент и digital без лишнего шума.</p>
       </div>
-
-
-      <div
-        class="blog-hero-shape"
-        aria-hidden="true"
-      >
-        <span class="blog-shape-pink"></span>
-        <span class="blog-shape-olive"></span>
-      </div>
-
     </section>
 
+    <section class="section-wrap blog-content">
+      <div class="blog-filters" role="tablist" aria-label="Фильтр статей">
+        <button class="blog-filter is-active" data-filter="all">Все</button>
+        <button class="blog-filter" data-filter="marketing">Маркетинг</button>
+        <button class="blog-filter" data-filter="smm">SMM</button>
+        <button class="blog-filter" data-filter="content">Контент</button>
+        <button class="blog-filter" data-filter="analytics">Аналитика</button>
+        <button class="blog-filter" data-filter="crm">CRM</button>
+        <button class="blog-filter" data-filter="digital">Digital</button>
+      </div>
 
-
-    <!-- CATEGORIES -->
-
-    <section class="blog-categories">
-
-      <button
-        class="blog-category is-active"
-        type="button"
-        data-category="all"
-      >
-        Все
-      </button>
-
-      <button
-        class="blog-category"
-        type="button"
-        data-category="marketing"
-      >
-        Маркетинг
-      </button>
-
-      <button
-        class="blog-category"
-        type="button"
-        data-category="smm"
-      >
-        SMM
-      </button>
-
-      <button
-        class="blog-category"
-        type="button"
-        data-category="content"
-      >
-        Контент
-      </button>
-
-      <button
-        class="blog-category"
-        type="button"
-        data-category="analytics"
-      >
-        Аналитика
-      </button>
-
-      <button
-        class="blog-category"
-        type="button"
-        data-category="crm"
-      >
-        CRM
-      </button>
-
-      <button
-        class="blog-category"
-        type="button"
-        data-category="digital"
-      >
-        Digital
-      </button>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         FEATURED ARTICLE
-    ====================================================== -->
-
-    <section class="blog-featured">
-
-      <div class="blog-featured-content">
-
-        <span class="blog-card-label">
-          РЕКОМЕНДУЮ К ПРОЧТЕНИЮ
-        </span>
-
-        <h2>
-          Почему хороший контент
-          не всегда продаёт
-        </h2>
-
-        <p>
-          О стратегии, смыслах и том,
-          почему публикация сама по себе
-          не является маркетингом.
-        </p>
-
-        <div class="blog-card-meta">
-          <span>12 июля 2024</span>
-          <span>·</span>
-          <span>Контент</span>
+      <article class="blog-featured" data-category="content">
+        <div class="blog-featured-copy">
+          <p class="blog-label">РЕКОМЕНДУЮ К ПРОЧТЕНИЮ</p>
+          <h2>Почему хороший контент не всегда продаёт</h2>
+          <p>О стратегии, смыслах и том, почему публикация сама по себе не является маркетингом.</p>
+          <div class="blog-meta">12 июля 2024 <span>·</span> Контент</div>
+          <a class="blog-read-button" href="article.html">Читать <span>→</span></a>
         </div>
-
-        <a
-          href="article.html"
-          class="blog-read-button"
-        >
-          Читать
-          <span>→</span>
+        <a class="blog-featured-image image-slot image-slot-content" href="article.html" aria-label="Открыть статью">
+          <img src="assets/blog/content.png" alt="Иллюстрация статьи о контенте" onerror="this.style.display='none'">
         </a>
+      </article>
 
+      <div class="blog-grid">
+        <article class="blog-card" data-category="marketing">
+          <div class="blog-card-copy"><p class="blog-card-label">01 / МАРКЕТИНГ</p><h3>Почему маркетологу недостаточно просто запускать рекламу</h3><p>Что ещё важно учитывать, чтобы реклама действительно работала на бизнес.</p><div class="blog-card-bottom"><span>8 июля 2024</span><a href="article.html">Читать →</a></div></div>
+          <div class="blog-card-image image-slot image-slot-marketing"><img src="assets/blog/marketing.png" alt="Маркетинг" onerror="this.style.display='none'"></div>
+        </article>
+        <article class="blog-card" data-category="smm">
+          <div class="blog-card-copy"><p class="blog-card-label">02 / SMM</p><h3>Что на самом деле делает контент-стратегия</h3><p>Как контент помогает бизнесу, а не просто заполняет ленту.</p><div class="blog-card-bottom"><span>25 июня 2024</span><a href="article.html">Читать →</a></div></div>
+          <div class="blog-card-image image-slot image-slot-smm"><img src="assets/blog/smm.png" alt="SMM" onerror="this.style.display='none'"></div>
+        </article>
+        <article class="blog-card" data-category="analytics">
+          <div class="blog-card-copy"><p class="blog-card-label">03 / АНАЛИТИКА</p><h3>Почему цифры не всегда показывают всю картину</h3><p>На какие метрики ещё смотреть и как читать данные глубже.</p><div class="blog-card-bottom"><span>18 июня 2024</span><a href="article.html">Читать →</a></div></div>
+          <div class="blog-card-image image-slot image-slot-analytics"><img src="assets/blog/analytics.png" alt="Аналитика" onerror="this.style.display='none'"></div>
+        </article>
+        <article class="blog-card" data-category="content">
+          <div class="blog-card-copy"><p class="blog-card-label">04 / КОНТЕНТ</p><h3>Как понять, что контент решает задачу бизнеса</h3><p>Пошаговый подход к оценке эффективности контента.</p><div class="blog-card-bottom"><span>3 июня 2024</span><a href="article.html">Читать →</a></div></div>
+          <div class="blog-card-image image-slot image-slot-content-alt"><img src="assets/blog/content-alt.png" alt="Контент" onerror="this.style.display='none'"></div>
+        </article>
+        <article class="blog-card" data-category="crm">
+          <div class="blog-card-copy"><p class="blog-card-label">05 / CRM</p><h3>Что происходит с заявкой после рекламы</h3><p>Как выстроить процесс, чтобы не терять клиентов.</p><div class="blog-card-bottom"><span>20 мая 2024</span><a href="article.html">Читать →</a></div></div>
+          <div class="blog-card-image image-slot image-slot-crm"><img src="assets/blog/crm.png" alt="CRM" onerror="this.style.display='none'"></div>
+        </article>
+        <article class="blog-card" data-category="digital">
+          <div class="blog-card-copy"><p class="blog-card-label">06 / DIGITAL</p><h3>5 вещей, которые я поняла, работая в digital</h3><p>Личный опыт, наблюдения и выводы, которые помогают в работе сейчас.</p><div class="blog-card-bottom"><span>10 мая 2024</span><a href="article.html">Читать →</a></div></div>
+          <div class="blog-card-image image-slot image-slot-digital"><img src="assets/blog/digital.png" alt="Digital" onerror="this.style.display='none'"></div>
+        </article>
       </div>
 
-
-      <div class="blog-featured-image">
-        <div class="blog-image-placeholder">
-          <span></span>
-        </div>
-      </div>
-
+      <button class="blog-more" type="button">Показать ещё статьи <span>⌄</span></button>
     </section>
-
-
-
-    <!-- =====================================================
-         ARTICLES
-    ====================================================== -->
-
-    <section class="blog-grid">
-
-
-      <!-- 01 -->
-
-      <article
-        class="blog-card"
-        data-category="marketing"
-      >
-
-        <div class="blog-card-info">
-
-          <span class="blog-card-category">
-            01 / МАРКЕТИНГ
-          </span>
-
-          <h3>
-            Почему маркетологу
-            недостаточно просто
-            запускать рекламу
-          </h3>
-
-          <p>
-            Что ещё важно учитывать,
-            чтобы реклама действительно
-            работала на бизнес.
-          </p>
-
-          <div class="blog-card-bottom">
-
-            <span>
-              8 июля 2024
-            </span>
-
-            <a href="article.html">
-              Читать →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="blog-card-image">
-          <span></span>
-        </div>
-
-      </article>
-
-
-
-      <!-- 02 -->
-
-      <article
-        class="blog-card"
-        data-category="smm"
-      >
-
-        <div class="blog-card-info">
-
-          <span class="blog-card-category">
-            02 / SMM
-          </span>
-
-          <h3>
-            Что на самом деле
-            делает контент-
-            стратегия
-          </h3>
-
-          <p>
-            Как контент помогает бизнесу,
-            а не просто заполняет ленту.
-          </p>
-
-          <div class="blog-card-bottom">
-
-            <span>
-              25 июня 2024
-            </span>
-
-            <a href="article.html">
-              Читать →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="blog-card-image">
-          <span></span>
-        </div>
-
-      </article>
-
-
-
-      <!-- 03 -->
-
-      <article
-        class="blog-card"
-        data-category="analytics"
-      >
-
-        <div class="blog-card-info">
-
-          <span class="blog-card-category">
-            03 / АНАЛИТИКА
-          </span>
-
-          <h3>
-            Почему цифры
-            не всегда показывают
-            всю картину
-          </h3>
-
-          <p>
-            На какие метрики ещё смотреть
-            и как читать данные глубже.
-          </p>
-
-          <div class="blog-card-bottom">
-
-            <span>
-              18 июня 2024
-            </span>
-
-            <a href="article.html">
-              Читать →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="blog-card-image">
-          <span></span>
-        </div>
-
-      </article>
-
-
-
-      <!-- 04 -->
-
-      <article
-        class="blog-card"
-        data-category="content"
-      >
-
-        <div class="blog-card-info">
-
-          <span class="blog-card-category">
-            04 / КОНТЕНТ
-          </span>
-
-          <h3>
-            Как понять,
-            что контент решает
-            задачу бизнеса
-          </h3>
-
-          <p>
-            Пошаговый подход к оценке
-            эффективности контента.
-          </p>
-
-          <div class="blog-card-bottom">
-
-            <span>
-              3 июня 2024
-            </span>
-
-            <a href="article.html">
-              Читать →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="blog-card-image">
-          <span></span>
-        </div>
-
-      </article>
-
-
-
-      <!-- 05 -->
-
-      <article
-        class="blog-card"
-        data-category="crm"
-      >
-
-        <div class="blog-card-info">
-
-          <span class="blog-card-category">
-            05 / CRM
-          </span>
-
-          <h3>
-            Что происходит
-            с заявкой после
-            рекламы
-          </h3>
-
-          <p>
-            Как выстроить процесс,
-            чтобы не терять клиентов.
-          </p>
-
-          <div class="blog-card-bottom">
-
-            <span>
-              20 мая 2024
-            </span>
-
-            <a href="article.html">
-              Читать →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="blog-card-image">
-          <span></span>
-        </div>
-
-      </article>
-
-
-
-      <!-- 06 -->
-
-      <article
-        class="blog-card"
-        data-category="digital"
-      >
-
-        <div class="blog-card-info">
-
-          <span class="blog-card-category">
-            06 / DIGITAL
-          </span>
-
-          <h3>
-            5 вещей,
-            которые я поняла,
-            работая в digital
-          </h3>
-
-          <p>
-            Личный опыт, наблюдения
-            и выводы, которые помогают
-            в работе сейчас.
-          </p>
-
-          <div class="blog-card-bottom">
-
-            <span>
-              10 мая 2024
-            </span>
-
-            <a href="article.html">
-              Читать →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="blog-card-image">
-          <span></span>
-        </div>
-
-      </article>
-
-
-    </section>
-
-
-
-    <!-- LOAD MORE -->
-
-    <div class="blog-load-more">
-
-      <button type="button">
-        Показать ещё статьи
-        <span>⌄</span>
-      </button>
-
-    </div>
-
-
   </main>
 
-
+  <footer class="site-footer">
+    <a class="brand" href="index.html#top">АЛЕКСАНДРА</a>
+    <span>DIGITAL-МАРКЕТОЛОГ</span>
+    <a href="#top">Наверх ↑</a>
+    <small>© <span id="year"></span> Александра</small>
+  </footer>
 
   <script src="script.js"></script>
-
+  <script>
+    (() => {
+      const buttons = document.querySelectorAll('.blog-filter');
+      const cards = document.querySelectorAll('[data-category]');
+      buttons.forEach(button => button.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+        const filter = button.dataset.filter;
+        cards.forEach(card => {
+          card.hidden = filter !== 'all' && card.dataset.category !== filter;
+        });
+      }));
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
-
 </html>
