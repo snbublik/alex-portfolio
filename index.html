@@ -632,28 +632,131 @@
         </svg>
       </div>
     </section>
-    <section class="section-wrap cases-section" id="cases" aria-labelledby="cases-title">
-      <div class="cases-intro">
-        <h2 id="cases-title">МОЯ РАБОТА<br>В <span>ДЕЙСТВИИ</span></h2>
-        <p>Реальные проекты, конкретные задачи и измеримые результаты.</p>
-        <a class="button button-primary" href="#unic ar-case" onclick="return false">Смотреть все кейсы <span aria-hidden="true">→</span></a>
-      </div>
-      <article class="featured-case" id="unicar-case">
+  
+<section class="section-wrap cases-section" id="cases" aria-labelledby="cases-title">
+
+  <!-- Заголовок слева -->
+  <div class="cases-intro">
+    <h2 id="cases-title">МОЯ РАБОТА<br>В <span>ДЕЙСТВИИ</span></h2>
+    <p>Реальные проекты, конкретные задачи и измеримые результаты.</p>
+    <a class="button button-primary" href="#case-carousel">
+      Смотреть все кейсы <span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <!-- Карусель проектов -->
+  <div class="cases-carousel" id="case-carousel"
+       aria-label="Мои проекты">
+
+    <!-- Большая карточка выбранного проекта -->
+    <article class="featured-case" data-case-id="unicar">
+
+      <button class="case-open-area" type="button"
+              data-open-case="unicar"
+              aria-label="Подробнее о проекте Юникар">
+
         <div class="case-visual">
           <div class="case-placeholder">
             <span class="case-number">01 / ПРОЕКТ</span>
             <div class="case-brand">ЮНИКАР</div>
             <p>Комплексный digital-маркетинг автосалона</p>
-            <div class="case-tags"><span>Стратегия</span><span>Реклама</span><span>Контент</span><span>Яндекс Карты</span><span>Авито</span><span>Лидогенерация</span></div>
+
+            <div class="case-tags">
+              <span>Стратегия</span>
+              <span>Реклама</span>
+              <span>Контент</span>
+              <span>Яндекс Карты</span>
+              <span>Авито</span>
+              <span>Лидогенерация</span>
+            </div>
           </div>
         </div>
-        <div class="case-footer"><span>ЮНИКАР · АВТОМОБИЛЬНЫЙ БИЗНЕС</span><a href="#contacts" aria-label="Обсудить кейс Юникар">↗</a></div>
-      </article>
-      <div class="case-teasers" aria-label="Другие проекты в подготовке">
-        <div class="teaser-card"><span class="teaser-number">02 /</span><span class="teaser-title">Новый проект</span><span class="teaser-caption">Кейс появится позже</span><span class="teaser-arrow">↗</span></div>
-        <div class="teaser-card"><span class="teaser-number">03 /</span><span class="teaser-title">Новый проект</span><span class="teaser-caption">Кейс появится позже</span><span class="teaser-arrow">↗</span></div>
+
+      </button>
+
+      <div class="case-footer">
+        <span>ЮНИКАР · АВТОМОБИЛЬНЫЙ БИЗНЕС</span>
+
+        <!-- Эта стрелка переключает проекты -->
+        <button class="case-next" type="button"
+                aria-label="Следующий проект">
+          ↗
+        </button>
       </div>
-    </section>
+    </article>
+
+    <!-- Два следующих проекта -->
+    <div class="case-teasers">
+
+      <article class="teaser-card" data-case-id="project-02">
+        <span class="teaser-number">02 /</span>
+        <button class="teaser-open" type="button"
+                data-open-case="project-02">
+          <span class="teaser-title">Новый проект</span>
+          <span class="teaser-caption">Кейс появится позже</span>
+        </button>
+        <span class="teaser-arrow" aria-hidden="true">↗</span>
+      </article>
+
+      <article class="teaser-card" data-case-id="project-03">
+        <span class="teaser-number">03 /</span>
+        <button class="teaser-open" type="button"
+                data-open-case="project-03">
+          <span class="teaser-title">Новый проект</span>
+          <span class="teaser-caption">Кейс появится позже</span>
+        </button>
+        <span class="teaser-arrow" aria-hidden="true">↗</span>
+      </article>
+
+      <!-- Кнопка возврата к предыдущим проектам -->
+      <button class="cases-prev" type="button"
+              aria-label="Предыдущий проект">
+        ←
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Модальное окно с подробностями кейса -->
+  <div class="case-modal" id="case-modal"
+       hidden
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="case-modal-title">
+
+    <div class="case-modal-backdrop" data-close-case></div>
+
+    <div class="case-modal-content">
+      <button class="case-modal-close" type="button"
+              data-close-case
+              aria-label="Закрыть кейс">
+        ×
+      </button>
+
+      <span class="case-modal-number">01 / ПРОЕКТ</span>
+      <h3 id="case-modal-title">ЮНИКАР</h3>
+
+      <p class="case-modal-description">
+        Комплексный digital-маркетинг автосалона.
+      </p>
+
+      <div class="case-modal-body">
+        <!-- Подробное описание проекта добавим отдельно -->
+      </div>
+
+      <div class="case-modal-navigation">
+        <button class="case-modal-prev" type="button">
+          ← Предыдущий кейс
+        </button>
+        <button class="case-modal-next" type="button">
+          Следующий кейс →
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <!-- =====================================================
      05. КАК Я РАБОТАЮ
 ===================================================== -->
