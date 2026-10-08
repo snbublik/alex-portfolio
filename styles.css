@@ -4928,3 +4928,640 @@ h2 span { color: var(--pink); }
     left: 15px;
   }
 }
+
+/* ========================================
+   CASES — интерактивная карусель проектов
+   ======================================== */
+
+.cases-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 2fr);
+  align-items: center;
+  gap: clamp(24px, 3vw, 48px);
+  padding-top: clamp(70px, 9vw, 120px);
+  padding-bottom: clamp(70px, 9vw, 120px);
+}
+
+/* Заголовок слева */
+
+.cases-section .cases-intro {
+  min-width: 0;
+  align-self: center;
+}
+
+.cases-section .cases-intro h2 {
+  margin: 0 0 24px;
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(32px, 4.2vw, 76px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+  overflow-wrap: anywhere;
+}
+
+.cases-section .cases-intro h2 span {
+  color: #D10068;
+}
+
+.cases-section .cases-intro p {
+  max-width: 360px;
+  margin: 0 0 30px;
+  color: #666166;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.cases-section .cases-intro .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 60px;
+  padding: 0 24px;
+  border-radius: 15px;
+  background: #D10068;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cases-section .cases-intro .button:hover {
+  background: #AD0057;
+  transform: translateY(-2px);
+}
+
+/* Расположение большой и маленьких карточек */
+
+.cases-section .cases-carousel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(170px, 0.95fr);
+  align-items: center;
+  gap: clamp(16px, 1.6vw, 30px);
+  min-width: 0;
+}
+
+/* Большая карточка */
+
+.cases-section .featured-case {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 440px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #191919;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.cases-section .case-open-area {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background:
+    radial-gradient(
+      ellipse at 78% 68%,
+      rgba(255, 255, 255, 0.12),
+      transparent 43%
+    ),
+    linear-gradient(145deg, #292929, #1D1D1D);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cases-section .case-visual {
+  display: flex;
+  min-height: 345px;
+  height: 100%;
+  padding: clamp(24px, 2vw, 38px);
+  align-items: center;
+}
+
+.cases-section .case-placeholder {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.cases-section .case-placeholder::after {
+  position: absolute;
+  z-index: 0;
+  top: 44%;
+  right: -20%;
+  width: 75%;
+  height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  content: "";
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.cases-section .case-number {
+  display: block;
+  margin-bottom: 44px;
+  color: #C6C6C6;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.cases-section .case-brand {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(26px, 3vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+
+.cases-section .case-placeholder > p {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  margin: 0 0 20px;
+  color: #D2D2D2;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.cases-section .case-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cases-section .case-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 11px;
+  border: 1px solid #666;
+  border-radius: 30px;
+  color: #F3F3F3;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Нижняя полоса и стрелка переключения */
+
+.cases-section .case-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 80px;
+  padding: 16px 24px;
+  background: #191919;
+}
+
+.cases-section .case-footer > span {
+  color: #E6E6E6;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.cases-section .case-next,
+.cases-section .cases-prev {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 25px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cases-section .case-next:hover {
+  border-color: #D10068;
+  background: #D10068;
+  transform: rotate(45deg);
+}
+
+/* Две карточки справа */
+
+.cases-section .case-teasers {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.cases-section .teaser-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 115px;
+  padding: 20px 42px 18px 20px;
+  border: 1px solid #D9D4D7;
+  border-radius: 19px;
+  background: transparent;
+  color: #171517;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cases-section .teaser-card:hover {
+  border-color: #D10068;
+  background: #FFFDFE;
+  transform: translateX(3px);
+}
+
+.cases-section .teaser-number {
+  margin-bottom: 10px;
+  color: #777177;
+  font-size: 11px;
+}
+
+.cases-section .teaser-open {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cases-section .teaser-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cases-section .teaser-caption {
+  color: #777177;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.cases-section .teaser-arrow {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  font-size: 19px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cases-section .teaser-card:hover .teaser-arrow {
+  color: #D10068;
+  transform: translate(2px, -2px);
+}
+
+/* Стрелка возврата */
+
+.cases-section .cases-prev {
+  align-self: flex-end;
+  border-color: #D9D4D7;
+  color: #171517;
+  font-size: 21px;
+}
+
+.cases-section .cases-prev:hover {
+  border-color: #D10068;
+  background: #D10068;
+  color: #fff;
+}
+
+/* Фокус клавиатуры */
+
+.cases-section button:focus-visible,
+.cases-section a:focus-visible {
+  outline: 2px solid #D10068;
+  outline-offset: 4px;
+}
+
+/* ========================================
+   Модальное окно кейса
+   ======================================== */
+
+.case-modal[hidden] {
+  display: none !important;
+}
+
+.case-modal:not([hidden]) {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.case-modal .case-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 13, 14, 0.76);
+  backdrop-filter: blur(7px);
+}
+
+.case-modal .case-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 850px);
+  max-height: min(85vh, 900px);
+  padding: clamp(24px, 5vw, 56px);
+  overflow-y: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  background: #F9F7F7;
+  color: #171517;
+  animation: case-modal-enter 0.25s ease both;
+}
+
+.case-modal .case-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #D9D4D7;
+  border-radius: 50%;
+  background: transparent;
+  color: #171517;
+  font-size: 28px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.case-modal .case-modal-close:hover {
+  border-color: #D10068;
+  background: #D10068;
+  color: #fff;
+}
+
+.case-modal .case-modal-number {
+  display: block;
+  margin-bottom: 28px;
+  color: #777177;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.case-modal #case-modal-title {
+  margin: 0 50px 18px 0;
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(28px, 5vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+
+.case-modal .case-modal-description {
+  max-width: 650px;
+  margin: 0 0 28px;
+  color: #666166;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.case-modal .case-modal-body {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.case-modal .case-modal-navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid #DED9DC;
+}
+
+.case-modal .case-modal-navigation button {
+  padding: 12px 16px;
+  border: 1px solid #D9D4D7;
+  border-radius: 12px;
+  background: transparent;
+  color: #171517;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.case-modal .case-modal-navigation button:hover {
+  border-color: #D10068;
+  color: #D10068;
+}
+
+@keyframes case-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   Адаптация под планшеты
+   ======================================== */
+
+@media (max-width: 1100px) {
+  .cases-section {
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.6fr);
+    gap: 24px;
+  }
+
+  .cases-section .cases-carousel {
+    grid-template-columns: minmax(0, 1.5fr) minmax(145px, 0.9fr);
+    gap: 14px;
+  }
+
+  .cases-section .featured-case {
+    min-height: 410px;
+  }
+
+  .cases-section .case-visual {
+    min-height: 320px;
+    padding: 24px;
+  }
+
+  .cases-section .case-number {
+    margin-bottom: 30px;
+  }
+
+  .cases-section .case-tags {
+    gap: 6px;
+  }
+
+  .cases-section .case-tags span {
+    font-size: 11px;
+  }
+
+  .cases-section .teaser-card {
+    padding-left: 15px;
+    padding-right: 34px;
+  }
+
+  .cases-section .teaser-arrow {
+    right: 12px;
+  }
+}
+
+/* ========================================
+   Адаптация под мобильные устройства
+   ======================================== */
+
+@media (max-width: 760px) {
+  .cases-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .cases-section .cases-intro h2 {
+    max-width: 550px;
+    font-size: clamp(34px, 8vw, 58px);
+  }
+
+  .cases-section .cases-intro p {
+    max-width: 420px;
+    font-size: 15px;
+  }
+
+  .cases-section .cases-carousel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .cases-section .featured-case {
+    min-height: 0;
+    border-radius: 22px;
+  }
+
+  .cases-section .case-visual {
+    min-height: 310px;
+    padding: 26px;
+  }
+
+  .cases-section .case-number {
+    margin-bottom: 32px;
+  }
+
+  .cases-section .case-brand {
+    font-size: clamp(30px, 7vw, 46px);
+  }
+
+  .cases-section .case-footer {
+    min-height: 68px;
+    padding: 12px 20px;
+  }
+
+  .cases-section .case-teasers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .cases-section .teaser-card {
+    min-height: 125px;
+    padding: 16px 30px 16px 14px;
+    border-radius: 15px;
+  }
+
+  .cases-section .teaser-number {
+    margin-bottom: 8px;
+  }
+
+  .cases-section .teaser-title {
+    font-size: 13px;
+  }
+
+  .cases-section .teaser-caption {
+    font-size: 11px;
+  }
+
+  .cases-section .teaser-arrow {
+    top: 14px;
+    right: 10px;
+    font-size: 16px;
+  }
+
+  .cases-section .cases-prev {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+
+  .case-modal:not([hidden]) {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .case-modal .case-modal-content {
+    max-height: calc(100vh - 24px);
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .case-modal .case-modal-number {
+    margin-bottom: 24px;
+  }
+
+  .case-modal .case-modal-description {
+    font-size: 15px;
+  }
+
+  .case-modal .case-modal-navigation {
+    flex-direction: column;
+  }
+
+  .case-modal .case-modal-navigation button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cases-section *,
+  .case-modal .case-modal-content {
+    animation: none !important;
+    transition: none !important;
+  }
+}
