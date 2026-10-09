@@ -708,3 +708,296 @@ if (workProcess) {
   updateWorkProcess();
 
 }
+
+/* ========================================
+   CASES — карусель и модальное окно
+   ======================================== */
+
+(() => {
+  const section = document.querySelector("#cases");
+
+  // Скрипт ничего не делает на страницах без блока кейсов.
+  if (!section) return;
+
+  const featured = section.querySelector(".featured-case");
+  const mainButton = section.querySelector(".case-open-area");
+  const caseNumber = section.querySelector(".case-number");
+  const caseBrand = section.querySelector(".case-brand");
+  const caseDescription = section.querySelector(".case-placeholder > p");
+  const caseTags = section.querySelector(".case-tags");
+  const caseFooter = section.querySelector(".case-footer > span");
+
+  const teaserCards = [...section.querySelectorAll(".teaser-card")];
+  const nextButton = section.querySelector(".case-next");
+  const prevButton = section.querySelector(".cases-prev");
+
+  const modal = document.querySelector("#case-modal");
+
+  if (
+    !featured ||
+    !mainButton ||
+    !caseNumber ||
+    !caseBrand ||
+    !caseDescription ||
+    !caseTags ||
+    !caseFooter ||
+    teaserCards.length < 2 ||
+    !nextButton ||
+    !prevButton ||
+    !modal
+  ) {
+    console.warn("Карусель кейсов: проверь HTML-разметку секции #cases.");
+    return;
+  }
+
+  const modalNumber = modal.querySelector(".case-modal-number");
+  const modalTitle = modal.querySelector("#case-modal-title");
+  const modalDescription = modal.querySelector(".case-modal-description");
+  const modalBody = modal.querySelector(".case-modal-body");
+  const modalPrev = modal.querySelector(".case-modal-prev");
+  const modalNext = modal.querySelector(".case-modal-next");
+  const modalClose = modal.querySelector(".case-modal-close");
+
+  /*
+   * Данные проектов.
+   * Для добавления работы заполни новый объект в этом массиве.
+   */
+  const projects = [
+    {
+      id: "unicar",
+      number: "01",
+      title: "ЮНИКАР",
+      industry: "АВТОМОБИЛЬНЫЙ БИЗНЕС",
+      description: "Комплексный digital-маркетинг автосалона",
+      tags: [
+        "Стратегия",
+        "Реклама",
+        "Контент",
+        "Яндекс Карты",
+        "Авито",
+        "Лидогенерация"
+      ],
+      summary:
+        "Комплексная работа с digital-продвижением автосалона.",
+      role:
+        "Разработка контент-стратегии, запуск и оптимизация VK Ads, продвижение на Яндекс Картах, подготовка материалов для Avito, создание видео, настройка чат-ботов и форм заявок, частичная работа с CRM-воронкой.",
+      task:
+        "Раскрыть проект автосалона через комплексный подход к продвижению.",
+      approach:
+        "Объединить рекламные каналы, контент и инструменты работы с заявками в единую систему продвижения.",
+      results:
+        "Количественные результаты добавим после подтверждения фактических данных."
+    },
+    {
+      id: "project-02",
+      number: "02",
+      title: "Новый проект",
+      industry: "ПРОЕКТ В ПОДГОТОВКЕ",
+      description: "Описание проекта появится позже",
+      tags: ["Проект", "Digital"],
+      summary: "Кейс находится в подготовке.",
+      role: "Информация о твоей роли будет добавлена позже.",
+      task: "Описание задачи будет добавлено позже.",
+      approach: "Описание подхода будет добавлено позже.",
+      results: "Результаты будут добавлены после уточнения данных.",
+      draft: true
+    },
+    {
+      id: "project-03",
+      number: "03",
+      title: "Новый проект",
+      industry: "ПРОЕКТ В ПОДГОТОВКЕ",
+      description: "Описание проекта появится позже",
+      tags: ["Проект", "Digital"],
+      summary: "Кейс находится в подготовке.",
+      role: "Информация о твоей роли будет добавлена позже.",
+      task: "Описание задачи будет добавлено позже.",
+      approach: "Описание подхода будет добавлено позже.",
+      results: "Результаты будут добавлены после уточнения данных.",
+      draft: true
+    }
+  ];
+
+  let currentIndex = 0;
+  let lastFocusedElement = null;
+
+  const getProject = (index) =>
+    projects[(index + projects.length) % projects.length];
+
+  const getIndexById = (id) =>
+    projects.findIndex((project) => project.id === id);
+
+  // Безопасно создаём текстовые элементы.
+  function createTag(text) {
+    const tag = document.createElement("span");
+    tag.textContent = text;
+    return tag;
+  }
+
+  // Обновляем большую карточку и две следующие.
+  function renderCarousel() {
+    const current = getProject(currentIndex);
+
+    featured.dataset.caseId = current.id;
+    mainButton.dataset.openCase = current.id;
+    mainButton.setAttribute(
+      "aria-label",
+      `Подробнее о проекте ${current.title}`
+    );
+
+    caseNumber.textContent = `${current.number} / ПРОЕКТ`;
+    caseBrand.textContent = current.title;
+    caseDescription.textContent = current.description;
+    caseFooter.textContent = `${current.title} · ${current.industry}`;
+
+    caseTags.replaceChildren(
+      ...current.tags.map(createTag)
+    );
+
+    teaserCards.forEach((card, position) => {
+      const project = getProject(currentIndex + position + 1);
+      const number = card.querySelector(".teaser-number");
+      const button = card.querySelector(".teaser-open");
+      const title = card.querySelector(".teaser-title");
+      const caption = card.querySelector(".teaser-caption");
+
+      card.dataset.caseId = project.id;
+      button.dataset.openCase = project.id;
+
+      number.textContent = `${project.number} /`;
+      title.textContent = project.title;
+      caption.textContent = project.draft
+        ? "Кейс появится позже"
+        : project.description;
+
+      button.setAttribute(
+        "aria-label",
+        `Открыть кейс: ${project.title}`
+      );
+    });
+
+    // Не показываем неподтверждённые данные.
+    featured.setAttribute("aria-label", `Проект ${current.title}`);
+  }
+
+  function moveCarousel(direction) {
+    currentIndex =
+      (currentIndex + direction + projects.length) % projects.length;
+
+    renderCarousel();
+  }
+
+  // Заполняем содержимое модального окна выбранным проектом.
+  function renderModal(project) {
+    modalNumber.textContent = `${project.number} / ПРОЕКТ`;
+    modalTitle.textContent = project.title;
+    modalDescription.textContent = project.description;
+
+    modalBody.replaceChildren();
+
+    const sections = project.draft
+      ? [
+          ["Статус", "Подробное описание этого проекта добавим позже."]
+        ]
+      : [
+          ["Задача", project.task],
+          ["Мой подход", project.approach],
+          ["Что я делала", project.role],
+          ["Результаты", project.results]
+        ];
+
+    sections.forEach(([heading, content]) => {
+      const block = document.createElement("section");
+      const title = document.createElement("h4");
+      const paragraph = document.createElement("p");
+
+      title.textContent = heading;
+      paragraph.textContent = content;
+
+      block.append(title, paragraph);
+      modalBody.append(block);
+    });
+
+    modalPrev.disabled = projects.length < 2;
+    modalNext.disabled = projects.length < 2;
+  }
+
+  function openModal(id) {
+    const index = getIndexById(id);
+
+    if (index < 0) return;
+
+    currentIndex = index;
+    renderCarousel();
+    renderModal(getProject(currentIndex));
+
+    lastFocusedElement = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+
+    modalClose.focus();
+  }
+
+  function closeModal() {
+    if (modal.hidden) return;
+
+    modal.hidden = true;
+    document.body.style.overflow = "";
+
+    if (lastFocusedElement?.isConnected) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  function navigateModal(direction) {
+    moveCarousel(direction);
+    renderModal(getProject(currentIndex));
+  }
+
+  // Стрелки переключают выбранный проект.
+  nextButton.addEventListener("click", () => moveCarousel(1));
+  prevButton.addEventListener("click", () => moveCarousel(-1));
+
+  // Делегирование событий позволяет обновлять карточки без
+  // повторного назначения обработчиков после каждого переключения.
+  section.addEventListener("click", (event) => {
+    const openButton = event.target.closest("[data-open-case]");
+
+    if (!openButton || !section.contains(openButton)) return;
+
+    openModal(openButton.dataset.openCase);
+  });
+
+  // Закрытие по крестику и фону.
+  modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-close-case]")) {
+      closeModal();
+    }
+  });
+
+  modalClose.addEventListener("click", closeModal);
+
+  // Навигация между проектами прямо в окне.
+  modalPrev.addEventListener("click", () => navigateModal(-1));
+  modalNext.addEventListener("click", () => navigateModal(1));
+
+  // Escape закрывает окно.
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeModal();
+    }
+
+    // Стрелки клавиатуры переключают кейсы,
+    // пока модальное окно открыто.
+    if (!modal.hidden && event.key === "ArrowRight") {
+      navigateModal(1);
+    }
+
+    if (!modal.hidden && event.key === "ArrowLeft") {
+      navigateModal(-1);
+    }
+  });
+
+  // Начальное состояние.
+  renderCarousel();
+})();
