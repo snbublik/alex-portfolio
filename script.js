@@ -789,19 +789,65 @@ if (workProcess) {
         "Количественные результаты добавим после подтверждения фактических данных."
     },
     {
-      id: "project-02",
-      number: "02",
-      title: "Новый проект",
-      industry: "ПРОЕКТ В ПОДГОТОВКЕ",
-      description: "Описание проекта появится позже",
-      tags: ["Проект", "Digital"],
-      summary: "Кейс находится в подготовке.",
-      role: "Информация о твоей роли будет добавлена позже.",
-      task: "Описание задачи будет добавлено позже.",
-      approach: "Описание подхода будет добавлено позже.",
-      results: "Результаты будут добавлены после уточнения данных.",
-      draft: true
+      
+{
+  id: "project-02",
+  number: "02",
+  title: "АВТОРАССРОЧКА",
+  industry: "ФИНАНСОВЫЕ УСЛУГИ · АВТОМОБИЛЬНЫЙ БИЗНЕС",
+  description: "Контент-стратегия, SMM и PR для финансового сервиса",
+  tags: [
+    "Аудит",
+    "Стратегия",
+    "Контент",
+    "Видео",
+    "Амбассадоры",
+    "PR"
+  ],
+  summary:
+    "Комплексная работа с социальными сетями и контентом бренда с февраля по июль 2026 года.",
+  role:
+    "Проводила аудит социальных сетей и конкурентов, разрабатывала контент-стратегию и контент-план, создавала и публиковала контент, снимала и монтировала видео, координировала амбассадоров, участвовала в изменении оформления и навигации сообществ, работала над PR-кампанией и с блогерами, готовила аналитику и отчётность.",
+  task:
+    "Социальные сети не обеспечивали ожидаемого потока заявок. Нужно было систематизировать контент и связать коммуникацию в социальных сетях с бизнес-задачами компании.",
+  approach:
+    "Начала с аудита площадок и конкурентов, затем разработала контент-стратегию, составила план публикаций и работала над развитием контента, сообществ, амбассадорской программы и PR-направления.",
+  results:
+    "Выполняла задачи по аудиту, стратегии, контенту, развитию сообществ, PR и аналитике. Числовые результаты после внедрения требуют подтверждения — плановые KPI не выдаём за достигнутые показатели.",
+  period: "Февраль — июль 2026",
+  details: [
+    {
+      title: "Аудит социальных сетей",
+      text: "Анализировала площадки и конкурентов, оценивала состояние контента и вовлечённости. Аудит помог определить направления дальнейшей работы."
     },
+    {
+      title: "Контент-стратегия",
+      text: "Разработала систему контента с четырьмя направлениями: экспертность и обучение, клиентские истории, команда и жизнь компании, интерактивные форматы."
+    },
+    {
+      title: "Контент и видео",
+      text: "Составляла контент-план, регулярно публиковала материалы, самостоятельно снимала и монтировала видео."
+    },
+    {
+      title: "Сообщества, амбассадоры и PR",
+      text: "Работала над оформлением, навигацией и механиками сообществ, координировала амбассадоров, участвовала в PR-кампании и работе с блогерами."
+    },
+    {
+      title: "Аналитика",
+      text: "Готовила аналитику и отчётность. Целевые показатели из стратегии рассматриваются как плановые, пока нет подтверждённых данных об их достижении."
+    }
+  ],
+  videos: [
+    {
+      title: "Видео — пример 1",
+      url: "https://vkvideo.ru/video-3974927_456240519?list=08c8af065339501903"
+    },
+    {
+      title: "Видео — пример 2",
+      url: "https://vk.ru/clip-3974927_456240509"
+    }
+  ]
+},
     {
       id: "project-03",
       number: "03",
@@ -887,40 +933,119 @@ if (workProcess) {
     renderCarousel();
   }
 
-  // Заполняем содержимое модального окна выбранным проектом.
-  function renderModal(project) {
-    modalNumber.textContent = `${project.number} / ПРОЕКТ`;
-    modalTitle.textContent = project.title;
-    modalDescription.textContent = project.description;
 
-    modalBody.replaceChildren();
+function renderModal(project) {
+  modalNumber.textContent = `${project.number} / ПРОЕКТ`;
+  modalTitle.textContent = project.title;
+  modalDescription.textContent = project.description;
 
-    const sections = project.draft
-      ? [
-          ["Статус", "Подробное описание этого проекта добавим позже."]
-        ]
-      : [
-          ["Задача", project.task],
-          ["Мой подход", project.approach],
-          ["Что я делала", project.role],
-          ["Результаты", project.results]
-        ];
+  modalBody.replaceChildren();
 
-    sections.forEach(([heading, content]) => {
-      const block = document.createElement("section");
-      const title = document.createElement("h4");
+  // Краткая информация о проекте
+  const intro = document.createElement("section");
+  intro.className = "case-modal-intro";
+
+  const period = document.createElement("p");
+  period.className = "case-modal-period";
+  period.textContent = project.period || "";
+
+  const summary = document.createElement("p");
+  summary.textContent = project.summary || "";
+
+  if (project.period) intro.append(period);
+  intro.append(summary);
+  modalBody.append(intro);
+
+  // Основные блоки кейса
+  const sections = project.draft
+    ? [
+        ["Статус", "Подробное описание этого проекта добавим позже."]
+      ]
+    : [
+        ["Задача", project.task],
+        ["Мой подход", project.approach],
+        ["Моя роль", project.role],
+        ["Результаты", project.results]
+      ];
+
+  sections.forEach(([heading, content]) => {
+    const block = document.createElement("section");
+    block.className = "case-modal-section";
+
+    const title = document.createElement("h4");
+    title.textContent = heading;
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = content;
+
+    block.append(title, paragraph);
+    modalBody.append(block);
+  });
+
+  // Раскрывающиеся подробности
+  if (project.details?.length) {
+    const detailsSection = document.createElement("section");
+    detailsSection.className = "case-modal-details";
+
+    const heading = document.createElement("h4");
+    heading.textContent = "Этапы работы";
+    detailsSection.append(heading);
+
+    project.details.forEach((item, index) => {
+      const details = document.createElement("details");
+      details.className = "case-detail";
+
+      const summary = document.createElement("summary");
+      summary.textContent = item.title;
+
       const paragraph = document.createElement("p");
+      paragraph.textContent = item.text;
 
-      title.textContent = heading;
-      paragraph.textContent = content;
+      details.append(summary, paragraph);
 
-      block.append(title, paragraph);
-      modalBody.append(block);
+      // Первый пункт открыт по умолчанию
+      if (index === 0) details.open = true;
+
+      detailsSection.append(details);
     });
 
-    modalPrev.disabled = projects.length < 2;
-    modalNext.disabled = projects.length < 2;
+    modalBody.append(detailsSection);
   }
+
+  // Примеры видео: открываются по клику в новой вкладке
+  if (project.videos?.length) {
+    const videosSection = document.createElement("section");
+    videosSection.className = "case-modal-videos";
+
+    const heading = document.createElement("h4");
+    heading.textContent = "Примеры работ";
+
+    const list = document.createElement("div");
+    list.className = "case-video-links";
+
+    project.videos.forEach((video) => {
+      const link = document.createElement("a");
+      link.className = "case-video-link";
+      link.href = video.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = video.title;
+
+      const arrow = document.createElement("span");
+      arrow.textContent = " ↗";
+      link.append(arrow);
+
+      list.append(link);
+    });
+
+    videosSection.append(heading, list);
+    modalBody.append(videosSection);
+  }
+
+  modalPrev.disabled = projects.length < 2;
+  modalNext.disabled = projects.length < 2;
+}
+
 
   function openModal(id) {
     const index = getIndexById(id);
