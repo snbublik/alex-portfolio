@@ -5400,6 +5400,223 @@ h2 span { color: var(--pink); }
 }
 
 /* ========================================
+   ДЕТАЛИ КЕЙСА — АККОРДЕОН И ВИДЕО
+   ======================================== */
+
+/* Вводная информация */
+.case-modal .case-modal-intro {
+  margin: 0 0 28px;
+  padding: 20px 24px;
+  border-left: 3px solid #D10068;
+  border-radius: 0 14px 14px 0;
+  background: #F0ECEE;
+}
+
+.case-modal .case-modal-period {
+  margin: 0 0 8px;
+  color: #D10068;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.case-modal .case-modal-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* Основные смысловые блоки */
+.case-modal .case-modal-section {
+  margin: 0 0 26px;
+}
+
+.case-modal .case-modal-body h4 {
+  margin: 0 0 12px;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.case-modal .case-modal-section p,
+.case-modal .case-detail p {
+  margin: 0;
+}
+
+/* Заголовок этапов */
+.case-modal .case-modal-details,
+.case-modal .case-modal-videos {
+  margin-top: 36px;
+}
+
+.case-modal .case-modal-details > h4,
+.case-modal .case-modal-videos > h4 {
+  margin-bottom: 16px;
+  font-family: "Unbounded", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+}
+
+/* Раскрывающиеся этапы */
+.case-modal .case-detail {
+  border-top: 1px solid #DED9DC;
+}
+
+.case-modal .case-detail:last-child {
+  border-bottom: 1px solid #DED9DC;
+}
+
+.case-modal .case-detail summary {
+  position: relative;
+  padding: 18px 36px 18px 0;
+  color: #171517;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s ease;
+}
+
+.case-modal .case-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-modal .case-detail summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  color: #D10068;
+  font-size: 24px;
+  font-weight: 400;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+}
+
+.case-modal .case-detail[open] summary {
+  color: #D10068;
+}
+
+.case-modal .case-detail[open] summary::after {
+  content: "−";
+}
+
+.case-modal .case-detail p {
+  padding: 0 24px 20px 0;
+  color: #555055;
+}
+
+/* Ссылки на видео */
+.case-modal .case-video-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-modal .case-video-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 64px;
+  padding: 18px 20px;
+  border: 1px solid #D9D4D7;
+  border-radius: 14px;
+  color: #171517;
+  text-decoration: none;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.case-modal .case-video-link span {
+  color: #D10068;
+  font-size: 20px;
+}
+
+.case-modal .case-video-link:hover {
+  border-color: #D10068;
+  background: #F0ECEE;
+  color: #D10068;
+  transform: translateY(-2px);
+}
+
+.case-modal .case-detail summary:focus-visible,
+.case-modal .case-video-link:focus-visible {
+  outline: 2px solid #D10068;
+  outline-offset: 4px;
+}
+
+/* Более аккуратная полоса прокрутки */
+.case-modal .case-modal-content {
+  scrollbar-width: thin;
+  scrollbar-color: #C7BFC4 transparent;
+}
+
+.case-modal .case-modal-content::-webkit-scrollbar {
+  width: 7px;
+}
+
+.case-modal .case-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.case-modal .case-modal-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #C7BFC4;
+}
+
+.case-modal .case-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #D10068;
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+  .case-modal:not([hidden]) {
+    padding: 10px;
+  }
+
+  .case-modal .case-modal-content {
+    width: 100%;
+    max-height: 92vh;
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .case-modal .case-modal-number {
+    margin-bottom: 22px;
+  }
+
+  .case-modal #case-modal-title {
+    margin-right: 30px;
+    font-size: clamp(25px, 8vw, 36px);
+    overflow-wrap: anywhere;
+  }
+
+  .case-modal .case-modal-description {
+    font-size: 15px;
+  }
+
+  .case-modal .case-modal-body {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .case-modal .case-video-links {
+    grid-template-columns: 1fr;
+  }
+
+  .case-modal .case-modal-navigation {
+    flex-direction: column;
+  }
+
+  .case-modal .case-modal-navigation button {
+    width: 100%;
+  }
+}
+
+/* ========================================
    Адаптация под планшеты
    ======================================== */
 
