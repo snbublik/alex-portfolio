@@ -5782,16 +5782,3 @@ h2 span { color: var(--pink); }
     transition: none !important;
   }
 }
-
-/* КЕЙСЫ — убираем стрелки навигации */
-
-.cases-section .case-next,
-.cases-section .teaser-arrow,
-.cases-section .cases-prev {
-  display: none !important;
-}
-
-/* Убираем свободное место, оставшееся от стрелок */
-.cases-section .teaser-card {
-  padding-right: 20px;
-}
