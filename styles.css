@@ -3195,8 +3195,9 @@ h2 span { color: var(--pink); }
   .work-process-steps {
     grid-template-columns: repeat(6, minmax(70px, 1fr));
 
-    width: max-content;
-    min-width: 100%;
+    /* Контейнер остаётся в пределах экрана, прокручивается только его содержимое */
+    width: 100%;
+    min-width: 0;
 
     overflow-x: auto;
 
@@ -5661,7 +5662,19 @@ h2 span { color: var(--pink); }
     right: 12px;
   }
 }
+  .case-results-note {
+    margin-top: 25px;
+    font-weight: 700;
+  }
 
+  #cases-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+  }
+
+  #cases-title span {
+    font-size: inherit;
+    white-space: nowrap;
+  }
 /* ========================================
    Адаптация под мобильные устройства
    ======================================== */
@@ -5780,5 +5793,29 @@ h2 span { color: var(--pink); }
   .case-modal .case-modal-content {
     animation: none !important;
     transition: none !important;
+  }
+}
+@media (max-width: 760px) {
+  .work-process-steps {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .work-process-number {
+    width: 50px;
+    height: 50px;
+  }
+
+  .work-process-step-title {
+    max-width: 95px;
+    margin-top: 13px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 420px) {
+  .work-process-step-title {
+    font-size: 9px;
   }
 }

@@ -527,7 +527,7 @@ if (workProcess) {
     if (processCounter) {
 
       processCounter.textContent =
-        String(processActiveIndex + 1).padStart(2, "0");
+        String(processActiveIndex + 1).padStart(2, "");
 
     }
 
@@ -763,34 +763,32 @@ if (workProcess) {
    * Для добавления работы заполни новый объект в этом массиве.
    */
   const projects = [
-   
-{
-  id: "unicar",
-  number: "01",
-  title: "ЮНИКАР",
-  industry: "АВТОМОБИЛЬНЫЙ БИЗНЕС",
-  description: "Комплексный digital-маркетинг автосалона",
-  tags: [
-    "Стратегия",
-    "Реклама",
-    "Контент",
-    "Яндекс Карты",
-    "Авито",
-    "Лидогенерация"
-  ],
-  period: "Февраль — сентябрь 2026",
-  summary:
-    "Комплексный интернет-маркетинг: стратегия, рекламные каналы, лидогенерация и аналитика.",
-  role:
-    "Начала с позиции контент-менеджера, затем перешла к комплексному интернет-маркетингу. Самостоятельно разрабатывала решения, запускала продвижение, распределяла рекламный бюджет, создавала контент и настраивала инструменты привлечения заявок.",
-  task:
-    "Выстроить комплексное digital-продвижение автосалона, объединить рекламные каналы, контент и инструменты обработки обращений.",
-  approach:
-    "Разработала маркетинговую систему, распределила задачи между каналами продвижения, тестировала рекламные форматы и оптимизировала кампании на основе аналитики.",
-  results:
-    "Выстроила систему продвижения, объединив платную рекламу, площадки с автомобильными объявлениями, геосервисы и контент. Это позволило увеличить охват аудитории, привлечь потенциальных покупателей и сделать продвижение автомобилей более системным.
-**Ниже — результаты работы в цифрах по каждому направлению.**",
-  details: [
+    {
+      id: "unicar",
+      title: "ЮНИКАР",
+      industry: "АВТОМОБИЛЬНЫЙ БИЗНЕС",
+      description: "Комплексный digital-маркетинг автосалона",
+      tags: [
+        "Стратегия",
+        "Реклама",
+        "Контент",
+        "Яндекс Карты",
+        "Авито",
+        "Лидогенерация"
+      ],
+      period: 
+        "Февраль — сентябрь 2026",
+      summary:
+        "Комплексный интернет-маркетинг: стратегия, рекламные каналы, лидогенерация и аналитика.",
+      role:
+        "Начала с позиции контент-менеджера, затем перешла к комплексному интернет-маркетингу. Самостоятельно разрабатывала решения, запускала продвижение, распределяла рекламный бюджет, создавала контент и настраивала инструменты привлечения заявок.",
+      task:
+        "Выстроить комплексное digital-продвижение автосалона, объединить рекламные каналы, контент и инструменты обработки обращений.",
+      approach:
+        "Разработала маркетинговую систему, распределила задачи между каналами продвижения, тестировала рекламные форматы и оптимизировала кампании на основе аналитики.",
+      results:
+        "Выстроила систему продвижения, объединив платную рекламу, площадки с автомобильными объявлениями, геосервисы и контент. Это позволило увеличить охват аудитории, привлечь потенциальных покупателей и сделать продвижение автомобилей более системным.\n\nНиже — результаты работы в цифрах по каждому направлению.",
+      details: [
     {
       title: "Стратегия и управление",
       text: "Разработала маркетинговую карту проекта с нуля. Определила направления продвижения, каналы коммуникации и задачи каждого инструмента. Позже основной фокус продвижения сместился на автомобили в наличии."
@@ -819,12 +817,24 @@ if (workProcess) {
       title: "Аналитика и оптимизация",
       text: "Работала с Яндекс Метрикой, отслеживала переходы, цели и конверсии. Вела еженедельную статистику и ежемесячную отчётность. Полную аналитику продаж и выручки провести не удалось из-за отсутствия доступа к CRM."
     }
-  ]
-},
-
+  ],
+    videos: [
+      {
+        title: "Видеоролик для карт и таргетинга",
+        url: "https://vk.ru/wall-3974927_484761"
+      },
+      {
+        title: "Экспертный клип для продажи Jaguar",
+        url: "https://vk.ru/clip-3974927_456240681?c=1"
+      },
+      {
+        title: "Клип для вовлечения новой аудитории",
+        url: "https://vk.ru/clip-3974927_456240611?c=1"
+      }
+    ]
+    },
     {
   id: "project-02",
-  number: "02",
   title: "АВТОРАССРОЧКА",
   industry: "ФИНАНСОВЫЕ УСЛУГИ · АВТОМОБИЛЬНЫЙ БИЗНЕС",
   description: "Контент-стратегия, SMM и PR для финансового сервиса",
@@ -871,18 +881,21 @@ if (workProcess) {
   ],
   videos: [
     {
-      title: "Видео — пример 1",
-      url: "https://vkvideo.ru/video-3974927_456240519?list=08c8af065339501903"
+      title: "Видео для Авито и таргетинга",
+      url: "https://vkvideo.ru/video-3974927_456240519?list=08c8af065339501903&t=2s"
     },
     {
-      title: "Видео — пример 2",
-      url: "https://vk.ru/clip-3974927_456240509"
+      title: "Экспертный клип про лизинг",
+      url: "https://vk.ru/clip-3974927_456240540?c=1"
+    },
+    {
+      title: "Пост-вовлечение с маскотом компании",
+      url: "https://vk.ru/wall-3974927_484552"
     }
   ]
 },
     {
       id: "project-03",
-      number: "03",
       title: "Новый проект",
       industry: "ПРОЕКТ В ПОДГОТОВКЕ",
       description: "Описание проекта появится позже",
@@ -923,7 +936,7 @@ if (workProcess) {
       `Подробнее о проекте ${current.title}`
     );
 
-    caseNumber.textContent = `${current.number} / ПРОЕКТ`;
+    //caseNumber.textContent = `${current.number}`;
     caseBrand.textContent = current.title;
     caseDescription.textContent = current.description;
     caseFooter.textContent = `${current.title} · ${current.industry}`;
@@ -934,7 +947,7 @@ if (workProcess) {
 
     teaserCards.forEach((card, position) => {
       const project = getProject(currentIndex + position + 1);
-      const number = card.querySelector(".teaser-number");
+      //const number = card.querySelector(".teaser-number");
       const button = card.querySelector(".teaser-open");
       const title = card.querySelector(".teaser-title");
       const caption = card.querySelector(".teaser-caption");
@@ -942,7 +955,7 @@ if (workProcess) {
       card.dataset.caseId = project.id;
       button.dataset.openCase = project.id;
 
-      number.textContent = `${project.number} /`;
+      //number.textContent = `${project.number}`;
       title.textContent = project.title;
       caption.textContent = project.draft
         ? "Кейс появится позже"
@@ -967,7 +980,7 @@ if (workProcess) {
 
 
 function renderModal(project) {
-  modalNumber.textContent = `${project.number} / ПРОЕКТ`;
+  //modalNumber.textContent = `${project.number}`;
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.description;
 
@@ -1008,9 +1021,21 @@ function renderModal(project) {
     title.textContent = heading;
 
     const paragraph = document.createElement("p");
-    paragraph.textContent = content;
 
-    block.append(title, paragraph);
+    if (heading === "Результаты") {
+      const [mainText, noteText] = content.split("\n\n");
+
+      paragraph.textContent = mainText;
+
+      const note = document.createElement("p");
+      note.className = "case-results-note";
+      note.textContent = noteText;
+
+      block.append(title, paragraph, note);
+    } else {
+      paragraph.textContent = content;
+      block.append(title, paragraph);
+    }
     modalBody.append(block);
   });
 
@@ -1020,7 +1045,7 @@ function renderModal(project) {
     detailsSection.className = "case-modal-details";
 
     const heading = document.createElement("h4");
-    heading.textContent = "Этапы работы";
+    //heading.textContent = "Этапы работы";
     detailsSection.append(heading);
 
     project.details.forEach((item, index) => {
